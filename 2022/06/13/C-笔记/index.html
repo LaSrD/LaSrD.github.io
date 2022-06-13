@@ -20,28 +20,34 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="广阔天地大有作为">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="内存区分区 分为代码区、全局区（静态区）、栈区、堆区。 代码区：存放程序编译之后可以执行代码的地方 全局区：存放全局变量、静态变量，在程序结束之后操作系统释放 栈区：由编译其自动分配释放，存放函数的参数值以及局部变量等 堆区：一般由程序员通过 new 开辟空间，进行分配和释放，若程序员不释放，则程序结束时由操作系统回收    测试例子： 123456789101112131415161718192">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 笔记">
+<meta property="og:url" content="http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="广阔天地大有作为">
+<meta property="og:description" content="内存区分区 分为代码区、全局区（静态区）、栈区、堆区。 代码区：存放程序编译之后可以执行代码的地方 全局区：存放全局变量、静态变量，在程序结束之后操作系统释放 栈区：由编译其自动分配释放，存放函数的参数值以及局部变量等 堆区：一般由程序员通过 new 开辟空间，进行分配和释放，若程序员不释放，则程序结束时由操作系统回收    测试例子： 123456789101112131415161718192">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/C++%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
+<meta property="article:published_time" content="2022-06-13T12:17:42.000Z">
+<meta property="article:modified_time" content="2022-06-13T12:17:58.730Z">
 <meta property="article:author" content="We_">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/C++%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>广阔天地大有作为</title>
+  <title>C++ 笔记 | 广阔天地大有作为</title>
   
 
 
@@ -144,9 +150,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -162,10 +169,9 @@
       <meta itemprop="name" content="广阔天地大有作为">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/13/C-%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">C++ 笔记</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          C++ 笔记
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -189,7 +195,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h2><h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><ul>
+        <h2 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h2><h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><ul>
 <li>分为代码区、全局区（静态区）、栈区、堆区。<ul>
 <li>代码区：存放程序编译之后可以执行代码的地方</li>
 <li>全局区：存放全局变量、静态变量，在程序结束之后操作系统释放</li>
@@ -1425,596 +1431,47 @@ delete np; //错误，不能释放
 <li>使用一个公有的静态方法获取该实例。</li>
 </ol>
 
-      
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>We_
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/" title="C++ 笔记">http://example.com/2022/06/13/C-笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/13/STL%E6%A0%87%E5%87%86%E5%BA%93-%E6%9B%B4%E6%96%B0%E4%B8%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="We_">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="广阔天地大有作为">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/13/STL%E6%A0%87%E5%87%86%E5%BA%93-%E6%9B%B4%E6%96%B0%E4%B8%AD/" class="post-title-link" itemprop="url">STL标准库(更新中)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-06-13 19:49:15 / 修改时间：19:49:34" itemprop="dateCreated datePublished" datetime="2022-06-13T19:49:15+08:00">2022-06-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <hr>
-<h2 id="title-STL标准库"><a href="#title-STL标准库" class="headerlink" title="title: STL标准库"></a>title: STL标准库</h2><h3 id="STL组件"><a href="#STL组件" class="headerlink" title=".STL组件"></a>.STL组件</h3><ul>
-<li>容器（Container）：数据结构，如list(链表)，vector(向量数组)，stack(栈)，队列(queue)等。</li>
-<li><a href="#%E8%BF%AD%E4%BB%A3%E5%99%A8">迭代器</a>（Iterator）：一种特殊的指针，它提供了访问容器中对象的方法，对容器内容进行操作。</li>
-<li>算法（Algorithm）：一类常用的算法模板，既可以对容器进行操作。</li>
-<li>*仿函数（Function object）：函数对象，</li>
-<li>*<strong>迭代适配器</strong>（Iterator Adaptor）：</li>
-<li>*<strong>空间配制器</strong>（allocator）</li>
-</ul>
-<h4 id="容器："><a href="#容器：" class="headerlink" title="容器："></a>容器：</h4><table>
-<thead>
-<tr>
-<th>顺序容器 sequence containers</th>
-<th>关联容器 associative containers</th>
-<th>无序容器 unordered containers</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>vector 向量容器</td>
-<td>set 集合容器、</td>
-<td>unordered_set 哈希集合</td>
-</tr>
-<tr>
-<td>list 列表容器</td>
-<td>multiset 多重集合容器</td>
-<td>unordered_multiset 哈希多重集合</td>
-</tr>
-<tr>
-<td>deque 双端队列容器</td>
-<td>map 映射容器</td>
-<td>unordered_map 哈希映射</td>
-</tr>
-<tr>
-<td></td>
-<td>multimap 多重映射容器</td>
-<td>unordered_multimap 哈希多重映射</td>
-</tr>
-</tbody></table>
-<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>类似于指针类型，提供对对象的间接访问。 容器适配器没有迭代器</p>
-<h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>按定义方式分为以下四种</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//正向迭代器 容器类名：：iterator 迭代器名；</span></span><br><span class="line"> vector&lt;<span class="type">int</span>&gt;::iterator iitreator;</span><br><span class="line"><span class="comment">//常量正向迭代器 容器类名：：const_iterator 迭代器名；</span></span><br><span class="line"> vector&lt;<span class="type">int</span>&gt;::const_iterator ciitreator;</span><br><span class="line"> <span class="comment">//反向迭代器 容器类名：：reverse_iterator 迭代器名；</span></span><br><span class="line"> vector&lt;<span class="type">int</span>&gt;::reverse_iterator ciitreator;</span><br><span class="line"> <span class="comment">//常量反向迭代器 容器类名：：const_reverse_iterator 迭代器名；</span></span><br><span class="line"> vector&lt;<span class="type">int</span>&gt;::const_reverse_iterator ciitreator;</span><br></pre></td></tr></table></figure>
-
-<p>按功能分类：</p>
-<ul>
-<li>正向迭代器： 支持 <code>++p，p++，*p</code> 操作，两个正向迭代器能够互相赋值，<code>==、!=</code> 运算符进行比较</li>
-<li>双向迭代器：双向迭代器具有正向迭代器的全部功能。若 p 是一个双向迭代器，则<code>--p</code>和<code>p--</code>都是有定义的。<code>--p</code>使得 p 朝和<code>++p</code>相反的方向移动</li>
-<li>随机访问迭代器：具有双向迭代器的全部功能<ul>
-<li><code>p+=i</code>： p往后移动i个元素</li>
-<li><code>p-=i</code>： p往前移动i个元素</li>
-<li><code>p+i</code>： 返回p后面第i个元素的迭代器</li>
-<li><code>p-i</code>： 返回p前面第i个元素的迭代器</li>
-<li><code>p[i]</code>: 返回p后面第i个元素的引用</li>
-<li><code>&lt; &gt; &lt;= &gt;=</code>运算符进行比较</li>
-<li><code>p2 - p1</code> ：返回2 所指向元素和 p1 所指向元素的序号之差</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">容器</th>
-<th align="center">迭代器功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">vector</td>
-<td align="center">随机访问</td>
-</tr>
-<tr>
-<td align="center">deque</td>
-<td align="center">随机访问</td>
-</tr>
-<tr>
-<td align="center">list</td>
-<td align="center">双向</td>
-</tr>
-<tr>
-<td align="center">set &#x2F; multiset</td>
-<td align="center">双向</td>
-</tr>
-<tr>
-<td align="center">map &#x2F; multimap</td>
-<td align="center">双向</td>
-</tr>
-<tr>
-<td align="center">stack</td>
-<td align="center">不支持迭代器</td>
-</tr>
-<tr>
-<td align="center">queue</td>
-<td align="center">不支持迭代器</td>
-</tr>
-<tr>
-<td align="center">priority_queue</td>
-<td align="center">不支持迭代器</td>
-</tr>
-</tbody></table>
-<h5 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iterator&gt;</span></span></span><br><span class="line"><span class="comment">//使迭代器 p 向前或向后移动 n 个元素。</span></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt; <span class="keyword">class</span> InputIt, <span class="keyword">class</span> Distance &gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">advance</span><span class="params">( InputIt&amp; it, Distance n )</span></span>;</span><br><span class="line"><span class="comment">//计算两个迭代器之间的距离，如果调用时 p 已经指向 q 的后面，则这个函数会陷入死循环。</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">InputIt</span> &gt;</span><br><span class="line"><span class="keyword">typename</span> std::iterator_traits&lt;InputIt&gt;::<span class="function">difference_type</span></span><br><span class="line"><span class="function">    <span class="title">distance</span><span class="params">( InputIt first, InputIt last )</span></span>;</span><br><span class="line"><span class="comment">//返回迭代器向后移动n个元素的迭代器</span></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt; <span class="keyword">class</span> InputIt &gt;</span></span><br><span class="line"><span class="function">InputIt <span class="title">next</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">  InputIt it,</span></span></span><br><span class="line"><span class="params"><span class="function">  <span class="keyword">typename</span> std::iterator_traits&lt;InputIt&gt;::difference_type n = <span class="number">1</span> )</span></span>;</span><br><span class="line"><span class="comment">//返回迭代器前移动n个元素的迭代器， 双向迭代器</span></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt; <span class="keyword">class</span> BidirIt &gt;</span></span><br><span class="line"><span class="function">BidirIt <span class="title">prev</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">  BidirIt it,</span></span></span><br><span class="line"><span class="params"><span class="function">  <span class="keyword">typename</span> std::iterator_traits&lt;BidirIt&gt;::difference_type n = <span class="number">1</span> )</span></span>;</span><br></pre></td></tr></table></figure>
+        
 
 
-
-<h3 id="std-vector"><a href="#std-vector" class="headerlink" title="std::vector"></a>std::vector</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">T</span>,</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Allocator</span> = std::allocator&lt;T&gt;</span><br><span class="line">&gt; <span class="keyword">class</span> vector;</span><br></pre></td></tr></table></figure>
-
-<h5 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h5><p>顺序容器：元素的排列和元素值无关，由元素添加到容器中的次序决定</p>
-<p>动态空间，可自行扩充空间以容纳新元素</p>
-<p>表示对象的<strong>集合</strong>（container），每个对象对应一个索引，用于访问对象。</p>
-<h5 id="定义和初始化"><a href="#定义和初始化" class="headerlink" title="定义和初始化"></a>定义和初始化</h5><ul>
-<li>列表初始化： <code>&#123;&#125;</code>花括号  <code>vector&lt;T&gt; ivec&#123;a,b,c,……&#125;</code>，<code>vector&lt;T&gt; ivec = &#123;a,b,c,……&#125;</code></li>
-<li>值初始化：只提供对象容纳元素的<strong>数量</strong> ，元素初始值为默认(0\empty).</li>
-<li></li>
-</ul>
-<h5 id="操作-1"><a href="#操作-1" class="headerlink" title="操作"></a>操作</h5><table>
-<thead>
-<tr>
-<th>begin()</th>
-<th>返回指向容器中第一个元素的迭代器。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>end()</td>
-<td>返回指向容器最后一个元素所在位置后一个位置的迭代器，通常和 begin() 结合使用。</td>
-</tr>
-<tr>
-<td>rbegin()</td>
-<td>返回指向最后一个元素的迭代器。</td>
-</tr>
-<tr>
-<td>rend()</td>
-<td>返回指向第一个元素所在位置前一个位置的迭代器。</td>
-</tr>
-<tr>
-<td>cbegin()</td>
-<td>和 begin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>cend()</td>
-<td>和 end() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>crbegin()</td>
-<td>和 rbegin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>crend()</td>
-<td>和 rend() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>size()</td>
-<td>返回实际元素个数。</td>
-</tr>
-<tr>
-<td>max_size()</td>
-<td>返回元素个数的最大值。这通常是一个很大的值，一般是 232-1，所以我们很少会用到这个函数。</td>
-</tr>
-<tr>
-<td>resize()</td>
-<td>改变实际元素的个数。</td>
-</tr>
-<tr>
-<td>capacity()</td>
-<td>返回当前容量。</td>
-</tr>
-<tr>
-<td>empty()</td>
-<td>判断容器中是否有元素，若无元素，则返回 true；反之，返回 false。</td>
-</tr>
-<tr>
-<td>reserve()</td>
-<td>增加容器的容量。</td>
-</tr>
-<tr>
-<td>shrink _to_fit()</td>
-<td>将内存减少到等于当前元素实际所使用的大小。</td>
-</tr>
-<tr>
-<td>operator[ ]</td>
-<td>重载了 [ ] 运算符，可以向访问数组中元素那样，通过下标即可访问甚至修改 vector 容器中的元素。</td>
-</tr>
-<tr>
-<td>at()</td>
-<td>使用经过边界检查的索引访问元素。</td>
-</tr>
-<tr>
-<td>front()</td>
-<td>返回第一个元素的引用。</td>
-</tr>
-<tr>
-<td>back()</td>
-<td>返回最后一个元素的引用。</td>
-</tr>
-<tr>
-<td>data()</td>
-<td>返回指向容器中第一个元素的指针。</td>
-</tr>
-<tr>
-<td>assign()</td>
-<td>用新元素替换原有内容。</td>
-</tr>
-<tr>
-<td>push_back()</td>
-<td>在序列的尾部添加一个元素。</td>
-</tr>
-<tr>
-<td>pop_back()</td>
-<td>移出序列尾部的元素。</td>
-</tr>
-<tr>
-<td>insert()</td>
-<td>在指定的位置插入一个或多个元素。</td>
-</tr>
-<tr>
-<td>erase()</td>
-<td>移出一个元素或一段元素。</td>
-</tr>
-<tr>
-<td>clear()</td>
-<td>移出所有的元素，容器大小变为 0。</td>
-</tr>
-<tr>
-<td>swap()</td>
-<td>交换两个容器的所有元素。</td>
-</tr>
-<tr>
-<td>emplace()</td>
-<td>在指定的位置直接生成一个元素。</td>
-</tr>
-<tr>
-<td>emplace_back()</td>
-<td>在序列尾部生成一个元素。</td>
-</tr>
-</tbody></table>
-<h5 id="erase"><a href="#erase" class="headerlink" title="erase"></a>erase</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">iterator <span class="title">erase</span><span class="params">(   iterator _Where)</span></span>; </span><br><span class="line"><span class="function">iterator <span class="title">erase</span><span class="params">(   iterator _First,   iterator _Last)</span></span>; </span><br><span class="line"><span class="comment">//如果是删除指定位置的元素时： </span></span><br><span class="line"><span class="comment">//返回值是一个迭代器，指向删除元素下一个元素; </span></span><br><span class="line"><span class="comment">//如果是删除某范围内的元素时：返回值也表示一个迭代器，指向最后一个删除元素的下一个元素;</span></span><br><span class="line"><span class="keyword">while</span> (iter != vecNum.<span class="built_in">end</span>())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">3</span> == *iter)</span><br><span class="line">        vecNum.<span class="built_in">erase</span>(iter);  <span class="comment">//  iter 指针被释放</span></span><br><span class="line">    ++iter; <span class="comment">// u</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="std-vector-lt-T-Allocator-gt-begin，"><a href="#std-vector-lt-T-Allocator-gt-begin，" class="headerlink" title="std::vector&lt;T,Allocator&gt;::begin，"></a>std::vector&lt;T,Allocator&gt;::begin，</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list&lt;string&gt; a = &#123;^&#125;</span><br><span class="line"><span class="keyword">auto</span> it1 = a.<span class="built_in">begin</span>() <span class="comment">//list&lt;string&gt;::iterator 通过list&lt;string&gt;：：定义的正向迭代器</span></span><br><span class="line"><span class="keyword">auto</span> it2 = a.<span class="built_in">rbegin</span>() <span class="comment">//list&lt;string&gt;::reverse_iterator 反向迭代器</span></span><br><span class="line"><span class="keyword">auto</span> it2 = a.<span class="built_in">cbegin</span>() <span class="comment">//list&lt;string&gt;::const_iterator const迭代器</span></span><br><span class="line"><span class="keyword">auto</span> it2 = a.<span class="built_in">crbegin</span>() <span class="comment">//list&lt;string&gt;::const_reverse_iterator const反向迭代器</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="std-vector-lt-T-Allocator-gt-assign"><a href="#std-vector-lt-T-Allocator-gt-assign" class="headerlink" title="std::vector&lt;T,Allocator&gt;::assign"></a>std::vector&lt;T,Allocator&gt;::assign</h6><p>替换容器的内容，函数原型：</p>
-<ul>
-<li><code>void assign( size_type count, const T&amp; value );</code>用 <code>count</code>个<code>value</code>替换容器内容</li>
-<li><code>void assign(const_iterator first,const_iterator last);</code> 将区间[first,last)的元素赋值到当前的vector容器</li>
-</ul>
-<h6 id="std-vector-lt-T-Allocator-gt-swap"><a href="#std-vector-lt-T-Allocator-gt-swap" class="headerlink" title="std::vector&lt;T,Allocator&gt;::swap"></a>std::vector&lt;T,Allocator&gt;::swap</h6><p>交换容器中的内容（Exchanges the contents of the container with those of other）</p>
-<ul>
-<li><code>void swap( vector&amp; other );</code> <code>other</code>用于交换内容的容器</li>
-</ul>
-<h3 id="std-deque"><a href="#std-deque" class="headerlink" title="std::deque"></a>std::deque</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template&lt;</span><br><span class="line">    class T,</span><br><span class="line">    class Allocator = std::allocator&lt;T&gt;</span><br><span class="line">&gt; class deque;</span><br></pre></td></tr></table></figure>
-
-<h4 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h4><p>双端队列容器，deque 容器中存储元素并不能保证所有元素都存储到连续的内存空间中</p>
-<h4 id="定义与初始化"><a href="#定义与初始化" class="headerlink" title="定义与初始化"></a>定义与初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">std::deque&lt;<span class="type">int</span>&gt; d;</span><br><span class="line"><span class="function">std::deque&lt;<span class="type">int</span>&gt; <span class="title">d</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function">std::deque&lt;<span class="type">int</span>&gt; <span class="title">d</span><span class="params">(<span class="number">10</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="function">std::deque&lt;<span class="type">int</span>&gt; <span class="title">d1</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="function">std::deque&lt;<span class="type">int</span>&gt; <span class="title">d2</span><span class="params">(d1)</span></span>;</span><br><span class="line"><span class="comment">//拷贝普通数组，创建deque容器</span></span><br><span class="line"><span class="type">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span> &#125;;</span><br><span class="line">std::deque&lt;<span class="type">int</span>&gt;<span class="built_in">d</span>(a, a + <span class="number">5</span>);</span><br><span class="line"><span class="comment">//适用于所有类型的容器</span></span><br><span class="line">std::array&lt;<span class="type">int</span>, 5&gt;arr&#123; <span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span> &#125;;</span><br><span class="line">std::deque&lt;<span class="type">int</span>&gt;<span class="built_in">d</span>(arr.<span class="built_in">begin</span>()+<span class="number">2</span>, arr.<span class="built_in">end</span>());<span class="comment">//拷贝arr容器中的&#123;13,14,15&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="操作-2"><a href="#操作-2" class="headerlink" title="操作"></a>操作</h4><table>
-<thead>
-<tr>
-<th>函数成员</th>
-<th>函数功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>begin()</td>
-<td>返回指向容器中第一个元素的迭代器。</td>
-</tr>
-<tr>
-<td>end()</td>
-<td>返回指向容器最后一个元素所在位置后一个位置的迭代器，通常和 begin() 结合使用。</td>
-</tr>
-<tr>
-<td>rbegin()</td>
-<td>返回指向最后一个元素的迭代器。</td>
-</tr>
-<tr>
-<td>rend()</td>
-<td>返回指向第一个元素所在位置前一个位置的迭代器。</td>
-</tr>
-<tr>
-<td>cbegin()</td>
-<td>和 begin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>cend()</td>
-<td>和 end() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>crbegin()</td>
-<td>和 rbegin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>crend()</td>
-<td>和 rend() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</td>
-</tr>
-<tr>
-<td>size()</td>
-<td>返回实际元素个数。</td>
-</tr>
-<tr>
-<td>max_size()</td>
-<td>返回容器所能容纳元素个数的最大值。这通常是一个很大的值，一般是 232-1，我们很少会用到这个函数。</td>
-</tr>
-<tr>
-<td>resize()</td>
-<td>改变实际元素的个数。</td>
-</tr>
-<tr>
-<td>empty()</td>
-<td>判断容器中是否有元素，若无元素，则返回 true；反之，返回 false。</td>
-</tr>
-<tr>
-<td>shrink _to_fit()</td>
-<td>将内存减少到等于当前元素实际所使用的大小。</td>
-</tr>
-<tr>
-<td>at()</td>
-<td>使用经过边界检查的索引访问元素。</td>
-</tr>
-<tr>
-<td>front()</td>
-<td>返回第一个元素的引用。</td>
-</tr>
-<tr>
-<td>back()</td>
-<td>返回最后一个元素的引用。</td>
-</tr>
-<tr>
-<td>assign()</td>
-<td>用新元素替换原有内容。</td>
-</tr>
-<tr>
-<td>push_back()</td>
-<td>在序列的尾部添加一个元素。</td>
-</tr>
-<tr>
-<td>push_front()</td>
-<td>在序列的头部添加一个元素。z</td>
-</tr>
-<tr>
-<td>pop_back()</td>
-<td>移除容器尾部的元素。</td>
-</tr>
-<tr>
-<td>pop_front()</td>
-<td>移除容器头部的元素。</td>
-</tr>
-<tr>
-<td>insert()</td>
-<td>在指定的位置插入一个或多个元素。</td>
-</tr>
-<tr>
-<td>erase()</td>
-<td>移除一个元素或一段元素。</td>
-</tr>
-<tr>
-<td>clear()</td>
-<td>移出所有的元素，容器大小变为 0。</td>
-</tr>
-<tr>
-<td>swap()</td>
-<td>交换两个容器的所有元素。</td>
-</tr>
-<tr>
-<td>emplace()</td>
-<td>在指定的位置直接生成一个元素。</td>
-</tr>
-<tr>
-<td>emplace_front()</td>
-<td>在容器头部生成一个元素。和 push_front() 的区别是，该函数直接在容器头部构造元素，省去了复制移动元素的过程。</td>
-</tr>
-<tr>
-<td>emplace_back()</td>
-<td>在容器尾部生成一个元素。和 push_back() 的区别是，该函数直接在容器尾部构造元素，省去了复制移动元素的过程。</td>
-</tr>
-</tbody></table>
-<h3 id="std-priority-queue"><a href="#std-priority-queue" class="headerlink" title="std::priority_queue"></a>std::priority_queue</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">T</span>,</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Container</span> = std::vector&lt;T&gt;,</span><br><span class="line">    <span class="keyword">class</span> Compare = std::less&lt;<span class="keyword">typename</span> Container::value_type&gt;</span><br><span class="line">&gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
-
-<h4 id="概述-3"><a href="#概述-3" class="headerlink" title="概述"></a>概述</h4><p><strong>容器适配器</strong>定义了一个元素有序排列的队列,优先队列</p>
-<h3 id="定义与初始化-1"><a href="#定义与初始化-1" class="headerlink" title="定义与初始化"></a>定义与初始化</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Container=std::vector&lt;T&gt;, <span class="keyword">typename</span> Compare=std::less&lt;T&gt;&gt; <span class="keyword">class</span> priority_queue</span><br><span class="line">    <span class="comment">//参数一位存储对象的类型，参数二为底层容器，默认为vector， 参数三位函数对象，默认为 less 大根堆</span></span><br><span class="line">例子：</span><br><span class="line"><span class="keyword">class</span> compare &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">bool</span> <span class="built_in">operator</span>()(<span class="type">const</span> ListNode* a,<span class="type">const</span> ListNode* b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a-&gt;val &gt; b-&gt;val;  <span class="comment">// s</span></span><br><span class="line">    &#125;</span><br><span class="line"> &#125;;</span><br><span class="line"> priority_queue&lt;ListNode *, vector&lt;ListNode*&gt;,compare&gt; pque&#123;<span class="built_in">compare</span>()&#125;; <span class="comment">// 根据指针的值 小的排在 队前</span></span><br><span class="line"> /</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="操作-3"><a href="#操作-3" class="headerlink" title="操作"></a>操作</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">push</span>(<span class="type">const</span> T&amp; obj)：<span class="comment">//将obj的副本放到容器的适当位置，这通常会包含一个排序操作。</span></span><br><span class="line"><span class="built_in">push</span>(T&amp;&amp; obj)：<span class="comment">//将obj放到容器的适当位置，这通常会包含一个排序操作。</span></span><br><span class="line"><span class="built_in">emplace</span>(T constructor a rgs...)： <span class="comment">//通过调用传入参数的构造函数，在序列的适当位置构造一个T对象。为了维持优先顺序，通常需要一个排序操作。</span></span><br><span class="line"><span class="built_in">top</span>()：<span class="comment">//返回优先级队列中第一个元素的引用。</span></span><br><span class="line"><span class="built_in">pop</span>()：<span class="comment">//移除第一个元素。</span></span><br><span class="line"><span class="built_in">size</span>()： <span class="comment">//返回队列中元素的个数。</span></span><br><span class="line"><span class="built_in">empty</span>()：<span class="comment">//如果队列为空的话，返回true。</span></span><br><span class="line"><span class="built_in">swap</span>(priority_queue&lt;T&gt;&amp; other)：<span class="comment">//和参数的元素进行交换，所包含对象的类型必须相同。</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="std-list"><a href="#std-list" class="headerlink" title="std::list"></a>std::list</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;list&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> namepace std;</span><br><span class="line"><span class="keyword">template</span>&lt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">T</span>,</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Allocator</span> = std::allocator&lt;T&gt;</span><br><span class="line">&gt; <span class="keyword">class</span> list;</span><br></pre></td></tr></table></figure>
-
-<h4 id="概述-4"><a href="#概述-4" class="headerlink" title="概述"></a>概述</h4><p>顺序容器：双向链表容器，底层是以双向链表的形式实现的</p>
-<h4 id="定义与初始化-2"><a href="#定义与初始化-2" class="headerlink" title="定义与初始化"></a>定义与初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">std::list&lt;<span class="type">int</span>&gt; values;		<span class="comment">//构造空链表</span></span><br><span class="line"><span class="function">std::list&lt;<span class="type">int</span>&gt; <span class="title">values</span><span class="params">(<span class="number">10</span>)</span></span>;  	<span class="comment">//包含10个元素的链表</span></span><br><span class="line"><span class="function">std::list&lt;<span class="type">int</span>&gt; <span class="title">values</span><span class="params">(<span class="number">10</span>, <span class="number">5</span>)</span></span>;	<span class="comment">//包含10个元素的链表，指定初始值</span></span><br><span class="line"><span class="comment">//拷贝</span></span><br><span class="line"><span class="function">std::list&lt;<span class="type">int</span>&gt; <span class="title">value1</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function">std::list&lt;<span class="type">int</span>&gt; <span class="title">value2</span><span class="params">(value1)</span></span>;</span><br><span class="line"><span class="comment">//拷贝普通数组，创建list容器</span></span><br><span class="line"><span class="type">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span> &#125;;</span><br><span class="line"><span class="function">std::list&lt;<span class="type">int</span>&gt; <span class="title">values</span><span class="params">(a, a+<span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="comment">//拷贝其它类型的容器，创建 list 容器</span></span><br><span class="line">std::array&lt;<span class="type">int</span>, 5&gt;arr&#123; <span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span> &#125;;</span><br><span class="line">std::list&lt;<span class="type">int</span>&gt;<span class="built_in">values</span>(arr.<span class="built_in">begin</span>()+<span class="number">2</span>, arr.<span class="built_in">end</span>());<span class="comment">//拷贝arr容器中的&#123;13,14,15&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="操作-4"><a href="#操作-4" class="headerlink" title="操作"></a>操作</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">begin</span>()	<span class="comment">//返回指向容器中第一个元素的双向迭代器。</span></span><br><span class="line"><span class="built_in">end</span>()	<span class="comment">//返回指向容器中最后一个元素所在位置的下一个位置的双向迭代器。</span></span><br><span class="line"><span class="built_in">rbegin</span>()<span class="comment">//	返回指向最后一个元素的反向双向迭代器。</span></span><br><span class="line"><span class="built_in">rend</span>()	<span class="comment">//返回指向第一个元素所在位置前一个位置的反向双向迭代器。</span></span><br><span class="line"><span class="built_in">cbegin</span>()<span class="comment">//	和 begin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</span></span><br><span class="line"><span class="built_in">cend</span>()	<span class="comment">//和 end() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</span></span><br><span class="line"><span class="built_in">crbegin</span>()<span class="comment">// 	和 rbegin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</span></span><br><span class="line"><span class="built_in">crend</span>()	<span class="comment">//和 rend() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改元素。</span></span><br><span class="line"><span class="built_in">empty</span>()	<span class="comment">//判断容器中是否有元素，若无元素，则返回 true；反之，返回 false。</span></span><br><span class="line"><span class="built_in">size</span>()	<span class="comment">//返回当前容器实际包含的元素个数。</span></span><br><span class="line"><span class="built_in">max_size</span>()<span class="comment">//	返回容器所能包含元素个数的最大值。这通常是一个很大的值，一般是 232-1，所以我们很少会用到这个函数。</span></span><br><span class="line"><span class="built_in">front</span>()	<span class="comment">//返回第一个元素的引用。</span></span><br><span class="line"><span class="built_in">back</span>()	<span class="comment">//返回最后一个元素的引用。</span></span><br><span class="line"><span class="built_in">assign</span>()	<span class="comment">//用新元素替换容器中原有内容。</span></span><br><span class="line"><span class="built_in">emplace_front</span>()	<span class="comment">//在容器头部生成一个元素。该函数和 push_front() 的功能相同，但效率更高。</span></span><br><span class="line"><span class="built_in">push_front</span>()	<span class="comment">//在容器头部插入一个元素。</span></span><br><span class="line"><span class="built_in">pop_front</span>()	<span class="comment">//删除容器头部的一个元素。</span></span><br><span class="line"><span class="built_in">emplace_back</span>()	<span class="comment">//在容器尾部直接生成一个元素。该函数和 push_back() 的功能相同，但效率更高。</span></span><br><span class="line"><span class="built_in">push_back</span>()	<span class="comment">//在容器尾部插入一个元素。</span></span><br><span class="line"><span class="built_in">pop_back</span>()	<span class="comment">//删除容器尾部的一个元素。</span></span><br><span class="line"><span class="built_in">emplace</span>()	<span class="comment">//在容器中的指定位置插入元素。该函数和 insert() 功能相同，但效率更高。</span></span><br><span class="line"><span class="built_in">insert</span>() 	<span class="comment">//在容器中的指定位置插入元素。</span></span><br><span class="line"><span class="built_in">erase</span>()	<span class="comment">//删除容器中一个或某区域内的元素。</span></span><br><span class="line"><span class="built_in">swap</span>()	<span class="comment">//交换两个容器中的元素，必须保证这两个容器中存储的元素类型是相同的。</span></span><br><span class="line"><span class="built_in">resize</span>()	<span class="comment">//调整容器的大小。</span></span><br><span class="line"><span class="built_in">clear</span>()	<span class="comment">//删除容器存储的所有元素。</span></span><br><span class="line"><span class="built_in">splice</span>()	<span class="comment">//将一个 list 容器中的元素插入到另一个容器的指定位置。</span></span><br><span class="line"><span class="built_in">remove</span>(val)	<span class="comment">//删除容器中所有等于 val 的元素。</span></span><br><span class="line"><span class="built_in">remove_if</span>()	<span class="comment">//删除容器中满足条件的元素。</span></span><br><span class="line"><span class="built_in">unique</span>()	<span class="comment">//删除容器中相邻的重复元素，只保留一个。</span></span><br><span class="line"><span class="built_in">merge</span>()	<span class="comment">//合并两个事先已排好序的 list 容器，并且合并之后的 list 容器依然是有序的。</span></span><br><span class="line"><span class="built_in">sort</span>()	<span class="comment">//通过更改容器中元素的位置，将它们进行排序。</span></span><br><span class="line"><span class="built_in">reverse</span>()	<span class="comment">//反转容器中元素的顺序。</span></span><br></pre></td></tr></table></figure>
-<h3 id="std-unordered-map"><a href="#std-unordered-map" class="headerlink" title="std::unordered_map"></a>std::unordered_map</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Key</span>,    	<span class="comment">// 键值对中，键的类型，</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">T</span>,		<span class="comment">// 值的类型</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Hash</span> = std::hash&lt;Key&gt;,<span class="comment">////容器内部存储键值对所用的哈希函数</span></span><br><span class="line">    <span class="keyword">class</span> KeyEqual = std::equal_to&lt;Key&gt;,<span class="comment">//判断各个键值对键相同的规则</span></span><br><span class="line">    <span class="keyword">class</span> Allocator = std::allocator&lt; std::pair&lt;<span class="type">const</span> Key, T&gt; &gt; <span class="comment">// 指定分配器对象的类型</span></span><br><span class="line">&gt; <span class="keyword">class</span> unordered_map;</span><br><span class="line"></span><br><span class="line"><span class="comment">//必须显示给前2个参数，最多使用前4个参数</span></span><br><span class="line"><span class="comment">//构造函数：</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">unordered_map</span>() : <span class="built_in">unordered_map</span>( <span class="built_in">size_type</span>(<span class="comment">/*implementation-defined*/</span>) ) &#123;&#125; <span class="comment">// 默认构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">unordered_map</span><span class="params">( size_type bucket_count,  <span class="comment">// size</span></span></span></span><br><span class="line"><span class="params"><span class="function">                        <span class="type">const</span> Hash&amp; hash = Hash(), <span class="comment">// 哈希函数对象</span></span></span></span><br><span class="line"><span class="params"><span class="function">                        <span class="type">const</span> key_equal&amp; equal = key_equal(), <span class="comment">// b</span></span></span></span><br><span class="line"><span class="params"><span class="function">                        <span class="type">const</span> Allocator&amp; alloc = Allocator() )</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="概述-5"><a href="#概述-5" class="headerlink" title="概述"></a>概述</h4><p>无序关联容器：底层使用哈希表存储结构，内部不会对存储的键值进行排序</p>
-<h4 id="定义与初始化-3"><a href="#定义与初始化-3" class="headerlink" title="定义与初始化"></a>定义与初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">std::unordered_map&lt;std::string, std::string&gt; m1;  <span class="comment">//默认构造函数，空map</span></span><br><span class="line">std::unordered_map&lt;<span class="type">int</span>, std::string&gt; m2 =        <span class="comment">// 列表初始化</span></span><br><span class="line">&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="string">&quot;foo&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3</span>, <span class="string">&quot;bar&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="number">2</span>, <span class="string">&quot;baz&quot;</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line">std::unordered_map&lt;<span class="type">int</span>, std::string&gt; m3 = m2;  <span class="comment">// 拷贝构造函数</span></span><br><span class="line">std::unordered_map&lt;<span class="type">int</span>, std::string&gt; m4 = std::<span class="built_in">move</span>(m2);  <span class="comment">//复制构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//传入 2 个迭代器</span></span><br><span class="line">std::vector&lt;std::pair&lt;std::bitset&lt;8&gt;, <span class="type">int</span>&gt;&gt; v = &#123; &#123;<span class="number">0x12</span>, <span class="number">1</span>&#125;, &#123;<span class="number">0x01</span>,<span class="number">-1</span>&#125; &#125;;   </span><br><span class="line">std::unordered_map&lt;std::bitset&lt;8&gt;, <span class="type">double</span>&gt; <span class="built_in">m5</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Key</span> &#123;</span><br><span class="line">    std::string first;</span><br><span class="line">    std::string second;</span><br><span class="line">&#125;;</span><br><span class="line"> <span class="comment">// 原stl中不包含pair&lt;int,int&gt;类型的键,要自定义哈希函数 和 键值比较</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">KeyHash</span> &#123;</span><br><span class="line"> <span class="function">std::<span class="type">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Key&amp; k)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> std::<span class="built_in">hash</span>&lt;std::string&gt;()(k.first) ^</span><br><span class="line">            (std::<span class="built_in">hash</span>&lt;std::string&gt;()(k.second) &lt;&lt; <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">KeyEqual</span> &#123;</span><br><span class="line"> <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Key&amp; lhs, <span class="type">const</span> Key&amp; rhs)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> lhs.first == rhs.first &amp;&amp; lhs.second == rhs.second;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//定义KeyHash和KeyEqual结构体并在模板中使用它们</span></span><br><span class="line">std::unordered_map&lt;Key, std::string, KeyHash, KeyEqual&gt; m6 = &#123;</span><br><span class="line">            &#123; &#123;<span class="string">&quot;John&quot;</span>, <span class="string">&quot;Doe&quot;</span>&#125;, <span class="string">&quot;example&quot;</span>&#125;,</span><br><span class="line">            &#123; &#123;<span class="string">&quot;Mary&quot;</span>, <span class="string">&quot;Sue&quot;</span>&#125;, <span class="string">&quot;another&quot;</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//哈希map 是 使用lamda表达式 作为哈希函数</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>您需要将 lambda 对象传递给 unordered_map构造函数，因为 lambda 类型不是默认可构造的</span><br></pre></td></tr></table></figure>
-
-<h4 id="操作-5"><a href="#操作-5" class="headerlink" title="操作"></a>操作</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">begin</span>();	<span class="comment">//返回指向容器中第一个键值对的正向迭代器。</span></span><br><span class="line"><span class="built_in">end</span>(); 		<span class="comment">//返回指向容器中最后一个键值对之后位置的正向迭代器。</span></span><br><span class="line"><span class="built_in">cbegin</span>();	</span><br><span class="line"><span class="built_in">cend</span>();</span><br><span class="line"><span class="built_in">empty</span>(); 	<span class="comment">//若容器为空，则返回 true；否则 false。</span></span><br><span class="line"><span class="built_in">size</span>()		<span class="comment">//返回当前容器中存有键值对的个数。</span></span><br><span class="line"><span class="built_in">max_size</span>()	<span class="comment">//返回容器所能容纳键值对的最大个数，不同的操作系统，其返回值亦不相同。</span></span><br><span class="line"><span class="keyword">operator</span>[key]<span class="comment">//该模板类中重载了 [] 运算符，其功能是可以向访问数组中元素那样，只要给定某个键值对的键 key，就可以获取该键对应的值。注意，如果当前容器中没有以 key 为键的键值对，则其会使用该键向当前容器中插入一个新键值对。</span></span><br><span class="line"><span class="built_in">at</span>(key);<span class="comment">//返回容器中存储的键 key 对应的值，如果 key 不存在，则会抛出 out_of_range 异常。 </span></span><br><span class="line"><span class="built_in">find</span>(key);<span class="comment">//查找以 key 为键的键值对，如果找到，则返回一个指向该键值对的正向迭代器；反之，则返回一个指向容器中最后一个键值对之后位置的迭代器（如果 end() 方法返回的迭代器）。</span></span><br><span class="line">	<span class="comment">// f</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">count</span>(key)	<span class="comment">//在容器中查找以 key 键的键值对的个数。</span></span><br><span class="line"><span class="built_in">equal_range</span>(key)<span class="comment">//返回一个 pair 对象，其包含 2 个迭代器，用于表明当前容器中键为 key 的键值对所在的范围。</span></span><br><span class="line"><span class="built_in">emplace</span>()	<span class="comment">//向容器中添加新键值对，效率比 insert() 方法高。</span></span><br><span class="line"><span class="built_in">emplace_hint</span>()	<span class="comment">//向容器中添加新键值对，效率比 insert() 方法高。</span></span><br><span class="line"><span class="built_in">insert</span>() 	<span class="comment">//向容器中添加新键值对。</span></span><br><span class="line"><span class="built_in">erase</span>()		<span class="comment">//删除指定键值对。</span></span><br><span class="line"><span class="built_in">clear</span>() 	<span class="comment">//清空容器，即删除容器中存储的所有键值对。</span></span><br><span class="line"><span class="built_in">swap</span>()		<span class="comment">//交换 2 个 unordered_map 容器存储的键值对，前提是必须保证这 2 个容器的类型完全相等。</span></span><br><span class="line"><span class="built_in">bucket_count</span>()	<span class="comment">//返回当前容器底层存储键值对时，使用桶（一个线性链表代表一个桶）的数量。</span></span><br><span class="line"><span class="built_in">max_bucket_count</span>()	<span class="comment">//返回当前系统中，unordered_map 容器底层最多可以使用多少桶。</span></span><br><span class="line"><span class="built_in">bucket_size</span>(n)		<span class="comment">//返回第 n 个桶中存储键值对的数量。</span></span><br><span class="line"><span class="built_in">bucket</span>(key)		<span class="comment">//返回以 key 为键的键值对所在桶的编号。</span></span><br><span class="line"><span class="built_in">load_factor</span>()	<span class="comment">//返回 unordered_map 容器中当前的负载因子。负载因子，指的是的当前容器中存储键值对的数量（size()）和使用桶数（bucket_count()）的比值，即 load_factor() = size() / bucket_count()。</span></span><br><span class="line"><span class="built_in">max_load_factor</span>()	<span class="comment">//返回或者设置当前 unordered_map 容器的负载因子。</span></span><br><span class="line"><span class="built_in">rehash</span>(n)	<span class="comment">//将当前容器底层使用桶的数量设置为 n。</span></span><br><span class="line"><span class="built_in">reserve</span>()	<span class="comment">//将存储桶的数量（也就是 bucket_count() 方法的返回值）设置为至少容纳count个元（不超过最大负载因子）所需的数量，并重新整理容器。</span></span><br><span class="line"><span class="built_in">hash_function</span>()	<span class="comment">//返回当前容器使用的哈希函数对象。</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="std-unordered-set"><a href="#std-unordered-set" class="headerlink" title="std::unordered_set"></a>std::unordered_set</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_set&gt;</span></span></span><br><span class="line"><span class="keyword">template</span>&lt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Key</span>,</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Hash</span> = std::hash&lt;Key&gt;,</span><br><span class="line">    <span class="keyword">class</span> KeyEqual = std::equal_to&lt;Key&gt;,</span><br><span class="line">    <span class="keyword">class</span> Allocator = std::allocator&lt;Key&gt;</span><br><span class="line">&gt; <span class="keyword">class</span> unordered_set;</span><br></pre></td></tr></table></figure>
-
-<h4 id="概述-6"><a href="#概述-6" class="headerlink" title="概述"></a>概述</h4><p>不再以键值对的形式存储数据，而是直接存储数据的值；容器内部存储的各个元素的值都互不相等，且不能被修改。</p>
-<h4 id="定义与初始化-4"><a href="#定义与初始化-4" class="headerlink" title="定义与初始化"></a>定义与初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">std::unordered_set&lt;std::string&gt; uset; <span class="comment">//空set</span></span><br><span class="line">std::unordered_set&lt;std::string&gt; uset&#123; <span class="string">&quot;http://c.biancheng.net/c/&quot;</span>,</span><br><span class="line">                                      <span class="string">&quot;http://c.biancheng.net/java/&quot;</span>,</span><br><span class="line">                                      <span class="string">&quot;http://c.biancheng.net/linux/&quot;</span> &#125;; <span class="comment">//初始化</span></span><br><span class="line"><span class="function">std::unordered_set&lt;std::string&gt; <span class="title">uset2</span><span class="params">(uset)</span></span>;  <span class="comment">//拷贝构造函数</span></span><br><span class="line">std::unordered_set &lt;std::string&gt; <span class="built_in">retuset</span>();   <span class="comment">//返回临时对象的函数</span></span><br><span class="line"><span class="function">std::unordered_set&lt;std::string&gt; <span class="title">uset</span><span class="params">(retuset())</span></span>; <span class="comment">//移动构造函数</span></span><br><span class="line"><span class="function">std::unordered_set&lt;std::string&gt; <span class="title">uset2</span><span class="params">(++uset.begin(),uset.end())</span></span>;<span class="comment">//传入 2 个迭代器</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="操作-6"><a href="#操作-6" class="headerlink" title="操作"></a>操作</h4><p>容器模板类中没有重载 [ ] 运算符，也没有提供 at() 成员方法。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">begin</span>()	<span class="comment">//返回指向容器中第一个元素的正向迭代器。</span></span><br><span class="line"><span class="built_in">end</span>();	<span class="comment">//返回指向容器中最后一个元素之后位置的正向迭代器。</span></span><br><span class="line"><span class="built_in">cbegin</span>()<span class="comment">//和 begin() 功能相同，只不过其返回的是 const 类型的正向迭代器。</span></span><br><span class="line"><span class="built_in">cend</span>()	<span class="comment">//和 end() 功能相同，只不过其返回的是 const 类型的正向迭代器。</span></span><br><span class="line"><span class="built_in">empty</span>()	<span class="comment">//若容器为空，则返回 true；否则 false。</span></span><br><span class="line"><span class="built_in">size</span>()	<span class="comment">//返回当前容器中存有元素的个数。</span></span><br><span class="line"><span class="built_in">max_size</span>()	<span class="comment">//返回容器所能容纳元素的最大个数，不同的操作系统，其返回值亦不相同。</span></span><br><span class="line"><span class="built_in">find</span>(key)	<span class="comment">//查找以值为 key 的元素，如果找到，则返回一个指向该元素的正向迭代器；反之，则返回一个指向容器中最后一个元素之后位置的迭代器（如果 end() 方法返回的迭代器）。</span></span><br><span class="line"><span class="built_in">count</span>(key)	<span class="comment">//在容器中查找值为 key 的元素的个数。</span></span><br><span class="line"><span class="built_in">equal_range</span>(key)	<span class="comment">//返回一个 pair 对象，其包含 2 个迭代器，用于表明当前容器中值为 key 的元素所在的范围。</span></span><br><span class="line"><span class="built_in">emplace</span>()	<span class="comment">//向容器中添加新元素，效率比 insert() 方法高。</span></span><br><span class="line"><span class="built_in">emplace_hint</span>()	<span class="comment">//向容器中添加新元素，效率比 insert() 方法高。</span></span><br><span class="line"><span class="built_in">insert</span>()<span class="comment">//向容器中添加新元素。</span></span><br><span class="line"><span class="built_in">erase</span>()	<span class="comment">//删除指定元素。</span></span><br><span class="line"><span class="built_in">clear</span>()	<span class="comment">//清空容器，即删除容器中存储的所有元素。</span></span><br><span class="line"><span class="built_in">swap</span>()	<span class="comment">//交换 2 个 unordered_set 容器存储的元素，前提是必须保证这 2 个容器的类型完全相等。</span></span><br><span class="line"><span class="built_in">bucket_count</span>()		<span class="comment">//返回当前容器底层存储元素时，使用桶（一个线性链表代表一个桶）的数量。</span></span><br><span class="line"><span class="built_in">max_bucket_count</span>()	<span class="comment">//返回当前系统中，unordered_map 容器底层最多可以使用多少桶。</span></span><br><span class="line"><span class="built_in">bucket_size</span>(n)		<span class="comment">//返回第 n 个桶中存储元素的数量。</span></span><br><span class="line"><span class="built_in">bucket</span>(key)			<span class="comment">//返回值为 key 的元素所在桶的编号。</span></span><br><span class="line"><span class="built_in">load_factor</span>()		<span class="comment">//返回 unordered_map 容器中当前的负载因子。负载因子，指的是的当前容器中存储元素的数量（size()）和使用桶数（bucket_count()）的比值，即 load_factor() = size() / bucket_count()。</span></span><br><span class="line"><span class="built_in">max_load_factor</span>()	<span class="comment">//返回或者设置当前 unordered_map 容器的负载因子。</span></span><br><span class="line"><span class="built_in">rehash</span>(n)	<span class="comment">//将当前容器底层使用桶的数量设置为 n。</span></span><br><span class="line"><span class="built_in">reserve</span>()	<span class="comment">//将存储桶的数量（也就是 bucket_count() 方法的返回值）设置为至少容纳count个元（不超过最大负载因子）所需的数量，并重新整理容器。</span></span><br><span class="line"><span class="built_in">hash_function</span>()	<span class="comment">//返回当前容器使用的哈希函数对象。</span></span><br></pre></td></tr></table></figure>
-<h3 id="std-map"><a href="#std-map" class="headerlink" title="std::map"></a>std::map</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Defined in header &lt;map&gt;</span><br><span class="line"><span class="keyword">template</span>&lt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Key</span>,</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">T</span>,</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Compare</span> = std::less&lt;Key&gt;,    <span class="comment">// 指定排序规则 默认为升序，  std::greater&lt;key&gt; 降序</span></span><br><span class="line">    <span class="keyword">class</span> Allocator = std::allocator&lt;std::pair&lt;<span class="type">const</span> Key, T&gt; &gt;</span><br><span class="line">&gt; <span class="keyword">class</span> map;</span><br></pre></td></tr></table></figure>
-
-<h4 id="概述-7"><a href="#概述-7" class="headerlink" title="概述"></a>概述</h4><ul>
-<li>关联容器，存储的是<code>pair</code>对象，键和值可以是任意的数据类型</li>
-<li>存储多个键值对时，会根据键的大小排序，默认为升序</li>
-<li>使用 map 容器存储的各个键值对，<em><strong>键的值既不能重复也不能被修改</strong></em></li>
-</ul>
-<h4 id="定义与初始化-5"><a href="#定义与初始化-5" class="headerlink" title="定义与初始化"></a>定义与初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt;myMap;	 <span class="comment">// 空map容器</span></span><br><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt;myMap&#123; &#123;<span class="string">&quot;C语言教程&quot;</span>,<span class="number">10</span>&#125;,&#123;<span class="string">&quot;STL教程&quot;</span>,<span class="number">20</span>&#125; &#125;; <span class="comment">// 列表初始化</span></span><br><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt;myMap&#123;std::<span class="built_in">make_pair</span>(<span class="string">&quot;C语言教程&quot;</span>,<span class="number">10</span>),std::<span class="built_in">make_pair</span>(<span class="string">&quot;STL教程&quot;</span>,<span class="number">20</span>)&#125;;  <span class="comment">//一样</span></span><br><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt;<span class="built_in">newMap</span>(myMap); <span class="comment">// 复制构造函数</span></span><br><span class="line"></span><br><span class="line">#创建一个会返回临时 map 对象的函数    <span class="comment">//移动构造函数</span></span><br><span class="line"><span class="function">std::map&lt;std::string,<span class="type">int</span>&gt; <span class="title">disMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::map&lt;std::string, <span class="type">int</span>&gt;tempMap&#123; &#123;<span class="string">&quot;C语言教程&quot;</span>,<span class="number">10</span>&#125;,&#123;<span class="string">&quot;STL教程&quot;</span>,<span class="number">20</span>&#125; &#125;;</span><br><span class="line">    <span class="keyword">return</span> tempMap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用 map 类模板的移动构造函数创建 newMap 容器</span></span><br><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt;<span class="built_in">newMap</span>(<span class="built_in">disMap</span>());</span><br><span class="line"><span class="comment">//传入 2 个迭代器</span></span><br><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt;myMap&#123; &#123;<span class="string">&quot;C语言教程&quot;</span>,<span class="number">10</span>&#125;,&#123;<span class="string">&quot;STL教程&quot;</span>,<span class="number">20</span>&#125; &#125;;</span><br><span class="line">std::map&lt;std::string, <span class="type">int</span>&gt;<span class="built_in">newMap</span>(++myMap.<span class="built_in">begin</span>(), myMap.<span class="built_in">end</span>());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="操作-7"><a href="#操作-7" class="headerlink" title="操作"></a>操作</h4><table>
-<thead>
-<tr>
-<th>begin()</th>
-<th>返回指向容器中第一个（注意，是已排好序的第一个）键值对的双向迭代器。如果 map 容器用 const 限定，则该方法返回的是 const 类型的双向迭代器。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>end()</td>
-<td>返回指向容器最后一个元素（注意，是已排好序的最后一个）所在位置后一个位置的双向迭代器，通常和 begin() 结合使用。如果 map 容器用 const 限定，则该方法返回的是 const 类型的双向迭代器。</td>
-</tr>
-<tr>
-<td>rbegin()</td>
-<td>返回指向最后一个（注意，是已排好序的最后一个）元素的反向双向迭代器。如果 map 容器用 const 限定，则该方法返回的是 const 类型的反向双向迭代器。</td>
-</tr>
-<tr>
-<td>rend()</td>
-<td>返回指向第一个（注意，是已排好序的第一个）元素所在位置前一个位置的反向双向迭代器。如果 map 容器用 const 限定，则该方法返回的是 const 类型的反向双向迭代器。</td>
-</tr>
-<tr>
-<td>cbegin()</td>
-<td>和 begin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的键值对。</td>
-</tr>
-<tr>
-<td>cend()</td>
-<td>和 end() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的键值对。</td>
-</tr>
-<tr>
-<td>crbegin()</td>
-<td>和 rbegin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的键值对。</td>
-</tr>
-<tr>
-<td>crend()</td>
-<td>和 rend() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的键值对。</td>
-</tr>
-<tr>
-<td>find(key)</td>
-<td>在 map 容器中查找键为 key 的键值对，如果成功找到，则返回指向该键值对的双向迭代器；反之，则返回和 end() 方法一样的迭代器。另外，如果 map 容器用 const 限定，则该方法返回的是 const 类型的双向迭代器。</td>
-</tr>
-<tr>
-<td>lower_bound(key)</td>
-<td>返回一个指向当前 map 容器中第一个大于或等于 key 的键值对的双向迭代器。如果 map 容器用 const 限定，则该方法返回的是 const 类型的双向迭代器。</td>
-</tr>
-<tr>
-<td>upper_bound(key)</td>
-<td>返回一个指向当前 map 容器中第一个大于 key 的键值对的迭代器。如果 map 容器用 const 限定，则该方法返回的是 const 类型的双向迭代器。</td>
-</tr>
-<tr>
-<td>equal_range(key)</td>
-<td>该方法返回一个 pair 对象（包含 2 个双向迭代器），其中 pair.first 和 lower_bound() 方法的返回值等价，pair.second 和 upper_bound() 方法的返回值等价。也就是说，该方法将返回一个范围，该范围中包含的键为 key 的键值对（map 容器键值对唯一，因此该范围最多包含一个键值对）。</td>
-</tr>
-<tr>
-<td>empty()</td>
-<td>若容器为空，则返回 true；否则 false。</td>
-</tr>
-<tr>
-<td>size()</td>
-<td>返回当前 map 容器中存有键值对的个数。</td>
-</tr>
-<tr>
-<td>max_size()</td>
-<td>返回 map 容器所能容纳键值对的最大个数，不同的操作系统，其返回值亦不相同。</td>
-</tr>
-<tr>
-<td>operator[]</td>
-<td>map容器重载了 [] 运算符，只要知道 map 容器中某个键值对的键的值，就可以向获取数组中元素那样，通过键直接获取对应的值。</td>
-</tr>
-<tr>
-<td>at(key)</td>
-<td>找到 map 容器中 key 键对应的值，如果找不到，该函数会引发 out_of_range 异常。</td>
-</tr>
-<tr>
-<td>insert()</td>
-<td>向 map 容器中插入键值对。</td>
-</tr>
-<tr>
-<td>erase()</td>
-<td>删除 map 容器指定位置、指定键（key）值或者指定区域内的键值对。后续章节还会对该方法做重点讲解。</td>
-</tr>
-<tr>
-<td>swap()</td>
-<td>交换 2 个 map 容器中存储的键值对，这意味着，操作的 2 个键值对的类型必须相同。</td>
-</tr>
-<tr>
-<td>clear()</td>
-<td>清空 map 容器中所有的键值对，即使 map 容器的 size() 为 0。</td>
-</tr>
-<tr>
-<td>emplace()</td>
-<td>在当前 map 容器中的指定位置处构造新键值对。其效果和插入键值对一样，但效率更高。</td>
-</tr>
-<tr>
-<td>emplace_hint()</td>
-<td>在本质上和 emplace() 在 map 容器中构造新键值对的方式是一样的，不同之处在于，使用者必须为该方法提供一个指示键值对生成位置的迭代器，并作为该方法的第一个参数。</td>
-</tr>
-<tr>
-<td>count(key)</td>
-<td>在当前 map 容器中，查找键为 key 的键值对的个数并返回。注意，由于 map 容器中各键值对的键的值是唯一的，因此该函数的返回值最大为 1</td>
-</tr>
-</tbody></table>
-<h3 id="std-stack"><a href="#std-stack" class="headerlink" title="std::stack"></a>std::stack</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="comment">//模板参数</span></span><br><span class="line"><span class="keyword">template</span>&lt;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">T</span>,  		<span class="comment">//储存元素的类型  </span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Container</span> = std::deque&lt;T&gt; <span class="comment">//用于存储元素的底层容器的类型。默认是deque</span></span><br><span class="line">&gt; <span class="keyword">class</span> stack;</span><br></pre></td></tr></table></figure>
-
-<h4 id="概述-8"><a href="#概述-8" class="headerlink" title="概述"></a>概述</h4><p>容器适配器，提供了堆栈的功能，后进先出的数据结构</p>
-<h4 id="定义与初始化-6"><a href="#定义与初始化-6" class="headerlink" title="定义与初始化"></a>定义与初始化</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">std::stack&lt;std::string&gt; words; <span class="comment">// 默认构造空栈</span></span><br><span class="line">std::stack&lt;std::string,std::list&lt;std::string&gt;&gt; fruit; <span class="comment">// 默认构造空栈，底层容器的类型为list</span></span><br><span class="line"></span><br><span class="line">std::deque&lt;<span class="type">int</span>&gt; deq &#123;<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>&#125;;   </span><br><span class="line"><span class="function">std::stack&lt;<span class="type">int</span>&gt; <span class="title">c3</span><span class="params">(deq)</span></span>;				<span class="comment">//复制构造函数（默认）： 使用底层容器的容器构造stack</span></span><br><span class="line"></span><br><span class="line">std::list&lt;<span class="type">double</span>&gt; values &#123;<span class="number">1.414</span>, <span class="number">3.14159265</span>, <span class="number">2.71828</span>&#125;;</span><br><span class="line">std::stack&lt;<span class="type">double</span>,std::list&lt;<span class="type">double</span>&gt;&gt; <span class="built_in">my_stack</span> (values);</span><br><span class="line"></span><br><span class="line">std::stack&lt;<span class="type">int</span>&gt; c1;</span><br><span class="line"><span class="function">std::stack&lt;<span class="type">int</span>&gt; <span class="title">c2</span><span class="params">(c1)</span></span>;             </span><br><span class="line">std::stack&lt;<span class="type">int</span>&gt; c2 &#123;c1&#125;;  <span class="comment">//复制构造函数:使用其他stack的副本构造</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="操作-8"><a href="#操作-8" class="headerlink" title="操作"></a>操作</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">reference <span class="title">top</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">const_reference <span class="title">top</span><span class="params">()</span> <span class="type">const</span></span>; <span class="comment">//返回一个栈顶元素的引用，类型为 T&amp;。如果栈为空，返回值未定义。</span></span><br><span class="line"><span class="built_in">push</span>(<span class="type">const</span> T&amp; obj) 	<span class="comment">//可以将对象副本压入栈顶。这是通过调用底层容器的 push_back() 函数完成的。</span></span><br><span class="line"><span class="built_in">push</span>(T&amp;&amp; obj)		<span class="comment">//以移动对象的方式将对象压入栈顶。这是通过调用底层容器的有右值引用参数的 push_back() 函数完成的。</span></span><br><span class="line"><span class="built_in">pop</span>()				<span class="comment">//弹出栈顶元素。</span></span><br><span class="line"><span class="built_in">size</span>()				<span class="comment">//返回栈中元素的个数。</span></span><br><span class="line"><span class="built_in">empty</span>()				<span class="comment">//在栈中没有元素的情况下返回 true。</span></span><br><span class="line"><span class="built_in">emplace</span>()			<span class="comment">//用传入的参数调用构造函数，在栈顶生成对象。</span></span><br><span class="line"><span class="built_in">swap</span>(stack&lt;T&gt; &amp; other_stack)<span class="comment">//将当前栈中的元素和参数中的元素交换。参数所包含元素的类型必须和当前栈的相同。对于 stack 对象有一个特例化的全局函数 swap() 可以使用。</span></span><br></pre></td></tr></table></figure>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>​				</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/13/STL%E6%A0%87%E5%87%86%E5%BA%93-%E6%9B%B4%E6%96%B0%E4%B8%AD/" rel="prev" title="STL标准库(更新中)">
+      <i class="fa fa-chevron-left"></i> STL标准库(更新中)
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -2067,6 +1524,7 @@ delete np; //错误，不能释放
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%8C%BA"><span class="nav-number">1.</span> <span class="nav-text">内存区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%88%86%E9%85%8D"><span class="nav-number">1.2.</span> <span class="nav-text">地址分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%AE%8F"><span class="nav-number">1.3.</span> <span class="nav-text">参数宏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91"><span class="nav-number">1.4.</span> <span class="nav-text">条件编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.5.</span> <span class="nav-text">#运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6-1"><span class="nav-number">1.6.</span> <span class="nav-text">##运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E5%AE%8F"><span class="nav-number">1.7.</span> <span class="nav-text">预定义宏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Language"><span class="nav-number">2.</span> <span class="nav-text">Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Keywords-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.1.</span> <span class="nav-text">Keywords 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#const-volatile-mutable"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">const volatile mutable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#static"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">static</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fundamental-types-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">Fundamental types 基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E8%BD%AC%E6%8D%A2%EF%BC%9A%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2cast"><span class="nav-number">2.2.1.0.1.</span> <span class="nav-text">显示转换：强制类型转换cast</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.3.</span> <span class="nav-text">复合类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%EF%BC%9A"><span class="nav-number">2.2.3.0.1.</span> <span class="nav-text">引用：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%87%E9%92%88%EF%BC%9A"><span class="nav-number">2.2.3.0.2.</span> <span class="nav-text">指针：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">2.2.3.0.3.</span> <span class="nav-text">复合类型的声明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F-C-11"><span class="nav-number">2.2.3.0.4.</span> <span class="nav-text">常量表达式 -C++11</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">2.2.4.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">2.2.4.0.1.</span> <span class="nav-text">性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.5.</span> <span class="nav-text">处理类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="nav-number">2.2.5.0.1.</span> <span class="nav-text">类型别名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#decltype-%E7%B1%BB%E5%9E%8B%E6%8C%87%E7%A4%BA%E7%AC%A6%EF%BC%88C-11%EF%BC%89"><span class="nav-number">2.2.5.0.2.</span> <span class="nav-text">decltype 类型指示符（C++11）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E6%BB%A1%E8%B6%B3%E5%8F%B3%E7%BB%93%E5%90%88%E5%BE%8B"><span class="nav-number">2.2.6.</span> <span class="nav-text">赋值运算符满足右结合律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.7.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%92%E5%A2%9E%E5%92%8C%E9%80%92%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.8.</span> <span class="nav-text">递增和递减运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E8%AE%BF%E9%97%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.9.</span> <span class="nav-text">成员访问运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.10.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.11.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sizeof-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.12.</span> <span class="nav-text">sizeof 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E3%80%81%E8%81%94%E5%90%88%E4%BD%93%E3%80%81%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">2.2.12.1.</span> <span class="nav-text">枚举类型、联合体、结构体</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.2.13.</span> <span class="nav-text">运算符优先级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.</span> <span class="nav-text">Statement语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.1.</span> <span class="nav-text">简单语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.2.</span> <span class="nav-text">条件语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">Function 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">2.4.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">2.4.2.</span> <span class="nav-text">参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8D%A0%E4%BD%8D%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="nav-number">2.4.2.0.1.</span> <span class="nav-text">占位参数：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%EF%BC%9A"><span class="nav-number">2.4.2.0.2.</span> <span class="nav-text">引用传递：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%80%BC%E4%BC%A0%E9%80%92%EF%BC%9A"><span class="nav-number">2.4.2.0.3.</span> <span class="nav-text">值传递：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#const-%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82"><span class="nav-number">2.4.2.0.4.</span> <span class="nav-text">const 形参和实参</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E5%92%8Creturn"><span class="nav-number">2.4.3.</span> <span class="nav-text">返回类型和return</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A0%E8%BF%94%E5%9B%9E%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">无返回值函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.3.2.</span> <span class="nav-text">有返回值函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">2.4.4.</span> <span class="nav-text">函数重载</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E5%92%8Cconst"><span class="nav-number">2.4.4.0.1.</span> <span class="nav-text">重载和const</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#const-cast-%E5%92%8C%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">2.4.4.0.2.</span> <span class="nav-text">const_cast 和函数重载</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BB%93%E6%9E%9C"><span class="nav-number">2.4.4.0.3.</span> <span class="nav-text">调用重载函数的三种结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.4.4.0.4.</span> <span class="nav-text">重载与作用域</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82"><span class="nav-number">2.4.4.0.5.</span> <span class="nav-text">默认实参</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%92%8Cconstexpr%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.4.0.6.</span> <span class="nav-text">内联函数和constexpr函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8C%B9%E9%85%8D"><span class="nav-number">2.4.5.</span> <span class="nav-text">函数匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E5%8F%82%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.4.5.0.1.</span> <span class="nav-text">实参类型转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">2.4.6.</span> <span class="nav-text">函数指针</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">2.4.6.0.1.</span> <span class="nav-text">使用函数指针</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classes-%E7%B1%BB"><span class="nav-number">2.5.</span> <span class="nav-text">Classes 类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">2.5.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-number">2.5.2.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.3.</span> <span class="nav-text">成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC"><span class="nav-number">2.5.4.1.</span> <span class="nav-text">基本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.2.</span> <span class="nav-text">默认构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A7%94%E6%89%98%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.3.</span> <span class="nav-text">委托构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E7%9A%84%E7%B1%BB%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.5.4.4.</span> <span class="nav-text">隐式的类类型转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#explicit%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.5.</span> <span class="nav-text">explicit构造函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E3%80%81%E8%B5%8B%E5%80%BC%E3%80%81%E6%9E%90%E6%9E%84"><span class="nav-number">2.5.5.</span> <span class="nav-text">拷贝、赋值、析构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%B0%81%E8%A3%85"><span class="nav-number">2.5.6.</span> <span class="nav-text">访问控制与封装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8B%E5%85%83"><span class="nav-number">2.5.6.1.</span> <span class="nav-text">友元</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.6.2.</span> <span class="nav-text">重载成员函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98-mutable"><span class="nav-number">2.5.6.3.</span> <span class="nav-text">可变数据成员 mutable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E7%9A%84%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="nav-number">2.5.6.4.</span> <span class="nav-text">类数据成员的初始值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.6.5.</span> <span class="nav-text">类类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.5.7.</span> <span class="nav-text">类的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AA%E9%80%82%E7%94%A8%E4%BA%8E%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%A7%8D%E7%9A%84%E4%BD%BF%E7%94%A8%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">2.5.7.1.</span> <span class="nav-text">只适用于成员函数种的使用的名字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">2.5.7.2.</span> <span class="nav-text">声明中使用的名字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%90%8D%E8%A6%81%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86"><span class="nav-number">2.5.7.3.</span> <span class="nav-text">类型名要特殊处理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E7%B1%BB"><span class="nav-number">2.5.8.</span> <span class="nav-text">聚合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">2.5.8.1.</span> <span class="nav-text">使用静态成员</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B1%BB%E5%86%85%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.5.8.2.</span> <span class="nav-text">静态成员的类内初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E4%B8%8E%E6%99%AE%E9%80%9A%E6%88%90%E5%91%98%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.5.8.3.</span> <span class="nav-text">静态成员与普通成员的区别</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98"><span class="nav-number">3.</span> <span class="nav-text">动态内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">3.0.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">3.0.2.</span> <span class="nav-text">智能指针</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#shared-ptr%E7%B1%BB"><span class="nav-number">3.0.2.1.</span> <span class="nav-text">shared_ptr类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">3.0.2.1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#make-shared"><span class="nav-number">3.0.2.1.2.</span> <span class="nav-text">make_shared</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E5%92%8C%E8%B5%8B%E5%80%BC"><span class="nav-number">3.0.2.1.3.</span> <span class="nav-text">拷贝和赋值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E7%AE%A1%E7%90%86%E5%86%85%E5%AD%98"><span class="nav-number">3.0.2.2.</span> <span class="nav-text">直接管理内存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#weak-ptr"><span class="nav-number">3.0.3.</span> <span class="nav-text">weak_ptr</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E6%8E%A7%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">拷贝控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E3%80%81%E8%B5%8B%E5%80%BC%E4%BA%8E%E9%94%80%E6%AF%81"><span class="nav-number">4.0.1.</span> <span class="nav-text">拷贝、赋值于销毁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">拷贝构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.0.1.1.1.</span> <span class="nav-text">拷贝赋值运算符</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E6%8B%B7%E8%B4%9D"><span class="nav-number">4.0.1.2.</span> <span class="nav-text">阻止拷贝</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E4%B8%8E%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">5.</span> <span class="nav-text">重载运算与类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E7%82%B9"><span class="nav-number">5.0.0.2.</span> <span class="nav-text">重点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.0.0.3.</span> <span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">5.0.0.4.</span> <span class="nav-text">重载输入输出运算符</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">6.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%9F%BA%E7%B1%BB%E5%92%8C%E6%B4%BE%E7%94%9F%E7%B1%BB"><span class="nav-number">6.2.</span> <span class="nav-text">定义基类和派生类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%B1%BB"><span class="nav-number">6.2.1.</span> <span class="nav-text">基类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB"><span class="nav-number">6.2.2.</span> <span class="nav-text">派生类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E6%B4%BE%E7%94%9F%E5%88%97%E8%A1%A8%EF%BC%9A"><span class="nav-number">6.2.2.1.</span> <span class="nav-text">类派生列表：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB%E4%B8%AD%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">6.2.2.2.</span> <span class="nav-text">派生类中虚函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">6.2.2.3.</span> <span class="nav-text">向基类的类型转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-1"><span class="nav-number">6.2.2.4.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">6.2.2.5.</span> <span class="nav-text">静态成员</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">6.2.2.6.</span> <span class="nav-text">声明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">6.2.3.</span> <span class="nav-text">类型转换与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.2.3.1.</span> <span class="nav-text">静态类型动态类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82-1"><span class="nav-number">6.2.4.</span> <span class="nav-text">默认实参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E9%81%BF%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-number">6.2.5.</span> <span class="nav-text">回避虚函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">6.2.6.</span> <span class="nav-text">抽象类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E4%B8%AD%E7%9A%84%E7%B1%BB%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">6.3.</span> <span class="nav-text">继承中的类作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8D%E5%AD%97%E6%9F%A5%E6%89%BE%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">6.3.1.</span> <span class="nav-text">名字查找与继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">6.3.2.</span> <span class="nav-text">虚函数与作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E8%BE%93%E5%87%BA%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-number">6.3.2.1.</span> <span class="nav-text">管理输出缓冲区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F%EF%BC%88file-mode%EF%BC%89"><span class="nav-number">6.3.2.2.</span> <span class="nav-text">文件模式（file mode）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string-%E6%B5%81"><span class="nav-number">6.3.3.</span> <span class="nav-text">string 流</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="nav-number">7.0.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="nav-number">7.0.2.</span> <span class="nav-text">传递参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%88%97%E8%A1%A8"><span class="nav-number">7.0.3.</span> <span class="nav-text">捕获列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98lambda"><span class="nav-number">7.0.4.</span> <span class="nav-text">可变lambda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B"><span class="nav-number">7.0.5.</span> <span class="nav-text">指定返回类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strings-library"><span class="nav-number">8.</span> <span class="nav-text">Strings library</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96-std-basic-string-basic-string-cppreference-com"><span class="nav-number">8.0.0.1.</span> <span class="nav-text">[定义和初始化](std::basic_string::basic_string - cppreference.com)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string%E5%AF%B9%E8%B1%A1%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">8.0.0.2.</span> <span class="nav-text">string对象上的操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">8.0.0.3.</span> <span class="nav-text">string 字符串的增删改查</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#operator-x3D"><span class="nav-number">8.0.0.4.</span> <span class="nav-text">operator+&#x3D;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-library"><span class="nav-number">9.</span> <span class="nav-text">Algorithm library</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorting-Operations"><span class="nav-number">9.0.1.</span> <span class="nav-text">Sorting Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#std-is-sorted"><span class="nav-number">9.0.1.1.</span> <span class="nav-text">std::is_sorted</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#std-sort"><span class="nav-number">9.0.1.2.</span> <span class="nav-text">std::sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#std-partial-sort"><span class="nav-number">9.0.1.3.</span> <span class="nav-text">std::partial_sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#std-stable-sort"><span class="nav-number">9.0.1.4.</span> <span class="nav-text">std::stable_sort</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-reverse"><span class="nav-number">9.0.2.</span> <span class="nav-text">std::reverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std%EF%BC%9A%EF%BC%9Aaccumulate"><span class="nav-number">9.0.3.</span> <span class="nav-text">std：：accumulate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-search-operations"><span class="nav-number">9.0.4.</span> <span class="nav-text">Binary search operations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-next-permutation"><span class="nav-number">9.0.5.</span> <span class="nav-text">std::next_permutation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-max"><span class="nav-number">9.0.6.</span> <span class="nav-text">std::max</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86%E5%BA%93"><span class="nav-number">10.</span> <span class="nav-text">字符处理库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Notepad-%E6%BA%90%E7%A0%81"><span class="nav-number"></span> <span class="nav-text">Notepad++ 源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="nav-number">0.0.1.</span> <span class="nav-text">单例模式</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
