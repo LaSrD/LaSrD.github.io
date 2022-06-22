@@ -1,32 +1,996 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+<link rel="stylesheet" href="/css/main.css">
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
-        
-    if theme.reward.enable && theme.reward.QR_code
-      !=partial('includes/post/reward', {}, {cache: true})
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
+  <meta name="description" content="os">
+<meta property="og:type" content="article">
+<meta property="og:title" content="os">
+<meta property="og:url" content="http://example.com/2022/06/21/os/index.html">
+<meta property="og:site_name" content="广阔天地大有作为">
+<meta property="og:description" content="os">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220329211604196.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220307195425284.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220310204542607.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220329205819272.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220415201246914.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220415201736076.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220415203356458.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220415205236783.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220417171304628.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220218164314858.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219152312027.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219152726646.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219154259004.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219155002813.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219155638700.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219155522238.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219155841596.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219161647610.png">
+<meta property="og:image" content="http://picgo.wangeyi.ink/image-20220219162136047.png">
+<meta property="article:published_time" content="2022-06-21T12:17:42.000Z">
+<meta property="article:modified_time" content="2022-06-20T15:09:05.429Z">
+<meta property="article:author" content="We_">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://picgo.wangeyi.ink/image-20220329211604196.png">
+
+<link rel="canonical" href="http://example.com/2022/06/21/os/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>os | 广阔天地大有作为</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="广阔天地大有作为" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">广阔天地大有作为</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/21/os/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/me.jpg">
+      <meta itemprop="name" content="We_">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="广阔天地大有作为">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          os
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-21 20:17:42" itemprop="dateCreated datePublished" datetime="2022-06-21T20:17:42+08:00">2022-06-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-20 23:09:05" itemprop="dateModified" datetime="2022-06-20T23:09:05+08:00">2022-06-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">os</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
+        <h1 id="操作系统："><a href="#操作系统：" class="headerlink" title="操作系统："></a>操作系统：</h1><pre><code>大型的程序系统，负责计算机的全部软、硬资源的***分配与回收，控制与协调并发活动***，实现信息的存取和保护。
+</code></pre>
+<h2 id="操作系统视频笔记"><a href="#操作系统视频笔记" class="headerlink" title="操作系统视频笔记"></a><a href="%5B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%93%88%E5%B7%A5%E5%A4%A7%E6%9D%8E%E6%B2%BB%E5%86%9B%E8%80%81%E5%B8%88%EF%BC%8932%E8%AE%B2%EF%BC%88%E5%85%A8%EF%BC%89%E8%B6%85%E6%B8%85_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili%5D(https://www.bilibili.com/video/BV1d4411v7u7/?p=2&spm_id_from=pageDriver)">操作系统视频笔记</a></h2><p><em>冯诺依曼</em> 存储程序系统 ： 将程序和数据存放到计算机内部侧存储中，计算机怎么工作的： <strong>取指执行</strong></p>
+<p><img src="http://picgo.wangeyi.ink/image-20220329211604196.png" alt="image-20220329211604196"></p>
+<h4 id="L2"><a href="#L2" class="headerlink" title="L2"></a>L2</h4><p>系统启动时，</p>
+<ul>
+<li>pc 指向0XFFFF0 (ROM BIOS 映射区 | 基本输入输出系统程序)， 检查RAM，键盘，显示器，软硬磁盘硬件。</li>
+<li>然后将  “磁盘0磁道0扇区 (<em>引导扇区</em>)”的512字节的引导启动代码读入到内存0x7c00处</li>
+<li>设置pc 指向 0x7c00</li>
+</ul>
+<blockquote>
+<p>PC是指寄存器PC，它里边的值总是指向当前程序的运行点的地址 </p>
+<p>CS : 代码段寄存器；IP : 指令指针寄存器。在8086机中，任意时刻，CPU将CS:IP指向的内容当作指令来执行。</p>
+<p>PC &#x3D; CS &lt;&lt; 4 + IP</p>
+</blockquote>
+<p>引导扇区： <em>启动设备的第一个扇区</em></p>
+<p>引导启动代码的第一步是：</p>
+<ul>
+<li>把256字节的代码从0x7c00处移动到0x9000处。然后从0x9000处开始运行 （<code>bootsect.s</code>） 。</li>
+<li>BIOS 0x13 中断：读取磁盘扇区的中断读磁盘0磁道0扇区后面的4个setup扇区，把这4个扇区读到0x90200地址处。</li>
+<li>接下来的代码不读磁盘了，而是用10号中断在屏幕上显示加载系统的图片和文字。</li>
+<li>pc指向setup程序的地址继续执行 （<code>setup.s</code>）</li>
+<li>setup程序首先通过15号中断获得内存的大小等硬件参数。<ul>
+<li>然后把从0x9000处所有的操作系统代码移到0地址处。（在物理内存中，操作 系统就存放在低地址中）</li>
+</ul>
+</li>
+<li>set up的最后代码是一条高级指令，<ul>
+<li>它会把 <code>cr0</code> 寄存器的最后一位置1，这样寻址方式从以前的模式转变为保护模式，寻址不再是cs左移4位加上<code>ip</code>地址，而是cs寄存器指向<code>gdt</code>表，找到基地址，然后加上ip寄存器的偏移地址来寻址，这样可以查找更大的空间，以前是寻址空间2的16次方，现在是2的32次方。</li>
+</ul>
+</li>
+<li>接下来跳到system模块去执行，也就是前5个扇区之后的代码处去执行。<br>注意，磁盘上的程序一次是boot–setup–system程序，最终转变到内存中也要是这样的顺序，boot将setup的程序拿到内存，setup将system的程序拿到内存。system程序的开始一定是是head.s文件</li>
+<li>head.s文件会初始化idt和gdt表，这两个表格是寻址用的，以方便保护模式下使用，该模式下很多汇编指令改变，比如mov des  sor 变成<br>mov sor des,32位汇编代码和16位汇编代码不同。整个启动过程用了16位汇编，32位汇编，内嵌汇编三种。\</li>
+<li>最后跳到main（）函数去执行，在main函数里面进行各个模块的初始化工作。前面第6部获得的物理内存大小参数就可以传到一些初始化函数中进行使用。</li>
+</ul>
+<h4 id="L4-操作系统接口"><a href="#L4-操作系统接口" class="headerlink" title="L4 操作系统接口"></a>L4 操作系统接口</h4><blockquote>
+<p>接口： 链接上层应用和操作系统，信号转换。屏蔽具体实现细节</p>
+<p>命令行：本质时一个C语言程序（shell），调用fork(), exec() 对计算机进行使用</p>
+<p>图形按钮: 基于消息机制 </p>
+<p>连接操作系统和应用软件</p>
+</blockquote>
+<ul>
+<li>操作系统接口：  表现为函数调用，***<u>（系统调用 SYSTEM_CALL）</u>***<ul>
+<li>操作系统与应用程序之间的接口 （ 汇编语言实现 | 高级语言需提供调用汇编程序的接口）</li>
+</ul>
+</li>
+</ul>
+<h4 id="L5-系统调用的实现"><a href="#L5-系统调用的实现" class="headerlink" title="L5 系统调用的实现"></a>L5 系统调用的实现</h4><blockquote>
+<p>系统调用： 不能随意调用数据|jmp </p>
+<p>将 内核程序和用户程序***<u>隔离</p>
+<blockquote>
+<p></u>***</p>
+</blockquote>
+<ul>
+<li>内核态： 可以访问任何数据</li>
+<li>用户态：不能访问内核数据</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><strong>调用门与特权级</strong></p>
+<ul>
+<li>特权级：较为核心的代码和数据放在特权级高得层级中，避免底层级得任务方位</li>
+<li><img src="http://picgo.wangeyi.ink/image-20220307195425284.png" alt="image-20220307195425284"></li>
+<li>CPL、DPL、RPL<ul>
+<li>CPL代表代码所在的段的特权级。当程序转移到不同特权级的代码段时，处理器将改变CPL。只有0和3两个值，分别表示用户态3和内核态0。</li>
+<li>DPL表示段或门的特权级，它被存储在段描述符或者门描述符的DPL字段中（<a target="_blank" rel="noopener" href="http://www.cnblogs.com/chenwb89/p/operating_system_003.html">《操作系统篇-分段机制与GDT|LDT》</a>中有提到），当当前代码段试图访问一个段或者门（这里大家先把门看成跟段一样，下面我们会介绍），DPL将会和CPL以及段或者门选择子的RPL相比较，根据段或者门类型的不同，DPL将会区别对待。</li>
+<li>RPL是通过段选择子的第0和第1位表现出来的。RPL是代码中根据不同段跳转而确定，以动态刷新CS里的CPL，在代码段选择符中。而且RPL对每个段来说不是固定的，两次访问同一段时的RPL可以不同。操作系统往往用RPL来避免低特权级应用程序访问高特权级段内的数据，即便提出访问请求的段有足够的特权级，如果RPL不够也是不行的，当RPL的值比CPL大的时候，RPL将起决定性作用。也就是说，RPL相当于附加的一个权限控制，只有当RPL&gt;DPL的时候，才起到实际的限制作用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>主动进入 ”内核 “ 的方法：中断指令（int）</p>
+<ul>
+<li><p>系统调用的核心：</p>
+<ul>
+<li><em><strong>用户程序</strong></em>中包含一段包含int 指令的代码</li>
+<li>操作系统写<em><strong>中断处理</strong></em>，获取想调程序的编号</li>
+<li>操作系统根据编号 <em><strong>执行相应代码</strong></em></li>
+</ul>
+</li>
+<li><p>Linux 实现系统调用指令: <code>int $0x80</code> ： 将控制权转移给内核</p>
+<ul>
+<li>&#96;&#96;&#96;c<br>#define _syscall1(type，name, type1 ,arg1) <br>type name(type1,arg1) { \<br>long _res; \<br>_asm_volatile(“int $0x80”   &#x2F;&#x2F; 表示括号中插入的是汇编代码片段<br>              : “&#x3D;a” (_res)   &#x2F;&#x2F; 返回值放在 寄存器eax中<br>              :”0” (<em>NR</em>##name), “b”((long)(arg1))); \ &#x2F;&#x2F;系统调用名称 NR_name放在eax中， 参数放在寄存器ebx中<br>_syscall_return(type,_res);  &#x2F;&#x2F; 执行结果放在res中并返回调用程序<br>}<br>&#x2F;&#x2F; 例子<br>_syscall1(int,setuid,uid_t,uid)<br>&#x2F;&#x2F;	1. 产生的函数返回值为int<br>&#x2F;&#x2F; 	2. 产生的函数名称为setuid<br>&#x2F;&#x2F;	uid_t 和 uid 指示系统调用需要的参数类型和参数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      - `_syscallN()` 宏指令对特定系统调用的N个参数进行扩展</span><br><span class="line">      - ![image-20220309105426358](http://picgo.wangeyi.ink/image-20220309105426358.png)</span><br><span class="line"></span><br><span class="line">#### L8 CPU管理</span><br><span class="line"></span><br><span class="line">&gt; 工作原理：不断地取指执行</span><br><span class="line">&gt;</span><br><span class="line">&gt; 最直观的方法：设置PC好的初值   ——I执行 IO指令 远比 计算指令 慢  -&gt;  CPU效率慢，利用率低   （PC 程序计数器）</span><br><span class="line">&gt;</span><br><span class="line">&gt; 多道程序**交替**执行：**并发**</span><br><span class="line">&gt;</span><br><span class="line">&gt; 进程：（操作系统对一个正在运行的程序的一种抽象） |  （运行中的程序，需要记录程序状态）</span><br><span class="line"></span><br><span class="line">#### L9 多进程图像</span><br><span class="line"></span><br><span class="line">&gt; 多进程推进，操作系统只需要把这些进程记录好、按照合理的次序推进（分配资源、进行调度）</span><br><span class="line">&gt;</span><br><span class="line">&gt; 	-从启动开始到关节结束</span><br><span class="line"></span><br><span class="line">- 组织多进程： PCB（***Process Control Block***, *进程控制块*）用来记录进程信息的数据结构  放在不同的**队列**中  &lt;a name = PCB&gt;&lt;/a&gt;</span><br><span class="line">- 进程状态图: 给出进程生存期的清晰描述</span><br><span class="line">  - &lt;img src=&quot;http://picgo.wangeyi.ink/image-20220309203939537.png&quot; alt=&quot;image-20220309203939537&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line">  - 运行态：进程正在处理机上运行的状态，该进程已获得必要的资源，</span><br><span class="line">  - 阻塞状态：进程等待某种事件的完成（I/O）,不能参与竞争CPU</span><br><span class="line">  - 就绪状态：等待CPU的状态</span><br><span class="line">- 状态转化：</span><br><span class="line">  - 就绪-运行：进程调度程序(优先级| 时间片) CPU 分配给某个就绪进程</span><br><span class="line">  - 运行-就绪: 进程时间片用完-&gt;系统发出超时中断请求，</span><br><span class="line">  - 运行-阻塞： 运行中的进程需要IO操作</span><br><span class="line">  - 阻塞-就绪：被阻塞的进程获得解除后，变成就绪状态等待CPUI</span><br><span class="line"></span><br><span class="line">- 交替多个进程：队列操作 | 调度 | 切换、</span><br><span class="line">  - 进程调度 ： FIFO 先进先出| Priority 优先级</span><br><span class="line">- 多进程之间的影响：地址空间分离 —— [虚拟内存](#虚拟内存)</span><br><span class="line">- 多进程合作：`多个进程之间共享内存出现混乱的现象`   核心在于进程同步（合理的推进顺序） </span><br><span class="line">  - 总结：</span><br><span class="line">    - 读写PCB [PCB](#PCB)</span><br><span class="line">    - 操作寄存器进行切换  [L10](#L10) [L11](#L11) [L12](#L12)</span><br><span class="line">    - 调度程序 [L14](#L14) [L14](#L14)</span><br><span class="line">    - 进程同步与合作 [L16](#L16)</span><br><span class="line">    - 地址映射 [L20](#L20)</span><br><span class="line"></span><br><span class="line">#### L10 用户级线程 </span><br><span class="line"></span><br><span class="line">&lt;a name = L10&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">- 进程： 资源+ 指令执行序列 ——***一个资源 + 多个指令执行序列*** </span><br><span class="line">- 线程：只切换指令执行序列，不切换资源——保留了并发的优点，避免进程切换的代价</span><br><span class="line">  -  每个线程都有自己的栈</span><br><span class="line">    - TCB (Thread Control Block) :  是与进程的控制块（[PCB](#PCB)）相似的子控制块，只是[TCB](https://baike.baidu.com/item/TCB/5732988)中所保存的线程状态比PCB中保存少而已。</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">Create // 创建线程 ：创建线程栈 | TCB 切换的PC在栈中</span><br><span class="line">void create &#123;</span><br><span class="line">    TCB *tcb = malloc();  	// 申请TCB </span><br><span class="line">    *stack = malloc();		// 申请线程栈</span><br><span class="line">    *stack = A; //100		// 线程栈中填入 程序执行的初始地址</span><br><span class="line">    tcb.esp = stack;		// 线程栈与TCB g</span><br><span class="line">&#125;</span><br><span class="line">Yield  //  切换 ？？  只需切换线程栈 ，PC(程序计数器） 已经压在栈里了</span><br><span class="line">void Yield() &#123;</span><br><span class="line">    TCB2.esp = esp; //esp 栈指针寄存器， 存线程2的状态</span><br><span class="line">    esp = TCB1.esp； // 切换到线程1</span><br><span class="line">//  jmp 204：  // 不需要jmp</span><br><span class="line">&#125; //--ret, 返回时弹出线程栈1， PC 指向该指令</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="L11-内核级线程"><a href="#L11-内核级线程" class="headerlink" title="L11 内核级线程"></a>L11 内核级线程</h4><p><a name = L11></a>    —— 进程必须是内核级  </p>
+<ul>
+<li><p>与用户级线程的区别</p>
+<ul>
+<li>一套栈： 用户态执行的时候（<em><strong>用户栈</strong></em>）| 内核执行时 （<em><strong>内核栈</strong></em>）</li>
+</ul>
+</li>
+<li><p><em><strong>用户栈 | 内核栈</strong></em>  之间的关联</p>
+<ul>
+<li><p>中断 进入内核时， 内核栈 压入用户栈的 ss sp 、 用户态的指令地址 pc cs  <code>硬件处理</code></p>
+</li>
+<li><blockquote>
+<p>SS:存放栈的段地址；<br>SP:堆栈寄存器SP(stack pointer)存放栈的偏移地址</p>
+</blockquote>
+</li>
+<li><p>中断返回iret， 弹出用户栈和用户态执行指令的地址</p>
+</li>
+</ul>
+</li>
+<li><p>内核栈的切换 ： <code>switch_to</code></p>
+<ul>
+<li>切换 TCB，根据TCB 切换内核栈，执行到某个内核程序，通过中断返回<code>iret</code> 最后切换到用户态执行</li>
+<li>内核线程切换的五段论<ul>
+<li><img src="http://picgo.wangeyi.ink/image-20220310204542607.png" alt="image-20220310204542607"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="L12-内核级线程实现"><a href="#L12-内核级线程实现" class="headerlink" title="L12 内核级线程实现"></a>L12 内核级线程实现</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="L13-“树”"><a href="#L13-“树”" class="headerlink" title="L13 “树”"></a>L13 “树”</h4><h4 id="L14-CPU-调度-schedule"><a href="#L14-CPU-调度-schedule" class="headerlink" title="L14 CPU 调度 schedule"></a>L14 CPU 调度 <em>schedule</em></h4><p><a name = L14></a></p>
+<p>” 动态地、合理地把处理机分配给就绪队列中的某一个进程“</p>
+<ul>
+<li><p>CPU调度的目标： </p>
+<ul>
+<li>尽快结素任务： <em><strong>周转时间短</strong></em>（任务进入到任务结束）</li>
+<li>用户操作尽快响应： <em><strong>响应时间短</strong></em>（操作发生到响应）</li>
+<li>系统内耗时间少： <em><strong>吞吐量</strong></em>（完成的任务量）</li>
+</ul>
+</li>
+<li><p>FCFS ( First come, First Served): 按进程先后顺序调度</p>
+</li>
+<li><p>轮转调度 | 分级轮转：按时间片来轮转调度、</p>
+</li>
+<li><p>优先级法：</p>
+<ul>
+<li><p>静态优先级： 进程类型（IO约束型| CPU约束型）、运行时间、作业优先级</p>
+<ul>
+<li>短作业优先 <em><strong>SJF</strong></em> : 运行时间短的作业优先级较高</li>
+</ul>
+</li>
+<li><p><strong>动态优先级：进程的优先级在该进程的生存期间内可以改变 ”折中 综合“</strong> </p>
+</li>
+<li><p>&#96;&#96;&#96;c++<br>&#x2F;linux 0 .11&#x2F;schedule() 函数<br>void Schedule(void)<br>{<br>while(1) {<br>    c &#x3D; -1; next &#x3D; 0; i &#x3D; NR_TASKS;<br>      p &#x3D; &amp;task[NR_TASKS];<br>        while(–i) {<br>        if((*p)-&gt;state &#x3D;&#x3D; TASK_RUNNIMG &amp;&amp; (*P)-&gt;counter &gt; c)) {    &#x2F;&#x2F; 状态就绪 ，counter ： 优先级|时间片<br>            c &#x3D; (*p)-&gt;counter,next &#x3D; i;<br><br>        if(c) break;        }			&#x2F;&#x2F;	找到counter 最大的进程 并跳转去执行<br>             &#x2F;&#x2F;修改优先级<br>         for(p&#x3D; &amp;LAST_TASK; P &gt; &amp;FIRST_TASK;–p) {<br>             (*p) -&gt; counter &#x3D; ((*p)-&gt;counter &gt;&gt; 1) + (*p)-&gt;priority;  &#x2F;&#x2F; 设置就绪状态的进程 counter 的初值priority<br>             &#x2F;&#x2F; 阻塞状态的 counter ： priority + (原来的 &#x2F; 2)   优先级提高：<br>             &#x2F;&#x2F;动态调整优先级<br>         }<br>    }<br>}<br>   switch_to(next);<br>}<br>&#x2F;&#x2F;时钟中断里减时间片<br> void do_timer(){<br> if((–current-&gt;counter &gt; 0)) return;<br> current-&gt;counter &#x3D; 0;<br> Schedule();   &#x2F;&#x2F;时间片用完了 -&gt; 调度<br> }</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">#### L16 进程同步与信号量</span><br><span class="line"></span><br><span class="line">- 进程同步：进程间必须互相合作的协同工作关系。有前后次序的***等待***关系 </span><br><span class="line"></span><br><span class="line">- 信号量： 用于提供不同进程之间或者一个给定的不同线程间***同步***手段的原语 ： 量用来记录， 信号用来 “sleep、wakeup”</span><br><span class="line"></span><br><span class="line">  - ```C++</span><br><span class="line">    struct semaphore &#123; // 信号量</span><br><span class="line">    	int value; //资源个数</span><br><span class="line">    	PCB *queue;  //信号量上的进程</span><br><span class="line">    &#125;</span><br><span class="line">    P(semaphore S) &#123;   // 消费资源</span><br><span class="line">        S.value--;</span><br><span class="line">        if(s.value &lt; 0)&#123;</span><br><span class="line">    		sleep(s.queue);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    V(semaphore S) // 产生资源</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="L17-信号量的临界区保护"><a href="#L17-信号量的临界区保护" class="headerlink" title="L17 信号量的临界区保护"></a>L17 信号量的临界区保护</h4><ul>
+<li><p>保护：  共同修改信号量，可能 出现 <em><strong>和调度有关的共享数据语义错误</strong></em>（<em><strong>竞争条件</strong></em>）</p>
+</li>
+<li><p>临界区？ ： 一次只允许一个进程进入该进程的  <u><em>那一段代码</em></u>  ： （修改共享数据的地方、读写信号量的代码）</p>
+<ul>
+<li>必须互斥执行的程序段，相对论临界资源的临界区（互斥段）</li>
+<li>临界资源： 某段时间内 <em><strong>只允许一个</strong></em> 进程使用的资源</li>
+</ul>
+</li>
+<li><p>基本原则： <em><strong>互斥进入</strong></em> </p>
+<ul>
+<li>有空让进： 进程要求 进入空闲临界区时，应尽快让进</li>
+<li>有限等待：进程发出请求进入到允许进入不能无限等待</li>
+</ul>
+</li>
+<li><p>“<em>非对称标记</em>” :  Peterson 算法  两个进程</p>
+</li>
+<li><p>&#96;&#96;&#96;c++<br>boolean flag[2];	<br>int turn;<br>void procedure0()<br>{<br>while(true)<br>{<br>    flag[0]&#x3D;true;   &#x2F;&#x2F;调度关系有可能 flag[0] &#x3D; flag[1] &#x3D; true;  标记法可能出现 死锁<br>    turn&#x3D;1;		&#x2F;&#x2F;原子<br>    while(flag[1]&amp;&amp;turn&#x3D;&#x3D;1) &#x2F;<em>若flag[1]为false，P0就进入临界区；若flag[1]为tureP0循环等待，只要P1退出临界区，P0即可进入</em>&#x2F;<br>    {<br>        &#x2F;* donothing*&#x2F;<br>    }<br>    visit();&#x2F;<em>访问临界区</em>&#x2F;<br>    flag[0]&#x3D;false;&#x2F;<em>访问临界区完成，procedure0释放出临界区</em>&#x2F;<br>    &#x2F;<em>remainder section</em>&#x2F;<br>}<br>}<br>void procedure1()<br>{<br>while(true)<br>{<br>    flag[1]&#x3D;true;<br>    turn&#x3D;0;<br>    while(flag[0]&amp;&amp;turn&#x3D;&#x3D;0)<br>    {<br>        &#x2F;* donothing*&#x2F; ;<br>    }<br>    visit();&#x2F;<em>访问临界区</em>&#x2F;<br>    flag[1]&#x3D;false;&#x2F;<em>访问临界区完成，procedure1释放出临界区</em>&#x2F;<br>    &#x2F;<em>remainder section</em>&#x2F;<br>}<br>}<br>void main()<br>{<br>flag[0]&#x3D;flag[1]&#x3D;false;<br>&#x2F;<em>start procedure0 and procedure1</em>&#x2F; ;<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 多个进程： ***面包店算法*** </span><br><span class="line"></span><br><span class="line">  - ```c++</span><br><span class="line">         // declaration and initial values of global variables</span><br><span class="line">         Entering: array [1..NUM_THREADS] of bool = &#123;false&#125;;</span><br><span class="line">         Number: array [1..NUM_THREADS] of integer = &#123;0&#125;;</span><br><span class="line">     </span><br><span class="line">      1  lock(integer i) &#123;</span><br><span class="line">      2      Entering[i] = true;   // 标记</span><br><span class="line">      3      Number[i] = 1 + max(Number[1], ..., Number[NUM_THREADS]);   // 叫当前最大的号</span><br><span class="line">      4      Entering[i] = false;  // 当前进程 等待</span><br><span class="line">      5      for (j = 1; j &lt;= NUM_THREADS; j++) &#123;</span><br><span class="line">      6          // Wait until thread j receives its number:</span><br><span class="line">      7          while (Entering[j]) &#123; /* nothing */ &#125;</span><br><span class="line">      8          // Wait until all threads with smaller numbers or with the same</span><br><span class="line">      9          // number, but with higher priority, finish their work:</span><br><span class="line">     10          while ((Number[j] != 0) &amp;&amp; ((Number[j], j) &lt; (Number[i], i))) &#123; /* nothing */ &#125;</span><br><span class="line">     13      &#125;</span><br><span class="line">     14  &#125;</span><br><span class="line">     15  </span><br><span class="line">     16  unlock(integer i) &#123;</span><br><span class="line">     17      Number[i] = 0;</span><br><span class="line">     18  &#125;</span><br><span class="line">     19</span><br><span class="line">     20  Thread(integer i) &#123;</span><br><span class="line">     21      while (true) &#123;</span><br><span class="line">     22          lock(i);</span><br><span class="line">     23          // The critical section goes here...</span><br><span class="line">     24          unlock(i);</span><br><span class="line">     25          // non-critical section...</span><br><span class="line">     26      &#125;</span><br><span class="line">     27  &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="L19-死锁处理"><a href="#L19-死锁处理" class="headerlink" title="L19 死锁处理"></a>L19 死锁处理</h4><ul>
+<li><p>死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。产生死锁的原因，主要包括：</p>
+<ul>
+<li>系统资源不足；</li>
+<li>程序执行的顺序有问题；  （多个进程由于互相等待对方持有的资源 而造成 谁都无法向下推进现象 ）</li>
+<li>资源分配不当等。</li>
+</ul>
+</li>
+<li><p>死锁的<em><strong>4个必要条件</strong></em></p>
+<ul>
+<li><em><strong>互斥使用</strong></em> ： 一个资源每次只能被一个进程使用</li>
+<li><em><strong>不可抢占</strong></em>： 资源只能自愿放弃，进程已获得的资源，在末使用完之前，不能强行剥夺。</li>
+<li><em><strong>请求和保持</strong></em>：一个进程因请求资源而阻塞时，对已获得的资源保持不放</li>
+<li><em><strong>循环等待</strong></em>：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
+</ul>
+</li>
+<li><p>解决死锁 方法  （ 预防|避免| 检测恢复|忽略）</p>
+<ul>
+<li><p>预防方法： 一次性申请所有资源（需预知未来，资源利用率低），资源申请必须按序进行（资源浪费）</p>
+</li>
+<li><p>避免： 判断资源请求是否会引起死锁：（找到<em><strong>安全序列</strong></em> （所有进程存在可完成的执行序列））：</p>
+<ul>
+<li><p>银行家算法 ”Dijkstra 提出“ ： 时间复杂度高</p>
+</li>
+<li><p>&#96;&#96;&#96;c<br>int Available[1..m]; &#x2F;&#x2F; 每种资源的剩余数量<br>int Allocation[1..n,1..m]; &#x2F;&#x2F;已分配资源数量<br>int Need[1..n,1..m]; &#x2F;&#x2F; 进程还需要的各种资源数量<br>int Work[1..m]; &#x2F;&#x2F; 工作向量<br>bool Finish[1..n]; &#x2F;&#x2F; 进程是否结束</p>
+<p>work &#x3D; Available ;Finish[1..n] &#x3D; false;<br>while(true) {<br>for(int i &#x3D; 1; i &lt;&#x3D; n; i++) {<br>    if(Finish[i] &#x3D;&#x3D; false &amp;&amp; Need[i] &lt;&#x3D; work) {<br>        work +&#x3D; Allocation[i];<br>        Finis[i] &#x3D; true; break;<br>    }<br>    else {<br>        goto end;<br>    }<br>}<br>}<br>END: for(i &#x3D; 1; i&lt;&#x3D;n;++i) {<br>if(Finish[i] &#x3D;&#x3D; false)<br>    return “deadlock”;<br>}<br>时间复杂度 ： o(mn^2)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 死锁检测+处理： 发现问题再处理</span><br><span class="line"></span><br><span class="line">  - 通用操作系统：采用死锁忽略方法:</span><br><span class="line"></span><br><span class="line">#### L20 内存使用和分段</span><br><span class="line"></span><br><span class="line">- 重定位：把逻辑地址 转换成 物理地址 工作   </span><br><span class="line">  - 静态重定位： 再程序执行之前进行重定位： 逻辑地址+ 起始地址。（程序在内存中不能移动，要求连续的内存空间）</span><br><span class="line">  - 动态重定位： 在程序执行过程中进行重定位 （每次访问内存单元时 才进行地址重定位）</span><br><span class="line">  - -----运行时重定位（地址翻译： 执行指令时第一步： 从PCB中取出 ***基地址*** ）</span><br><span class="line"></span><br><span class="line">- **分段**：     程序由若干部分（段）组成： 将每个段分别放入内存中</span><br><span class="line">  - **LDT** ( 局部描述符表 ) :描述局部于每个程序的段，包括其代码、数据、堆栈等</span><br><span class="line">  - **GDT** (全局描述符表): </span><br><span class="line"></span><br><span class="line">#### L21 内存分区与分页</span><br><span class="line"></span><br><span class="line">- 分区：将内存分成若干个连续区域，每个分区只能存储一个程序</span><br><span class="line"></span><br><span class="line">  - 操作系统维护 ： **分区表（分区链表）** ，包含分区的起始地址、大小及状态</span><br><span class="line"></span><br><span class="line">- 固定分区：分为大小固定的分区，系统运行时不再改变分区的大小</span><br><span class="line"></span><br><span class="line">- 可变分区：在装入程序时划分内存区域，（使分配的分区大小等于该程序的需求量）</span><br><span class="line"></span><br><span class="line">  ***内存分配算法：***</span><br><span class="line"></span><br><span class="line">  - **最佳适配**（best fit）：从全部分区中找出满足作业需求的最小空闲区 - &gt; 使内存碎片尽量小</span><br><span class="line">  - **首先适配** （first fit）：按序查找，分配最先找到能够满足作业需求的空闲内存 -&gt; 最快</span><br><span class="line">  - **最差适配** （worst fit）：找到最大的空闲区 -&gt; 使剩下的空闲区最大，减小碎片机会</span><br><span class="line"></span><br><span class="line">- 分区管理的**缺点**：&lt;u&gt;内存使用不充分，存在着较为严重的碎片问题&lt;/u&gt; ， 内存移动（**内存紧缩**）浪费处理机时间</span><br><span class="line"></span><br><span class="line">- 分页存储管理： 将内存分为大小固定的若干块(页面，物理块)，（内存块号）</span><br><span class="line">  </span><br><span class="line">  - </span><br><span class="line">  - 同样，用户程序的虚拟地址划分为同样大小的若干页面- &gt; 每个页面对应一个编号（页号）</span><br><span class="line">  - 地址转换：</span><br><span class="line">    - 页表： 程序逻辑地址中 **页号** 与 内存物理地址 中的 **内存块号** 的对应关系， 页表指针存在PCB中 （一个进程有一个页表）</span><br><span class="line">    -  执行指令时，硬件（MMU内存管理单元）按照 **页号** 查得到对应的内存块号，**物理地址 = 内存块号 * 块长 + 页内地址**</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">#### L22 多级页表、快表</span><br><span class="line"></span><br><span class="line">- 多级页表： 页目录表+ 页表 （空间效率高，时间代价）</span><br><span class="line">  - &lt;img src=&quot;http://picgo.wangeyi.ink/image-20220328203652371.png&quot; alt=&quot;image-20220328203652371&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line">- 快表：**TLB** 一组相联快速存储，是**寄存器**，</span><br><span class="line">  - 快表是一种特殊的[高速缓冲存储器](https://baike.baidu.com/item/高速缓冲存储器/9027270)（Cache），内容是页表中的一部分或全部内容。</span><br><span class="line">  - &lt;img src=&quot;http://picgo.wangeyi.ink/image-20220328204527093.png&quot; alt=&quot;image-20220328204527093&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">#### L23 段页式存储管理</span><br><span class="line"></span><br><span class="line">- 分段和分页原理的组合：将用户程序分为若干段，每段分为若干页，并为每一段赋予一个段名</span><br><span class="line"></span><br><span class="line">  - 地址结构： 段号+段内页号+页内地址</span><br><span class="line">  - 段内页号用于确定一个段内有多少页：  数量  =  段长  / 页面大小</span><br><span class="line">  - ”***虚拟内存***“ ：为每个进程提供虚拟的地址空间**（每个进程看到的内存都是一致的）  </span><br><span class="line"></span><br><span class="line">- 段页同时存在的 地址翻译:</span><br><span class="line"></span><br><span class="line">  -  逻辑地址（段号+偏移）-&gt;(LDT)-&gt; 虚拟地址（页号+偏移）-&gt;页表-&gt;物理地址（物理页号+偏移）</span><br><span class="line"></span><br><span class="line">    &lt;img src=&quot;http://picgo.wangeyi.ink/image-20220328213700237.png&quot; alt=&quot;image-20220328213700237&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">- 程序载入内存：***\*读时共享写时复制\****</span><br><span class="line"></span><br><span class="line">  - 写入时复制（英语：Copy-on-write，简称COW）是一种计算机程序设计领域的优化策略。其核心思想是，如果有多个调用者（callers）同时请求相同资源（如内存或磁盘上的数据存储），他们会共同获取相同的指针指向相同的资源，直到某个调用者试图修改资源的内容时，系统才会真正复制一份专用副本（private copy）给该调用者，而其他调用者所见到的最初的资源仍然保持不变。这过程对其他的调用者都是透明的（transparently）。</span><br><span class="line"></span><br><span class="line">    &lt;img src=&quot;http://picgo.wangeyi.ink/image-20220328225902355.png&quot; alt=&quot;image-20220328225902355&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    - **优点**是如果调用者没有修改该资源，就不会有副本（private copy）被建立，因此多个调用者只是读取操作时可以共享同一份资源。</span><br><span class="line"></span><br><span class="line">#### L24 内存换入_请求调页</span><br><span class="line"></span><br><span class="line">&gt;  换入换出实现”**虚拟内存**“</span><br><span class="line">&gt;</span><br><span class="line">&gt;  进程运行时，不是装入全部页面，而是动态装入，当内存控件已满，且需要装入新的页面，需要换入换出</span><br><span class="line"></span><br><span class="line">-  缺页中断： （用户进程的当前用到的 **页面** 是放在**主存（内存）**中，其他页面放在 外存(磁盘中)）。</span><br><span class="line">  - 当 从页表中查出该页 不在主存中，发送 **缺页中断**  </span><br><span class="line">- 请求调页： 发送缺页中断时，调入所需的页面</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">address &amp;+ 0xfffff000; // 页面地址</span><br><span class="line">page = get_free_page(); // 在物理内存中申请一个空页</span><br><span class="line">bread_page(page,current-&gt;executable-&gt;i_dev,n); // 从磁盘中读入到物理内存page中</span><br><span class="line">put_page(page,address); // 建立虚拟地址和 物理地址的映射， 填 页表</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="L25-内存换出"><a href="#L25-内存换出" class="headerlink" title="L25 内存换出"></a>L25 内存换出</h4><h5 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h5><blockquote>
+<p>内存是有限的，需要<strong>选择页淘汰</strong>，换出到磁盘</p>
+</blockquote>
+<ul>
+<li><p>FIFO (先进先出): 优先淘汰在内存中驻留时间最长的页，</p>
+<ul>
+<li>页面置换FIFO算法时，如果对一个进程未分配它所要求的全部页面，有时就会出现分配的页面数增多，但缺页率反而提高的异常现象，这是一个违反直觉的现象</li>
+</ul>
+</li>
+<li><p>MIN页面置换（最优）</p>
+</li>
+<li><p>LRU(最近最少使用）: 选择 <strong>最近最长</strong> 一段时间没有使用的页换出 <!--实际使用--></p>
+<ul>
+<li>”近似算法“”：每个页添加一个<strong>引用位</strong>：（SCR : second chance Replacement 二次机会算法： clock algorithm）<ul>
+<li><img src="http://picgo.wangeyi.ink/image-20220329205819272.png" alt="image-20220329205819272" style="zoom:50%;" /></li>
+<li>定时清 <strong>R 位</strong></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lru-cache/">146. LRU 缓存</a></li>
+</ul>
+</li>
+<li><p>LFU (最不频繁使用)：</p>
+</li>
+</ul>
+<p>&lt;a name &#x3D; “内存换入换出”&gt;</a></p>
+<h4 id="L26-I-x2F-O与显示器"><a href="#L26-I-x2F-O与显示器" class="headerlink" title="L26 I&#x2F;O与显示器"></a>L26 I&#x2F;O与显示器</h4><h4 id="L27-键盘"><a href="#L27-键盘" class="headerlink" title="L27 键盘"></a>L27 键盘</h4><ul>
+<li>“按键”-&gt; <em><strong>产生中断</strong></em></li>
+<li>中断处理函数 ，按照扫描码得到ASCII 码 -按键对应的字符</li>
+<li><img src="http://picgo.wangeyi.ink/image-20220415201246914.png" alt="image-20220415201246914" style="zoom:50%;" /></li>
+</ul>
+<h4 id="生磁盘-（raw-disk）"><a href="#生磁盘-（raw-disk）" class="headerlink" title="生磁盘 （raw disk）"></a>生磁盘 （raw disk）</h4><ul>
+<li><p>读写的基本单位是扇区 ： 512字节</p>
+</li>
+<li><p>I&#x2F;O过程： 寻道 -&gt; 旋转-&gt; 传输</p>
+<ul>
+<li>往磁盘控制器 写 “柱面” <code>cyl</code>, “磁头 <code>head</code>”、“扇区 <code>sec</code>”、“缓存位置” </li>
+<li><img src="http://picgo.wangeyi.ink/image-20220415201736076.png" alt="image-20220415201736076" style="zoom: 25%;" /></li>
+</ul>
+</li>
+<li><p>一层抽象 ：<em><strong>盘块号  block 读写磁盘</strong></em></p>
+<ul>
+<li><p><u>磁盘驱动</u> 负责从 <strong>block</strong> 计算出 <code>cyl，head，sec</code> （CHS）</p>
+</li>
+<li><img src="http://picgo.wangeyi.ink/image-20220415203356458.png" alt="image-20220415203356458" style="zoom:50%;" />
+</li>
+<li><blockquote>
+<p>磁盘访问时间： 写入控制器时间 + 寻道时间 + 旋转时间 + 传输时间 ，  主要的时间发在<strong>寻道时间</strong>上</p>
+</blockquote>
+</li>
+<li><p>扇区 到 盘块 ： 上层读写的单位 变为盘块</p>
+</li>
+</ul>
+</li>
+<li><p>二层抽象 ：多个进程通过队列使用磁盘</p>
+<ul>
+<li>磁盘调度  （  平均访问延迟小 、 <code>关键:寻道时间</code>） ： <u>最优：电梯算法</u><ul>
+<li>FCFS:  </li>
+<li>SSTF (短磁道优先) ： 移动到最近的柱面  —— 存在饥饿问题</li>
+<li>**SCAN **：sstf + 中途不回折<ul>
+<li>C-SCAN（电梯算法） : <img src="http://picgo.wangeyi.ink/image-20220415205236783.png" alt="image-20220415205236783" style="zoom:50%;" /> <!--真实算法--></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>整理</li>
+<li><ol>
+<li>进程得到“盘块号”，算出扇区号<ol>
+<li>用扇区号make req，发出请求，用电梯算法<code>add_request</code> 放入请求队列中</li>
+<li>进程<code>sleep_on</code> </li>
+<li>磁盘中断处理</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>第三层抽象： 引入文件</p>
+<ul>
+<li>文件： 建立 <strong>字符流</strong> 到 <strong>盘块集合</strong> 的 <em><strong>映射</strong></em> 关系<ul>
+<li>连续结构：(数组)   -&gt; 不适用于动态增长的文件</li>
+<li>链式结构：（链表）-&gt; 不能随机存储</li>
+<li>索引结构：”索引块“ 存储文件盘块的目录</li>
+<li>实际系统中： <strong>多级索引结构</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="L31-目录树"><a href="#L31-目录树" class="headerlink" title="L31 目录树"></a>L31 目录树</h4><ul>
+<li>第四层抽象： <strong>文件系统</strong><ul>
+<li>根据 文件的路径 得到文件的 <code>FCB</code></li>
+</ul>
+</li>
+<li>树状目录的完整实现<ul>
+<li><img src="http://picgo.wangeyi.ink/image-20220417171304628.png" alt="image-20220417171304628" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="CSAPP"><a href="#CSAPP" class="headerlink" title="CSAPP"></a>CSAPP</h2><ul>
+<li><p>程序文件翻译过程</p>
+<ul>
+<li>预处理器cpp: 根据#开头的命令，修改原始程序，得到另一个C程序 ，以.i 为文件扩展名（文本文件）</li>
+<li>编译器ccl: 将文本文件.i翻译为.s 汇编语言程序</li>
+<li>汇编器as ：将汇编语言程序翻译为机器语言.o（二进制文件）。</li>
+<li>链接器id ： 负责将其他.o文件链接到该文件中，结果得到可执行目标文件（可执行文件）<ul>
+<li><a href="#%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6">目标文件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>系统硬件组成</p>
+<ul>
+<li>总线：</li>
+<li>IO设备</li>
+<li>主存： 临时存储设备，用来存放程序和程序处理的数据</li>
+<li>处理器CPU</li>
+</ul>
+</li>
+<li><p>存储器额层次结构</p>
+<ul>
+<li><img src="http://picgo.wangeyi.ink/image-20220218164314858.png" alt="image-20220218164314858"></li>
+</ul>
+</li>
+<li><p>操作系统管理硬件 （CPU管理 | 内存管理 | 终端管理 | 磁盘管理 | 文件管理） </p>
+</li>
+<li><p>文件是对io设备的抽象，虚拟内存是对程序存储器的抽象，进程是对正在运行的程序的抽象、虚拟机对整个计算机的抽象（操作系统、处理器、程序）</p>
+<ul>
+<li>进程：操作系统对一个正在运行的程序的一种抽象<ul>
+<li>并发底执行多个进程：</li>
+<li>上下文切换： 保存当前进程的上下文，恢复新进程的上下文，CPU控制权传递给新进程</li>
+</ul>
+</li>
+<li>线程：一个进程可由多个执行单元组成（线程）-更容易共享数据</li>
+<li>虚拟内存<strong>：为每个进程提供虚拟的地址空间</strong>（每个进程看到的内存都是一致的）  <a name = 虚拟内存></a></li>
+<li>文件： 就是字节序列，（磁盘、键盘、显示器、网络都可以看成是文件）</li>
+</ul>
+</li>
+<li><p>并发与并行</p>
+<ul>
+<li>并发：指一个同时具有多个活动的系统</li>
+<li>并行：用并发来使一个系统运行得更快</li>
+</ul>
+</li>
+</ul>
+<h3 id="程序结构和执行"><a href="#程序结构和执行" class="headerlink" title="程序结构和执行"></a>程序结构和执行</h3><h4 id="2-信息的表示和处理"><a href="#2-信息的表示和处理" class="headerlink" title="2.信息的表示和处理"></a>2.信息的表示和处理</h4><h5 id="2-1信息存储"><a href="#2-1信息存储" class="headerlink" title="2.1信息存储"></a>2.1信息存储</h5><ul>
+<li>一般计算机使用字节作为最小的可寻址内存单位</li>
+<li>虚拟内存：机器级程序将内存视为一个整体的字节数组（每个字节由唯一的数字标识——内存地址）</li>
+<li>字数据大小 ——字长（决定系统虚拟地址空间的最大大小）<ul>
+<li>字长为w位的机器，虚拟地址范围为 <code>0 ~ 2 ^ W - 1</code></li>
+</ul>
+</li>
+<li>寻址和字节顺序： 多字节对象呗存储再连续的地址空间，对象的地址使用的字节中最小的地址</li>
+<li>扩展数字的位表示：<ul>
+<li>无符号数的<strong>零扩展</strong>：高位补零</li>
+<li>有符号数的<strong>符号扩展</strong>：高位补最高位有效值</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-程序的机器级表示"><a href="#3-程序的机器级表示" class="headerlink" title="3.程序的机器级表示"></a>3.程序的机器级表示</h4><h5 id="3-1程序编码"><a href="#3-1程序编码" class="headerlink" title="3.1程序编码"></a>3.1程序编码</h5><ul>
+<li>预处理器：插入所有<code>#include</code>命令指定的文件，扩展<code>#define</code>声明的宏</li>
+<li>编译器：产生程序文件的汇编代码</li>
+<li>汇编器：将汇编代码转化成 <strong>二进制表示</strong>的目标代码文件（.o）</li>
+<li>链接器：合并实现库函数的代码，产生最终的可执行文件</li>
+</ul>
+<h6 id="3-1-1机器级代码"><a href="#3-1-1机器级代码" class="headerlink" title="3.1.1机器级代码"></a>3.1.1机器级代码</h6><ul>
+<li><p><em><strong>ISA指令集架构：</strong></em>定义机器级程序的格式和行为，定义处理器状态、指令个格式，以及每条指令对状态的影响</p>
+</li>
+<li><p><em><strong>虚拟地址的抽象：</strong></em>机器级程序使用的内存地址的虚拟地址：（非常大的字节数组）</p>
+</li>
+<li><p>程序的内存：<u>程序的可执行的机器代码</u>、操作系统需要的信息、管理过程调用和返回的运行时栈、用户动态分配的内存</p>
+</li>
+<li><blockquote>
+<p>操作系统负责管理程序的虚拟地址空间、将虚拟地址空间翻译成实际处理器内存中的物理地址</p>
+</blockquote>
+</li>
+</ul>
+<h6 id="3-1-2-代码示例"><a href="#3-1-2-代码示例" class="headerlink" title="3.1.2 代码示例"></a>3.1.2 代码示例</h6><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mstore.c</span></span><br><span class="line"><span class="type">long</span> <span class="title function_">mult2</span><span class="params">(<span class="type">long</span>,<span class="type">long</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">multstore</span><span class="params">(<span class="type">long</span> x, <span class="type">long</span> y, <span class="type">long</span> * dest)</span> &#123;</span><br><span class="line">	<span class="type">long</span> t = mult2(x,y);</span><br><span class="line">	*dest = t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//命令行：</span></span><br><span class="line">linux&gt; gcc -Og -S mstore.c     -S 选项能看到编译器产生的汇编代码</span><br><span class="line">linux&gt; gcc -Og -c mstore.c   	-c 选项能看到目标代码文件</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-3-数据格式"><a href="#3-3-数据格式" class="headerlink" title="3.3 数据格式"></a>3.3 数据格式</h5><img src="http://picgo.wangeyi.ink/image-20220219152312027.png" alt="image-20220219152312027" style="zoom:200%;" />
+
+<h5 id="3-4-访问信息"><a href="#3-4-访问信息" class="headerlink" title="3.4 访问信息"></a>3.4 访问信息</h5><p>X86-64的处理器包含一组16个存储64位值得<u><em>通用目的寄存器</em></u>，用来存储整数数据和指针</p>
+<p><img src="http://picgo.wangeyi.ink/image-20220219152726646.png" alt="image-20220219152726646"></p>
+<h6 id="3-4-1-操作数指示符"><a href="#3-4-1-操作数指示符" class="headerlink" title="3.4.1 操作数指示符"></a>3.4.1 操作数指示符</h6><ul>
+<li>操作数（operand）： 指示出执行操作中要使用的<em><strong>源数据值</strong></em>、以及<em><strong>放置结果得目标位置</strong></em>， <u>三种类型</u><ul>
+<li>立即数：表示常数值 ，<code>$-577</code></li>
+<li>寄存器：表示某个寄存器的内容</li>
+<li>内存引用：根据计算出来的地址访问某个内存位置</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://picgo.wangeyi.ink/image-20220219154259004.png" alt="image-20220219154259004"></p>
+<h6 id="3-4-2-数据传送指令"><a href="#3-4-2-数据传送指令" class="headerlink" title="3.4.2 数据传送指令"></a>3.4.2 数据传送指令</h6><blockquote>
+<p>最频繁使用的指令： 将数据从一个位置复制到另一个位姿</p>
+</blockquote>
+<ul>
+<li><p>MOV类 ：<code>mov S,D</code> : 把数据从源位置S复制到目标位置D</p>
+<ul>
+<li><p><img src="http://picgo.wangeyi.ink/image-20220219155002813.png" alt="image-20220219155002813"><img src="http://picgo.wangeyi.ink/image-20220219155638700.png" alt="image-20220219155638700"></p>
+</li>
+<li><p>源操作数：立即数|存储在寄存器|存储在内存中</p>
+</li>
+<li><p>目的操作数：指定位置|寄存器|内存地址</p>
+</li>
+<li><blockquote>
+<p>x86-64的限制：两个操作数不能都指向内存位置，需要两条指令：</p>
+<p>1.将源值加载到寄存器</p>
+<p>2.将该寄存器值写入目的位置</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://picgo.wangeyi.ink/image-20220219155522238.png"></p>
+<ul>
+<li>将较小的源值复制到较大的目的时：<ul>
+<li><img src="http://picgo.wangeyi.ink/image-20220219155841596.png" alt="image-20220219155841596"></li>
+</ul>
+</li>
+</ul>
+<h6 id="3-4-3-压入和弹出栈数据"><a href="#3-4-3-压入和弹出栈数据" class="headerlink" title="3.4.3 压入和弹出栈数据"></a>3.4.3 压入和弹出栈数据</h6><blockquote>
+<p>x86-64中： 程序栈是向下增长的,栈顶元素的地址是所有栈中元素地址中*<em>最低</em>的</p>
+</blockquote>
+<ul>
+<li><img src="http://picgo.wangeyi.ink/image-20220219161647610.png" alt="image-20220219161647610"><ul>
+<li>压栈：首先将栈指针减8，然后将值写到新的栈顶地址</li>
+<li>弹出: 从栈顶位置读出数据，然后将栈指针加8</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-5-算术和逻辑操作"><a href="#3-5-算术和逻辑操作" class="headerlink" title="3.5 算术和逻辑操作"></a>3.5 算术和逻辑操作</h5><ul>
+<li><img src="http://picgo.wangeyi.ink/image-20220219162136047.png" alt="image-20220219162136047"></li>
+</ul>
+<h6 id="3-5-1-加载有效地址"><a href="#3-5-1-加载有效地址" class="headerlink" title="3.5.1 加载有效地址"></a>3.5.1 加载有效地址</h6><ul>
+<li><p><code>leaq</code> 指令：<code>movq</code> 的变形</p>
+</li>
+<li><blockquote>
+<p>指令形式是从内存读数据到寄存器，但实际上没引用内存，而是将有效地址写入到目的操作数</p>
+</blockquote>
+<ul>
+<li>&#96;&#96;&#96;basic<br>movq 7(%rdx,%rdx,4), %rax  : M[5 * R[%rdx] + 7] -&gt; R[%rax]<br>leaq 7(%rdx,%rdx,4), %rax  : 5 * R[%rdx] + 7 - &gt; R[%rax]<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - ![image-20220219163126101](http://picgo.wangeyi.ink/image-20220219163126101.png)</span><br><span class="line"></span><br><span class="line">###### 3.5.2 一元和二元操作</span><br><span class="line"></span><br><span class="line">- 一元操作： *&lt;u&gt;操作数即是源又是目的&lt;/u&gt;*</span><br><span class="line">- 二元操作：***第二个操作数既是源又是目的***</span><br><span class="line">  - 第一个操作数： 立即数|寄存器|内存位置</span><br><span class="line">  - 第二个操作数：寄存器|内存位置</span><br><span class="line">    - 内存位置：处理器必须从内存读出值，执行操作，再把结果写回内存</span><br><span class="line"></span><br><span class="line">###### 3.5.3 移位操作</span><br><span class="line"></span><br><span class="line">- 第一操作数是移位量（立即数|单字节寄存器%cl），第二操作数是要移位的数</span><br><span class="line">- 左移指令：`SAL|SHL`右边补上0</span><br><span class="line">- 右移指令：SAR(算术右移)：补上符号位| SLR(逻辑右移)：补上0</span><br><span class="line"></span><br><span class="line">###### 3.5.4 特殊的算术操作</span><br><span class="line"></span><br><span class="line">- ![image-20220219174818555](http://picgo.wangeyi.ink/image-20220219174818555.png)</span><br><span class="line"></span><br><span class="line">##### 3.6控制（执行操作的顺序）</span><br><span class="line"></span><br><span class="line">###### 3.6.1条件码</span><br><span class="line"></span><br><span class="line">- 一组单个位的条件码：描述最近的算术或逻辑操作的属性</span><br><span class="line">  - CF 进位标志：最近的操作使最高位产生了进位</span><br><span class="line">  - ZF零标志：最近的操作得出结果为0</span><br><span class="line">  - SF符号标志：最近的操作得到结果为负数</span><br><span class="line">  - OF溢出标志：最近的操作导致一个补码溢出——正溢出|负溢出</span><br><span class="line">- CMP指令|TEST指令 ： 只设置条件码而不改变任何其他寄存器</span><br><span class="line">  - CMP指令根据两个操作数的***&lt;u&gt;差&lt;/u&gt;*** 来设置条件码</span><br><span class="line">  - ![image-20220220193542268](http://picgo.wangeyi.ink/image-20220220193542268.png)</span><br><span class="line"></span><br><span class="line">###### 3.6.2 访问条件码</span><br><span class="line"></span><br><span class="line">- SET指令: 根据条件码的某种组合，将一个字节设置为0|1</span><br><span class="line">  - 目的操作数是**低位单字节寄存器元素|一个字节的内存地址**</span><br><span class="line">  - ![image-20220220194115433](http://picgo.wangeyi.ink/image-20220220194115433.png)</span><br><span class="line"></span><br><span class="line">###### 3.6.3 跳转指令</span><br><span class="line"></span><br><span class="line">- jump指令 ： 跳转的目的地通常用一个标号label指明</span><br><span class="line"></span><br><span class="line">- 跳转指令的编码方式：</span><br><span class="line">  - PC-relative (PC 相对):  将***跳转目标指令的地址***   与 紧邻 ***跳转指令（jump）*** ***后面一条指令*** ***的地址*** 之间的差作为编码</span><br><span class="line"></span><br><span class="line">###### 3.6.4 条件分支的实现</span><br><span class="line"></span><br><span class="line">- 条件控制：根据有条件|无条件控制跳转</span><br><span class="line">  - 首先比较两个操作数，按照条件码来控制跳转</span><br><span class="line">  - ![image-20220221172509594](http://picgo.wangeyi.ink/image-20220221172509594.png)</span><br><span class="line"></span><br><span class="line">- 条件传送： 计算条件操作的***两种结果*** ， 根据 ***条件是否满足*** 选取一个</span><br><span class="line">  - ![image-20220221172727169](http://picgo.wangeyi.ink/image-20220221172727169.png)</span><br><span class="line"></span><br><span class="line">- ![image-20220221172740678](http://picgo.wangeyi.ink/image-20220221172740678.png)</span><br><span class="line">  - 条件控制|条件传送：  ***&lt;u&gt;（分支预测错误|大量计算）&lt;/u&gt;***</span><br><span class="line">    - ![image-20220221173144768](http://picgo.wangeyi.ink/image-20220221173144768.png)</span><br><span class="line"></span><br><span class="line">###### 3.6.5 条件传送指令</span><br><span class="line"></span><br><span class="line">![image-20220221172841354](http://picgo.wangeyi.ink/image-20220221172841354.png)</span><br><span class="line"></span><br><span class="line">###### 3.6.6 循环</span><br><span class="line"></span><br><span class="line">- 利用 **&lt;u&gt;条件测试和跳转&lt;/u&gt;** 组合来实现**循环** </span><br><span class="line"></span><br><span class="line">##### 3.7 过程 （函数|方法|子例程| 处理函数）</span><br><span class="line"></span><br><span class="line">- 提供封装代码的方式(指定参数|返回值实现</span><br><span class="line">  - 设：过程p调用过程q，q执行完后返回p</span><br><span class="line">    - ***传递控制*** ： 进入 **q** 时，程序计数器必须被设置为 **q** 的代码地址，返回时，程序计数器设置为 **p** 中调用 **q** 之后的指令的地址。</span><br><span class="line">    - ***传递数据*** ：  p-&gt; q : 参数  | q -&gt; p : 返回值</span><br><span class="line">    - ***分配和释放内存***： 为局部变量分配空间，返回时释放这些空间。</span><br><span class="line"></span><br><span class="line">###### 3.7.1 运行时栈</span><br><span class="line"></span><br><span class="line">- 调用函数|过程时， （*栈指针`%rsp`*）控制 和数据信息添加到栈尾</span><br><span class="line">- 从函数|过程返回时：栈尾的数据被释放掉</span><br><span class="line"></span><br><span class="line">&gt; 当x86-64过程需要的存储空间超出寄存器能够存放的大小时，就会在栈上分配空间 -———(过程的**栈帧**)</span><br><span class="line">&gt;</span><br><span class="line">&gt; 许多函数根本不需要栈帧</span><br><span class="line"></span><br><span class="line">###### 3.7.2 转移控制</span><br><span class="line"></span><br><span class="line">- **！**</span><br><span class="line">  - 调用时： 将程序计数器设置为 q  的代码地址</span><br><span class="line">  - 返回时：将程序计数器设置为继续 p 的执行的代码位置</span><br><span class="line">- 指令 `call` ： </span><br><span class="line">  - ![image-20220224193254529](http://picgo.wangeyi.ink/image-20220224193254529.png)</span><br><span class="line"></span><br><span class="line">###### 3.7.3 数据传送</span><br><span class="line"></span><br><span class="line">- 大部分过程间的数据传送时通过寄存器实现的。-	x86-64 可通过寄存器最多传递6个整形![image-20220228210232218](http://picgo.wangeyi.ink/image-20220228210232218.png)</span><br><span class="line"></span><br><span class="line">###### 3.7.6 递归过程</span><br><span class="line"></span><br><span class="line">- 递归调用一个函数本身与调用其他函数是一样的</span><br><span class="line">  - ![image-20220228210639268](http://picgo.wangeyi.ink/image-20220228210639268.png)</span><br><span class="line"></span><br><span class="line">##### 3.8 数组分配和访问</span><br><span class="line"></span><br><span class="line">###### 3.8.2 指针运算</span><br><span class="line"></span><br><span class="line">- ![image-20220228211329553](D:\Study\文献\笔记\学习笔记\image-20220228211329553.png)</span><br><span class="line"></span><br><span class="line">###### 3.8.3 嵌套的数组</span><br><span class="line"></span><br><span class="line">- 对于多维数组：数组元素在内存种按照“***行优先***”的顺序排列</span><br><span class="line"></span><br><span class="line">  - ![image-20220301205310282](http://picgo.wangeyi.ink/image-20220301205310282.png)</span><br><span class="line"></span><br><span class="line">  - 示例：![image-20220301205351083](http://picgo.wangeyi.ink/image-20220301205351083.png)</span><br><span class="line"></span><br><span class="line">###### 3.8.4  定长数组</span><br><span class="line"></span><br><span class="line">- #define 声明数组的长度</span><br><span class="line"></span><br><span class="line">##### 3.9 数据结构</span><br><span class="line"></span><br><span class="line">##### 3.9.1 结构</span><br><span class="line"></span><br><span class="line">- 结构的所有组成部分都存放在内存中一段连续的地址内。 —— 指向***&lt;u&gt;结构的指针&lt;/u&gt;*** 就是 结构第一个字节的地址。 </span><br><span class="line"></span><br><span class="line">###### 3.9.2 联合</span><br><span class="line"></span><br><span class="line">![image-20220301214302883](http://picgo.wangeyi.ink/image-20220301214302883.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 6. 存储器结构</span><br><span class="line"></span><br><span class="line">##### 6.1 存储技术</span><br><span class="line"></span><br><span class="line">###### 随机访问存储器</span><br><span class="line"></span><br><span class="line">- random access memory： `RAM 静态RAM(SRAM)、动态RAM(DRAM)`</span><br><span class="line"></span><br><span class="line">- SRAM：每位存储在 ”双稳态的存储单元“，</span><br><span class="line">  - 作为高速缓存存储器</span><br><span class="line">  - ![image-20220419205405437](http://picgo.wangeyi.ink/image-20220419205405437.png)</span><br><span class="line">- DRAM:  每一位存储为 对一个**电容的充电**。</span><br><span class="line">  - 作为主存，图形系统的帧缓冲区</span><br><span class="line">- ![image-20220419205957007](http://picgo.wangeyi.ink/image-20220419205957007.png)</span><br><span class="line"></span><br><span class="line">- 非易失性存储器： </span><br><span class="line">  - ROM（只读存储器）：</span><br><span class="line">    - PROM (Programmable ROM)：只能被编程一次</span><br><span class="line">    - EPROM (Erasable  Programmable ROM): 可擦写可编程、EEROM (电子可擦除)</span><br><span class="line">    - 闪存 （Flash Memory )- &gt; 基于闪存的SSD （Solid state disk）</span><br><span class="line">  - 固件：firmware， 存储在rom设备中的程序</span><br><span class="line">- 访问主存 ：</span><br><span class="line">  - 数据流通过总线在cpu和主存之间传输。 称为总线事务(读事务、写事务)</span><br><span class="line">  - ![image-20220419213154365](http://picgo.wangeyi.ink/image-20220419213154365.png)</span><br><span class="line"></span><br><span class="line">###### 磁盘存储</span><br><span class="line"></span><br><span class="line">- ***广为应用的保存大量数据的存储设备*** , (存储数据多，读写数据慢（毫秒级）)</span><br><span class="line"></span><br><span class="line">- 构造：</span><br><span class="line">  - 由盘片构成： 每个盘片有两面：表面； 表面上覆盖磁性记录材料</span><br><span class="line">  - 每个表面由一组称为 **“磁道”**  同心圆组成，</span><br><span class="line">  - 每个磁道被划分为一组 **“扇区”**，每个扇区包含相等数量的数据位</span><br><span class="line">  - 柱面： 所有盘片表面上到主轴中心的距离**相等**的磁道的集合</span><br><span class="line">  - ![image-20220430144948094](http://picgo.wangeyi.ink/image-20220430144948094.png)</span><br><span class="line">- 磁盘容量：可以记录的最大位数：最大容量</span><br><span class="line">  - 记录密度： 磁道一英寸的段中可以放入的位数</span><br><span class="line">  - 磁道密度： 盘片中心出发半径一英寸的段内可以有的磁道数</span><br><span class="line">  - 面密度： 记录密度 与磁道密度 的乘积</span><br><span class="line">  - ![image-20220430145446976](http://picgo.wangeyi.ink/image-20220430145446976.png)</span><br><span class="line">  - ![image-20220430145600262](image-20220430145600262.png)</span><br><span class="line">- 磁盘操作</span><br><span class="line">  - “**读/写头**” 来读写存储在磁性表面的位 </span><br><span class="line">  - “**寻道**” ：驱动器通过 前后移动传动臂，将“读/写头定位在盘面上的任何磁道”</span><br><span class="line">  - 磁盘以***扇区为单位***进行读写，访问时间的三个主要部分：</span><br><span class="line">    - 寻道时间：移动读写头的传动臂所需的时间，通常3 ~9ms， 最大高达20ms</span><br><span class="line">    - 旋转时间：目标扇区的第一位旋转到读写头下，![image-20220430151037163](http://picgo.wangeyi.ink/image-20220430151037163.png)</span><br><span class="line">    - 传送时间： 读写的时间</span><br><span class="line">  - ![image-20220430151147469](image-20220430151147469.png)</span><br><span class="line">- 逻辑磁盘块：</span><br><span class="line">  - 呈现为一个 逻辑块的序列， 磁盘控制器负责维护逻辑块号与实际磁盘扇区之间的映射关系</span><br><span class="line">  - ![image-20220430152227725](http://picgo.wangeyi.ink/image-20220430152227725.png)</span><br><span class="line">- 连接I/O 设备：</span><br><span class="line">  - ![image-20220430153221413](http://picgo.wangeyi.ink/image-20220430153221413.png)</span><br><span class="line">  - 三种不同类型的设备比连接到总线</span><br><span class="line">    - USB 通用串行总线：连接各种外围IO设备</span><br><span class="line">    - 显卡</span><br><span class="line">    - 主机总线适配器：将一或多个磁盘连接到IO总线上，</span><br><span class="line">      - 磁盘接口 **SCSI** 、SATA</span><br><span class="line">- 访问磁盘：</span><br><span class="line">  - ![image-20220430154010783](http://picgo.wangeyi.ink/image-20220430154010783.png)</span><br><span class="line"></span><br><span class="line">###### 固态硬盘</span><br><span class="line"></span><br><span class="line">- SSD，基于闪存的存储技术</span><br><span class="line">  - 封装有一个或多个***闪存芯片*** 和 ***闪存翻译层*** </span><br><span class="line">    - 闪存芯片： 代替 “机械驱动器”</span><br><span class="line">    - 闪存翻译层： 代替 “磁盘控制器”</span><br><span class="line">  - ![image-20220430155609417](http://picgo.wangeyi.ink/image-20220430155609417.png)</span><br><span class="line"></span><br><span class="line">##### 6.2 局部性</span><br><span class="line"></span><br><span class="line">&gt; 局部性原理（**locality**）：无论是存取指令还是存取数据，所访问的存储单元都趋于聚集在一个较小的连续区域中。</span><br><span class="line">&gt;</span><br><span class="line">&gt; || :编写良好的计算机程序 倾向于引用领近于其他最近引用过的数据项</span><br><span class="line"></span><br><span class="line">- 通常有两种形式 : 时间局部性、空间局部性</span><br><span class="line">- 	硬件层： 引入`高速缓存存储器` 保存最近被引用的指令和数据项</span><br><span class="line">-     操作系统级：</span><br><span class="line"></span><br><span class="line">###### 程序数据引用的局部性</span><br><span class="line"></span><br><span class="line">![image-20220501144958459](http://picgo.wangeyi.ink/image-20220501144958459.png)</span><br><span class="line"></span><br><span class="line">- 顺序引用模式： 步长为`1` 的引用模式， 例顺序一维数组</span><br><span class="line">-  连续向量中， 每隔 k 个元素进行访问，称为 步长为 k 的引用模式；随着步长增加，空间局部性下降。</span><br><span class="line">- 二维数组: 交换行列的访问顺序，行优先 步长为 1，列优先步长为N</span><br><span class="line"></span><br><span class="line">###### 小结</span><br><span class="line"></span><br><span class="line">- **重复引用相同的变量的程序具有良好的局部性**</span><br><span class="line">- **步长越小，空间局部性越好**</span><br><span class="line">- **取指令：循环有好的时间和空间局部性，循环体越小，循环迭代次数越多，局部性越好**</span><br><span class="line"></span><br><span class="line">##### 6.3 存储器的层次结构</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;http://picgo.wangeyi.ink/image-20220501150222848.png&quot; alt=&quot;image-20220501150222848&quot;  /&gt;</span><br><span class="line"></span><br><span class="line">###### 缓存</span><br><span class="line"></span><br><span class="line">- 存储器层次结构的中心思想：</span><br><span class="line">  - ![image-20220501151100415](http://picgo.wangeyi.ink/image-20220501151100415.png)</span><br><span class="line"></span><br><span class="line">- 高速缓存：小而快速的存储设备，作为存储在更大、更慢的设备中的数据对象的缓冲区。</span><br><span class="line"></span><br><span class="line">&gt; 存储器被划分为连续的数据对象组块，称为块（**block**）’</span><br><span class="line">&gt;</span><br><span class="line">&gt; 数据总是以**块** 大小为传送单元在 k层 和 k + 1层之间来回复制</span><br><span class="line"></span><br><span class="line">- 缓冲命中：</span><br><span class="line">  - 当程序需要第 k + 1层的某个数据对象 `d` 时，首先在当前存储在第k层的块中查找 `d`，如果 **d 刚好缓存在第k层中**，称为 ”缓存命中“。</span><br><span class="line">- 缓存不命中：</span><br><span class="line">  - 第k层中没有缓存对象d，需要从第k + 1层 缓存中取出包含d的块。</span><br><span class="line">  - 替换策略：[跳转](#内存换入换出)</span><br><span class="line"></span><br><span class="line">###### 小结</span><br><span class="line"></span><br><span class="line">![image-20220501154632773](http://picgo.wangeyi.ink/image-20220501154632773.png)</span><br><span class="line"></span><br><span class="line">##### 6.4 高速缓存存储器</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;http://picgo.wangeyi.ink/image-20220501155335549.png&quot; alt=&quot;image-20220501155335549&quot; style=&quot;zoom:80%;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&gt; 读吞吐量：程序中存储系统中读数据的速率（或称为读带宽）</span><br><span class="line"></span><br><span class="line">##### 小结</span><br><span class="line"></span><br><span class="line">###### 基本存储技术:</span><br><span class="line"></span><br><span class="line">- RAM(随机存储器)</span><br><span class="line">  - SRAM: (快、贵) 用做CPU芯片、芯片下的高速缓存</span><br><span class="line">  - DAMR：主存、图形帧缓冲区</span><br><span class="line">- ROM(非易失性存储器) 断电数据不丢失</span><br><span class="line">- ![image-20220517190207261](http://picgo.wangeyi.ink/image-20220517190207261.png)</span><br><span class="line"></span><br><span class="line">#### 7.链接</span><br><span class="line"></span><br><span class="line">将各种代码和数据片段收集并组合成为一**&lt;u&gt;个单一文件的过程&lt;/u&gt;**</span><br><span class="line"></span><br><span class="line">##### 7.2 静态链接</span><br><span class="line"></span><br><span class="line">&gt; 以一组可重定位目标文件.o 和命令参数作为输入，生成完全链接的、可以加载和运行可执行目标文件</span><br><span class="line">&gt;</span><br><span class="line">&gt; 链接器的两个主要任务： 符号解析、重定位</span><br><span class="line"></span><br><span class="line">- 符号解析： 定义和引用符号：（每个符号对应于&lt;u&gt;函数“函数必须是全局的”|全局变量 | 静态变量&lt;/u&gt; ）—— 将每个**符号引用**（符号的使用）正好与一个**符号定义**关联起来</span><br><span class="line"></span><br><span class="line">  - ![image-20220301215816642](http://picgo.wangeyi.ink/image-20220301215816642.png)</span><br><span class="line"></span><br><span class="line">  - 对于相同模块（代码块&#123;&#125;）中的局部符号的引用： 只允许每个模块中的每个局部符号只有一个定义</span><br><span class="line">  - 对于全局符号：生成链接器**符号表**条目，在其他输入模块中查找</span><br><span class="line">    - 重载函数的符号：“将每个唯一的方法和参数列表 **组合** 编码成 ’唯一的名字‘ ”</span><br><span class="line">    - 全局符号 ： 强 （函数&amp;已初始化的全局变量）|  弱 （未初始化的全局变量）</span><br><span class="line">      - 解析多重定义的全局符号</span><br><span class="line">        1. 不允许有多个同名的强符号</span><br><span class="line">        2. 强符号和弱符号同名，选择强符号</span><br><span class="line">        3. 多个弱符号同名，任意选择一个</span><br><span class="line"></span><br><span class="line">- 重定位：将每个符号定义与一个内存位置关联起来，然后修改符号引用指向**这些内存**  。 修改符号定义的逻辑地址  -&gt; 物理地址</span><br><span class="line"></span><br><span class="line">##### 7.3 目标文件</span><br><span class="line"></span><br><span class="line">&gt; &lt;a name = “目标文件&quot;&gt;&lt;/a&gt;</span><br><span class="line">&gt;</span><br><span class="line">&gt; 三种形式：</span><br><span class="line"></span><br><span class="line">- 可重定位目标文件：“二进制代码和数据”， 可在编译时与其他可重定位目标文件合并</span><br><span class="line">- 可执行目标文件： “二进制代码和数据”： 形式可以被直接复制到内存并执行</span><br><span class="line">- 共享目标文件： “特殊类型的可重定位文件”, 加载|运行时被**动态** 地加载进内存并 链接</span><br><span class="line"></span><br><span class="line">##### 7.4 可重定位文件</span><br><span class="line"></span><br><span class="line">深入理解计算机操作系统 - 7.4</span><br><span class="line"></span><br><span class="line">##### 7.6 符号解析</span><br><span class="line"></span><br><span class="line">###### 7.6.2 静态链接库</span><br><span class="line"></span><br><span class="line">- 编译系统提供的机制：将所有相关的目标文件打包成“**静态链接库**”</span><br><span class="line"></span><br><span class="line">![image-20220302110057813](http://picgo.wangeyi.ink/image-20220302110057813.png)</span><br><span class="line"></span><br><span class="line">##### 7.7 重定位</span><br><span class="line"></span><br><span class="line">&gt; 合并输入的模块，并为每个符号分配运行时的地址</span><br><span class="line"></span><br><span class="line">- *重定位节* （节： 代码节|数据节）和*符号定义*：合并相同类型的节，![image-20220302110856000](http://picgo.wangeyi.ink/image-20220302110856000.png)</span><br><span class="line"></span><br><span class="line">- 重定位节中的符号引用：![image-20220302110920768](http://picgo.wangeyi.ink/image-20220302110920768.png)</span><br><span class="line"></span><br><span class="line">###### 7.7.1 重定位条目</span><br><span class="line"></span><br><span class="line">- **汇编器** 遇到 对最终位置未知的目标引用，——生成一个重定位条目（告诉链接器）</span><br><span class="line"></span><br><span class="line">##### 7.10 动态链接库</span><br><span class="line"></span><br><span class="line">![image-20220302190332255](http://picgo.wangeyi.ink/image-20220302190332255.png)</span><br><span class="line"></span><br><span class="line">共享库以两种不同的方式来“共享”</span><br><span class="line"></span><br><span class="line">- 唯一的.so文件(对于一个库)： 所有应用该库的可执行文件***共享这个文件***中的代码和数据。</span><br><span class="line"></span><br><span class="line">- 内存中，共享库的**.text节**的副本可以被不同正在运行的进程共享。</span><br><span class="line"></span><br><span class="line">  &gt; 一般C语言的编译后执行语句都编译成机器代码，保存在.text段；已初始化的全局变量和局部静态变量都保存在. data段</span><br><span class="line"></span><br><span class="line">##### 7.12 位置无关代码</span><br><span class="line"></span><br><span class="line">- 可以加载而无需重定位的代码 ;位置无关代码（Position-Independent Code，PIC）</span><br><span class="line">- PIC 数据引用：  对于全局变量的引用：“数据段和代码段的距离总是保持不变的”</span><br><span class="line"></span><br><span class="line">#### 8 异常控制流</span><br><span class="line"></span><br><span class="line">&gt; ECF:  Exceptional Control Flow</span><br><span class="line">&gt;</span><br><span class="line">&gt; 硬件层：硬件检测事件触发异常处理程序</span><br><span class="line">&gt;</span><br><span class="line">&gt; 操作系统层：内核的上下文切换</span><br><span class="line">&gt;</span><br><span class="line">&gt; 应用层： 进程之间的通信，接收方转移到信号处理程序</span><br><span class="line"></span><br><span class="line">##### 8.1 异常</span><br><span class="line"></span><br><span class="line">&gt; 异常控制流的一种形式，用来处理处理器状态中的某些变换</span><br><span class="line"></span><br><span class="line">- 处理器检测到**事件发生时**，通过“ ***异常表*** ” 跳转到 “ ***异常处理程序*** ” ，进行处理。</span><br><span class="line">  - 根据 引起异常的**事件类型**，发生一下三种情况</span><br><span class="line">    - 返回到当前指令， 回到当事件发生时正在执行的指令</span><br><span class="line">    - 返回给下一条指令，回到没有异常将会执行的下一条指令</span><br><span class="line">    - 终止被中断的程序</span><br><span class="line"></span><br><span class="line">###### 异常处理</span><br><span class="line"></span><br><span class="line">&gt; 系统中可能的每种类型的异常都分配了唯一一个 “非负整数”的异常号</span><br><span class="line">&gt;</span><br><span class="line">&gt; （处理器设计者分配、操作系统内核设计者分配）</span><br><span class="line">&gt;</span><br><span class="line">&gt; 异常 处理程序完全运行在内核模式下</span><br><span class="line"></span><br><span class="line">- 异常表： 表目k 包含异常 k的处理程序的地址</span><br><span class="line">  - 异常号是异常中的索引</span><br><span class="line">  - 寻址：异常表基址寄存器+ 异常号 x84 = 异常 k 的条目的地址</span><br><span class="line"></span><br><span class="line">###### 类型</span><br><span class="line"></span><br><span class="line">![image-20220518153827528](image-20220518153827528.png)</span><br><span class="line"></span><br><span class="line">- 中断：异步产生，来自处理器外部的I/O设备的信号，不由任何一条专门指令造成</span><br><span class="line">- 陷阱：“有意”的异常，提供系统调用</span><br><span class="line">- 故障： 由错误引起，可能能够被故障处理程序修正，（能够修正：返回**当前指令** | 不能修正：终止程序）</span><br><span class="line">  - “缺页异常”</span><br><span class="line">- 终止： 不可恢复的错误造成的</span><br><span class="line"></span><br><span class="line">&gt; Linux 系统调用的参数都是通过**通用寄存器**传递的</span><br><span class="line"></span><br><span class="line">##### 8.2 进程</span><br><span class="line"></span><br><span class="line">**“ 异常是允许操作系统内核提供进程概念的基本构造块”**</span><br><span class="line"></span><br><span class="line">&gt; 进程；运行中的程序</span><br><span class="line"></span><br><span class="line">- 进程的两个关键抽象:</span><br><span class="line">  - 独立的逻辑控制流：程序计数值（PC）</span><br><span class="line">  - 私有的地址空间：虚拟内存</span><br><span class="line">- 并发： 多个程序交替执行  | 并行： 多核上同时执行</span><br><span class="line"></span><br><span class="line">###### 用户态、内核态</span><br><span class="line"></span><br><span class="line">&gt; 模式位控制状态（设置模式位：内核态）</span><br><span class="line"></span><br><span class="line">用户态进入内核态：（中断、故障、 系统调用）</span><br><span class="line"></span><br><span class="line">&gt; 		当从异常处理程序（中断、故障、陷阱系统调用）返回到应用程序代码时，模式从内核态切换至用户态</span><br><span class="line"></span><br><span class="line">###### 上下文切换</span><br><span class="line"></span><br><span class="line">- [CPU调度 ](#L14)</span><br><span class="line"></span><br><span class="line">##### 8.4进程控制</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">pid_t getpid(void);  // 获取进程ID, 每个进程都有唯一个正数ID</span><br><span class="line">void exit(int status); // 以状态status 退出状态来终止进程</span><br><span class="line">pid_t fork(void);  // 父进程调用fork函数创建一个新的运行子进程</span><br><span class="line">pid_t waitpid(pid_t pid, int *statusp, int ortions); //等待子进程终止或停止</span><br><span class="line">unsigned int sleep(unsigned in secs);</span><br><span class="line">int pause(void); // 让调用函数休眠，直到该进程收到一个信号</span><br><span class="line">int execve(const char * filename,const char * argv[], const char * envp[]); // 加载并运行可执行目标文件</span><br><span class="line">// filename ： 可执行文件</span><br><span class="line">// argv 	： 参数字符串</span><br><span class="line">// envp 	： 环境变量z</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>fork 函数：</strong> </p>
+<ul>
+<li>子进程得到父进程 相同独立的虚拟内存副本。子进程和父进程之间最大的区别就是由不同的PID</li>
+<li>调用一次、返回两次<ul>
+<li>返回子进程的PID到父进程</li>
+<li>返回0 到子进程</li>
+</ul>
+</li>
+<li>并发执行：父进程与子进程并发执行</li>
+<li>相同但是独立的地址空间：子进程复制一份父进程的内存地址</li>
+<li>共享文件：子进程继承父进程打开的所有文件</li>
+</ul>
+</li>
+</ul>
+<h6 id="回收子进程"><a href="#回收子进程" class="headerlink" title="回收子进程"></a>回收子进程</h6><p>已经终止的进程会保持在 “ 已终止”的状态，直到被它的父进程回收。</p>
+<h5 id="8-5-信号"><a href="#8-5-信号" class="headerlink" title="8.5 信号"></a>8.5 信号</h5><blockquote>
+<p>信号就是一条小消息： 通知进程系统中发生了某种类型的事件</p>
+</blockquote>
+<ul>
+<li><p>发送信号 （进程可以发送信号给自己）</p>
+<ul>
+<li><p>内核检测到系统事件，</p>
+</li>
+<li><p>进程调用了kill函数</p>
+</li>
+<li><blockquote>
+<p>发送信号的机制都基于进程组</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>接收信号</p>
+<ul>
+<li>进程可以<strong>忽略</strong> 、 <strong>终止或者通过执行</strong> “”信号处理程序</li>
+</ul>
+</li>
+</ul>
+<h4 id="9-虚拟内存"><a href="#9-虚拟内存" class="headerlink" title="9 虚拟内存"></a>9 虚拟内存</h4><blockquote>
+<p>为了更加有效地管理内存并且少出错，现代系统提供了一种对主存的抽象概念，叫做虚拟内存(VM)。虚拟内存是<strong>硬件异常、硬件地址翻译、主存、磁盘文件和内核软件</strong>的完美交互，它为每个进程提供了一个大的、一致的和私有的地址空间。通过一个很清晰的机制，虚拟内存提供了三个重要的能力：</p>
+<p>虚拟内存的三个重要能力:</p>
+<pre><code>1. 将主存看成是一个存储在磁盘上的地址空间的高速缓存，在主存中只保存活动区域，并根据需要在磁盘和主存之间来回传送数据，高效地使用了主存
+1. 为每个进程提供了一致的地址空间，简化了内存管理，
+1. 保护每个进程的地址空间不被其他进程破坏
+</code></pre>
+</blockquote>
+<h6 id="物理寻址"><a href="#物理寻址" class="headerlink" title="物理寻址"></a>物理寻址</h6><blockquote>
+<p>CPU直接使用物理地址访问内存</p>
+</blockquote>
+<h6 id="虚拟寻址"><a href="#虚拟寻址" class="headerlink" title="虚拟寻址"></a>虚拟寻址</h6><blockquote>
+<p>通过虚拟地址来访问内存</p>
+<pre><code>虚拟地址首先被转换成适当的物理地址，”地址翻译“。
+</code></pre>
+</blockquote>
+<h6 id="地址空间"><a href="#地址空间" class="headerlink" title="地址空间"></a>地址空间</h6><blockquote>
+<p>非负整数地址的有序合集</p>
+</blockquote>
+<ul>
+<li>虚拟地址空间： 虚拟内存的地址空间<ul>
+<li>大小表示由最大地址所需的位数来描述（32位、64位）</li>
+</ul>
+</li>
+<li>物理地址空间：对应系统中物理内存的空间</li>
+</ul>
+<h6 id="作为缓存工具"><a href="#作为缓存工具" class="headerlink" title="作为缓存工具"></a>作为缓存工具</h6><blockquote>
+<p>虚拟内存被组织成存放在磁盘上的N个连续的字节大小的单元组成的数组 （每个字节由唯一的虚拟地址）。</p>
+<p>虚拟内存被分割成称为”虚拟页“的大小固定的块</p>
+<p>物理内存被分割位物理页</p>
+</blockquote>
+<h6 id="页表"><a href="#页表" class="headerlink" title="页表"></a>页表</h6><blockquote>
+<p>将<strong>虚拟页</strong> 映射到<strong>物理页</strong> 的数据结构</p>
+<p>页表条目的数组</p>
+</blockquote>
+<h6 id="作为内存管理的工具"><a href="#作为内存管理的工具" class="headerlink" title="作为内存管理的工具"></a>作为内存管理的工具</h6><blockquote>
+<p>操作系统位每个进程提供了一个独立的页表，——独立的虚拟地址空间</p>
+<p>多个虚拟页面可以映射到同一个共享物理页面上</p>
+</blockquote>
+<ul>
+<li>简化链接：<ul>
+<li>虚拟内存的”独立“的地址空间允许 每个进程的内存映像使用相同的格式，而不用管代码和数据实际存放在物理内存的地址。</li>
+</ul>
+</li>
+<li>简化加载<ul>
+<li>虚拟内存还使得容易向内存中加载可执行文件和共享对象文件。要把目标文件中.text和.data节加载到一个新创建的进程中，Linux加载器为代码和数据段分配虚拟页VP，把他们<strong>标记为无效（未被缓存）</strong> ，将页表条目指向目标文件的起始位置。</li>
+<li><strong>加载器从不在磁盘到内存实际复制任何数据，在每个页初次被引用时，虚拟内存系统会按照需要自动的调入数据页。</strong></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><ul>
+<li><strong>简化共享：</strong> 独立地址空间为OS提供了一个管理用户进程和操作系统自身之间共享的一致机制。<ul>
+<li>一般：每个进程有各自私有的代码，数据，堆栈，是不和其他进程共享的，<strong>这样OS创建页表，将虚拟页映射到不连续的物理页面。</strong></li>
+<li>某些情况下，需要进程来共享代码和数据。例如每个进程调用相同的操作系统内核代码，或者C标准库函数。<strong>OS会把不同进程中适当的虚拟页面映射到相同的物理页面。</strong></li>
+</ul>
+</li>
+<li><strong>简化内存分配：</strong> 虚拟内存向用户提供一个简单的分配额外内存的机制。当一个运行在用户进程中的程序要求额外的堆空间时（如<code>malloc</code>），OS分配一个适当k大小个连续的虚拟内存页面，并且将他们映射到物理内存中任意位置的k个任意物理页面，*<u><strong>因此操作系统没有必要分配k个连续的物理内存页面，页面可以随机的分散在物理内存中</strong>。</u>*</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>虚拟内存作为内存保护的工具。</li>
+<li>不应该允许一个用户进程修改它的只读段，也不允许它修改任何内核代码和数据结构，不允许读写其他进程的私有内存，不允许修改任何与其他进程共享的虚拟页面。每次CPU生成一个地址时，<code>MMU</code>会读一个<code>PTE</code>，通过在<code>PTE</code>上添加一些额外的许可位来控制对一个虚拟页面内容的访问十分简单。</li>
+</ul>
+<h4 id="11-网络编程"><a href="#11-网络编程" class="headerlink" title="11 网络编程"></a>11 网络编程</h4><blockquote>
+<p>网络应用是基于客户端-服务器模型的（一个服务器，，多个客户端·	）</p>
+<p>IP 地址： 32位无符号整型数，（点分十进制表示）</p>
+<p>域名：由一串用点分隔的名字组成的Internet上某一台计算机或计算机组的名称</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>We_
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2022/06/21/os/" title="os">http://example.com/2022/06/21/os/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/20/%E5%90%8C%E6%9E%84%E5%BC%8F%E4%B8%BB%E6%89%8B%E6%BC%94%E7%A4%BA/" rel="prev" title="同构式主手演示">
+      <i class="fa fa-chevron-left"></i> 同构式主手演示
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/21/ACM%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" rel="next" title="”ACM标准输入输出“">
+      ”ACM标准输入输出“ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">操作系统：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%A7%86%E9%A2%91%E7%AC%94%E8%AE%B0"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统视频笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">L2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L4-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">L4 操作系统接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L5-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">L5 系统调用的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L11-%E5%86%85%E6%A0%B8%E7%BA%A7%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">L11 内核级线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L12-%E5%86%85%E6%A0%B8%E7%BA%A7%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">L12 内核级线程实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L13-%E2%80%9C%E6%A0%91%E2%80%9D"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">L13 “树”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L14-CPU-%E8%B0%83%E5%BA%A6-schedule"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">L14 CPU 调度 schedule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L17-%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%9A%84%E4%B8%B4%E7%95%8C%E5%8C%BA%E4%BF%9D%E6%8A%A4"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">L17 信号量的临界区保护</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L19-%E6%AD%BB%E9%94%81%E5%A4%84%E7%90%86"><span class="nav-number">1.1.0.9.</span> <span class="nav-text">L19 死锁处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L25-%E5%86%85%E5%AD%98%E6%8D%A2%E5%87%BA"><span class="nav-number">1.1.0.10.</span> <span class="nav-text">L25 内存换出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.0.10.1.</span> <span class="nav-text">页面置换算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L26-I-x2F-O%E4%B8%8E%E6%98%BE%E7%A4%BA%E5%99%A8"><span class="nav-number">1.1.0.11.</span> <span class="nav-text">L26 I&#x2F;O与显示器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L27-%E9%94%AE%E7%9B%98"><span class="nav-number">1.1.0.12.</span> <span class="nav-text">L27 键盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E7%A3%81%E7%9B%98-%EF%BC%88raw-disk%EF%BC%89"><span class="nav-number">1.1.0.13.</span> <span class="nav-text">生磁盘 （raw disk）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L31-%E7%9B%AE%E5%BD%95%E6%A0%91"><span class="nav-number">1.1.0.14.</span> <span class="nav-text">L31 目录树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSAPP"><span class="nav-number">1.2.</span> <span class="nav-text">CSAPP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84%E5%92%8C%E6%89%A7%E8%A1%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text">程序结构和执行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BF%A1%E6%81%AF%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%A4%84%E7%90%86"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">2.信息的表示和处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1%E4%BF%A1%E6%81%AF%E5%AD%98%E5%82%A8"><span class="nav-number">1.2.1.1.1.</span> <span class="nav-text">2.1信息存储</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">3.程序的机器级表示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A0%81"><span class="nav-number">1.2.1.2.1.</span> <span class="nav-text">3.1程序编码</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-1%E6%9C%BA%E5%99%A8%E7%BA%A7%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.1.2.1.1.</span> <span class="nav-text">3.1.1机器级代码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.2.1.2.1.2.</span> <span class="nav-text">3.1.2 代码示例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.1.2.2.</span> <span class="nav-text">3.3 数据格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-%E8%AE%BF%E9%97%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.1.2.3.</span> <span class="nav-text">3.4 访问信息</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-4-1-%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8C%87%E7%A4%BA%E7%AC%A6"><span class="nav-number">1.2.1.2.3.1.</span> <span class="nav-text">3.4.1 操作数指示符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-4-2-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="nav-number">1.2.1.2.3.2.</span> <span class="nav-text">3.4.2 数据传送指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-4-3-%E5%8E%8B%E5%85%A5%E5%92%8C%E5%BC%B9%E5%87%BA%E6%A0%88%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.1.2.3.3.</span> <span class="nav-text">3.4.3 压入和弹出栈数据</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-5-%E7%AE%97%E6%9C%AF%E5%92%8C%E9%80%BB%E8%BE%91%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.1.2.4.</span> <span class="nav-text">3.5 算术和逻辑操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-5-1-%E5%8A%A0%E8%BD%BD%E6%9C%89%E6%95%88%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.1.2.4.1.</span> <span class="nav-text">3.5.1 加载有效地址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9B%9E%E6%94%B6%E5%AD%90%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.2.1.2.4.2.</span> <span class="nav-text">回收子进程</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-5-%E4%BF%A1%E5%8F%B7"><span class="nav-number">1.2.1.2.5.</span> <span class="nav-text">8.5 信号</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">9 虚拟内存</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%AF%BB%E5%9D%80"><span class="nav-number">1.2.1.3.0.1.</span> <span class="nav-text">物理寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80"><span class="nav-number">1.2.1.3.0.2.</span> <span class="nav-text">虚拟寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4"><span class="nav-number">1.2.1.3.0.3.</span> <span class="nav-text">地址空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%9C%E4%B8%BA%E7%BC%93%E5%AD%98%E5%B7%A5%E5%85%B7"><span class="nav-number">1.2.1.3.0.4.</span> <span class="nav-text">作为缓存工具</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A1%B5%E8%A1%A8"><span class="nav-number">1.2.1.3.0.5.</span> <span class="nav-text">页表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%9C%E4%B8%BA%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="nav-number">1.2.1.3.0.6.</span> <span class="nav-text">作为内存管理的工具</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">11 网络编程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="We_"
+      src="/images/me.jpg">
+  <p class="site-author-name" itemprop="name">We_</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LaSrD" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LaSrD" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://1822595722395@163.com/" title="E-Mail → https:&#x2F;&#x2F;1822595722395@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">We_</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
