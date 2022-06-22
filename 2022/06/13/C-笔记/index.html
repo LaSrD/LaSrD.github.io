@@ -1,218 +1,157 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    广阔天地大有作为
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="wangeyi" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
 
-<link rel="stylesheet" href="/css/main.css">
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
 
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="C++ 语法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C++ 基础">
-<meta property="og:url" content="http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="广阔天地大有作为">
-<meta property="og:description" content="C++ 语法">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://picgo.wangeyi.ink/C++%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
-<meta property="article:published_time" content="2022-06-13T12:17:42.000Z">
-<meta property="article:modified_time" content="2022-06-21T02:29:09.085Z">
-<meta property="article:author" content="We_">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://picgo.wangeyi.ink/C++%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
-
-<link rel="canonical" href="http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>C++ 基础 | 广阔天地大有作为</title>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="广阔天地大有作为" type="application/atom+xml">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="广阔天地大有作为" type="application/atom+xml">
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">广阔天地大有作为</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
+    
+		
+<!-- Layouts -->
 
 
 
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Next</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/">知识点</a></li><li><a class="category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li><li><a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E8%A7%86%E9%A2%91/">项目视频</a>
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
 
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-  </ul>
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/LaSrd" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="http://500px.com" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
 </nav>
 
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/me.jpg">
-      <meta itemprop="name" content="We_">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="广阔天地大有作为">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          C++ 基础
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-13 20:17:42" itemprop="dateCreated datePublished" datetime="2022-06-13T20:17:42+08:00">2022-06-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-21 10:29:09" itemprop="dateModified" datetime="2022-06-21T10:29:09+08:00">2022-06-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          
-            <div class="post-description">C++ 语法</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <span id="more"></span>
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >C++ 基础</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <span id="more"></span>
 
 <h2 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h2><h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><ul>
 <li>分为代码区、全局区（静态区）、栈区、堆区。<ul>
@@ -1610,219 +1549,108 @@
 <li>使用一个公有的静态方法获取该实例。</li>
 </ol>
 
-    </div>
+            </div>
 
-    
-    
-    
-        
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
 
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>We_
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/" title="C++ 基础">http://example.com/2022/06/13/C-笔记/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
 </div>
 
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
 
-      <footer class="post-footer">
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/06/13/STL%E6%A0%87%E5%87%86%E5%BA%93-%E6%9B%B4%E6%96%B0%E4%B8%AD/" rel="prev" title="STL标准库">
-      <i class="fa fa-chevron-left"></i> STL标准库
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="next" title="数据结构与算法">
-      数据结构与算法 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/06/13/C-%E7%AC%94%E8%AE%B0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
 </script>
 
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%8C%BA"><span class="nav-number">1.</span> <span class="nav-text">内存区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E5%9D%80%E5%88%86%E9%85%8D"><span class="nav-number">1.2.</span> <span class="nav-text">地址分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%AE%8F"><span class="nav-number">1.3.</span> <span class="nav-text">参数宏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91"><span class="nav-number">1.4.</span> <span class="nav-text">条件编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.5.</span> <span class="nav-text">#运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6-1"><span class="nav-number">1.6.</span> <span class="nav-text">##运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E5%AE%8F"><span class="nav-number">1.7.</span> <span class="nav-text">预定义宏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Language"><span class="nav-number">2.</span> <span class="nav-text">Language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Keywords-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.1.</span> <span class="nav-text">Keywords 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#const-volatile-mutable"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">const volatile mutable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#static"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">static</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fundamental-types-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">Fundamental types 基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.2.</span> <span class="nav-text">枚举类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.2.3.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%9A%E6%A0%B9%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99%E5%B0%86%E8%BF%90%E7%AE%97%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E7%BB%9F%E4%B8%80%E5%90%8E%E5%9C%A8%E8%AE%A1%E7%AE%97%EF%BC%8C%E2%80%93%E5%B0%BD%E5%8F%AF%E8%83%BD%E5%87%8F%E5%B0%91%E7%B2%BE%E5%BA%A6%E6%8D%9F%E5%A4%B1"><span class="nav-number">2.2.3.0.1.</span> <span class="nav-text">隐式转换：根据类型转换规则将运算对象类型统一后在计算，–尽可能减少精度损失</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E8%BD%AC%E6%8D%A2%EF%BC%9A%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2cast"><span class="nav-number">2.2.3.0.2.</span> <span class="nav-text">显示转换：强制类型转换cast</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.4.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.5.</span> <span class="nav-text">复合类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%EF%BC%9A"><span class="nav-number">2.2.5.0.1.</span> <span class="nav-text">引用：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%87%E9%92%88%EF%BC%9A"><span class="nav-number">2.2.5.0.2.</span> <span class="nav-text">指针：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">2.2.5.0.3.</span> <span class="nav-text">复合类型的声明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F-C-11"><span class="nav-number">2.2.5.0.4.</span> <span class="nav-text">常量表达式 -C++11</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">2.2.6.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">2.2.6.0.1.</span> <span class="nav-text">性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.7.</span> <span class="nav-text">处理类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="nav-number">2.2.7.0.1.</span> <span class="nav-text">类型别名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#decltype-%E7%B1%BB%E5%9E%8B%E6%8C%87%E7%A4%BA%E7%AC%A6%EF%BC%88C-11%EF%BC%89"><span class="nav-number">2.2.7.0.2.</span> <span class="nav-text">decltype 类型指示符（C++11）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E6%BB%A1%E8%B6%B3%E5%8F%B3%E7%BB%93%E5%90%88%E5%BE%8B"><span class="nav-number">2.2.8.</span> <span class="nav-text">赋值运算符满足右结合律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.9.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%92%E5%A2%9E%E5%92%8C%E9%80%92%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.10.</span> <span class="nav-text">递增和递减运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E8%AE%BF%E9%97%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.11.</span> <span class="nav-text">成员访问运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.12.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.13.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sizeof-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.14.</span> <span class="nav-text">sizeof 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E3%80%81%E8%81%94%E5%90%88%E4%BD%93%E3%80%81%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">2.2.14.1.</span> <span class="nav-text">枚举类型、联合体、结构体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">2.2.14.2.</span> <span class="nav-text">类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%97%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">2.2.15.</span> <span class="nav-text">逗号运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">2.2.16.</span> <span class="nav-text">运算符优先级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.</span> <span class="nav-text">Statement语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.1.</span> <span class="nav-text">简单语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.2.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.3.</span> <span class="nav-text">迭代语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">Function 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">2.4.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">2.4.2.</span> <span class="nav-text">参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8D%A0%E4%BD%8D%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="nav-number">2.4.2.0.1.</span> <span class="nav-text">占位参数：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92%EF%BC%9A"><span class="nav-number">2.4.2.0.2.</span> <span class="nav-text">引用传递：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%80%BC%E4%BC%A0%E9%80%92%EF%BC%9A"><span class="nav-number">2.4.2.0.3.</span> <span class="nav-text">值传递：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#const-%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82"><span class="nav-number">2.4.2.0.4.</span> <span class="nav-text">const 形参和实参</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B%E5%92%8Creturn"><span class="nav-number">2.4.3.</span> <span class="nav-text">返回类型和return</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A0%E8%BF%94%E5%9B%9E%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">无返回值函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.3.2.</span> <span class="nav-text">有返回值函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%BE%E7%BD%AE%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.4.3.3.</span> <span class="nav-text">尾置返回类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">2.4.4.</span> <span class="nav-text">函数重载</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E5%92%8Cconst"><span class="nav-number">2.4.4.0.1.</span> <span class="nav-text">重载和const</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#const-cast-%E5%92%8C%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">2.4.4.0.2.</span> <span class="nav-text">const_cast 和函数重载</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E9%87%8D%E8%BD%BD%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BB%93%E6%9E%9C"><span class="nav-number">2.4.4.0.3.</span> <span class="nav-text">调用重载函数的三种结果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.4.4.0.4.</span> <span class="nav-text">重载与作用域</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82"><span class="nav-number">2.4.4.0.5.</span> <span class="nav-text">默认实参</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%92%8Cconstexpr%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.4.0.6.</span> <span class="nav-text">内联函数和constexpr函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8C%B9%E9%85%8D"><span class="nav-number">2.4.5.</span> <span class="nav-text">函数匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E5%8F%82%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.4.5.0.1.</span> <span class="nav-text">实参类型转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">2.4.6.</span> <span class="nav-text">函数指针</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-number">2.4.6.0.1.</span> <span class="nav-text">使用函数指针</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classes-%E7%B1%BB"><span class="nav-number">2.5.</span> <span class="nav-text">Classes 类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">2.5.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-number">2.5.2.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.3.</span> <span class="nav-text">成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC"><span class="nav-number">2.5.4.1.</span> <span class="nav-text">基本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.2.</span> <span class="nav-text">默认构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A7%94%E6%89%98%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.3.</span> <span class="nav-text">委托构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E7%9A%84%E7%B1%BB%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.5.4.4.</span> <span class="nav-text">隐式的类类型转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#explicit%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.4.5.</span> <span class="nav-text">explicit构造函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E3%80%81%E8%B5%8B%E5%80%BC%E3%80%81%E6%9E%90%E6%9E%84"><span class="nav-number">2.5.5.</span> <span class="nav-text">拷贝、赋值、析构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%B0%81%E8%A3%85"><span class="nav-number">2.5.6.</span> <span class="nav-text">访问控制与封装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8B%E5%85%83"><span class="nav-number">2.5.6.1.</span> <span class="nav-text">友元</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">2.5.6.2.</span> <span class="nav-text">重载成员函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98-mutable"><span class="nav-number">2.5.6.3.</span> <span class="nav-text">可变数据成员 mutable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E7%9A%84%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="nav-number">2.5.6.4.</span> <span class="nav-text">类数据成员的初始值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.6.5.</span> <span class="nav-text">类类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.5.7.</span> <span class="nav-text">类的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%AA%E9%80%82%E7%94%A8%E4%BA%8E%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%A7%8D%E7%9A%84%E4%BD%BF%E7%94%A8%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">2.5.7.1.</span> <span class="nav-text">只适用于成员函数种的使用的名字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">2.5.7.2.</span> <span class="nav-text">声明中使用的名字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%90%8D%E8%A6%81%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86"><span class="nav-number">2.5.7.3.</span> <span class="nav-text">类型名要特殊处理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E7%B1%BB"><span class="nav-number">2.5.8.</span> <span class="nav-text">聚合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">2.5.8.1.</span> <span class="nav-text">使用静态成员</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E7%9A%84%E7%B1%BB%E5%86%85%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.5.8.2.</span> <span class="nav-text">静态成员的类内初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E4%B8%8E%E6%99%AE%E9%80%9A%E6%88%90%E5%91%98%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.5.8.3.</span> <span class="nav-text">静态成员与普通成员的区别</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98"><span class="nav-number">3.</span> <span class="nav-text">动态内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">3.0.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">3.0.2.</span> <span class="nav-text">智能指针</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#shared-ptr%E7%B1%BB"><span class="nav-number">3.0.2.1.</span> <span class="nav-text">shared_ptr类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">3.0.2.1.1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#make-shared"><span class="nav-number">3.0.2.1.2.</span> <span class="nav-text">make_shared</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E5%92%8C%E8%B5%8B%E5%80%BC"><span class="nav-number">3.0.2.1.3.</span> <span class="nav-text">拷贝和赋值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E7%AE%A1%E7%90%86%E5%86%85%E5%AD%98"><span class="nav-number">3.0.2.2.</span> <span class="nav-text">直接管理内存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#weak-ptr"><span class="nav-number">3.0.3.</span> <span class="nav-text">weak_ptr</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E6%8E%A7%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">拷贝控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E3%80%81%E8%B5%8B%E5%80%BC%E4%BA%8E%E9%94%80%E6%AF%81"><span class="nav-number">4.0.1.</span> <span class="nav-text">拷贝、赋值于销毁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">拷贝构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%89%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">4.0.1.1.1.</span> <span class="nav-text">调用拷贝构造函数的三种情况:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8B%B7%E8%B4%9D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.0.1.2.</span> <span class="nav-text">拷贝赋值运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-number">4.0.1.3.</span> <span class="nav-text">析构函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#x3D-default"><span class="nav-number">4.0.1.4.</span> <span class="nav-text">&#x3D; default</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E6%8B%B7%E8%B4%9D"><span class="nav-number">4.0.1.5.</span> <span class="nav-text">阻止拷贝</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%A7%BB%E5%8A%A8"><span class="nav-number">4.0.2.</span> <span class="nav-text">对象移动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">重载输入输出运算符</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%9F%BA%E7%B1%BB%E5%92%8C%E6%B4%BE%E7%94%9F%E7%B1%BB"><span class="nav-number">5.2.</span> <span class="nav-text">定义基类和派生类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%B1%BB"><span class="nav-number">5.2.1.</span> <span class="nav-text">基类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB"><span class="nav-number">5.2.2.</span> <span class="nav-text">派生类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%B1%BB%E6%B4%BE%E7%94%9F%E5%88%97%E8%A1%A8%EF%BC%9A"><span class="nav-number">5.2.2.1.</span> <span class="nav-text">类派生列表：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB%E4%B8%AD%E8%99%9A%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">5.2.2.2.</span> <span class="nav-text">派生类中虚函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%91%E5%9F%BA%E7%B1%BB%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">5.2.2.3.</span> <span class="nav-text">向基类的类型转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-1"><span class="nav-number">5.2.2.4.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">5.2.2.5.</span> <span class="nav-text">静态成员</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">5.2.2.6.</span> <span class="nav-text">声明</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">5.2.3.</span> <span class="nav-text">类型转换与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.2.3.1.</span> <span class="nav-text">静态类型动态类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%AE%9E%E5%8F%82-1"><span class="nav-number">5.2.4.</span> <span class="nav-text">默认实参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E9%81%BF%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.5.</span> <span class="nav-text">回避虚函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">5.2.6.</span> <span class="nav-text">抽象类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E4%B8%AD%E7%9A%84%E7%B1%BB%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">5.3.</span> <span class="nav-text">继承中的类作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8D%E5%AD%97%E6%9F%A5%E6%89%BE%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">5.3.1.</span> <span class="nav-text">名字查找与继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">5.3.2.</span> <span class="nav-text">虚函数与作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E8%BE%93%E5%87%BA%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-number">5.3.2.1.</span> <span class="nav-text">管理输出缓冲区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F%EF%BC%88file-mode%EF%BC%89"><span class="nav-number">5.3.2.2.</span> <span class="nav-text">文件模式（file mode）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#string-%E6%B5%81"><span class="nav-number">5.3.3.</span> <span class="nav-text">string 流</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="nav-number">6.0.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="nav-number">6.0.2.</span> <span class="nav-text">传递参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%88%97%E8%A1%A8"><span class="nav-number">6.0.3.</span> <span class="nav-text">捕获列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98lambda"><span class="nav-number">6.0.4.</span> <span class="nav-text">可变lambda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.0.5.</span> <span class="nav-text">指定返回类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strings-library"><span class="nav-number">7.</span> <span class="nav-text">Strings library</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96-std-basic-string-basic-string-cppreference-com"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">[定义和初始化](std::basic_string::basic_string - cppreference.com)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string%E5%AF%B9%E8%B1%A1%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">7.0.0.2.</span> <span class="nav-text">string对象上的操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">7.0.0.3.</span> <span class="nav-text">string 字符串的增删改查</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#operator-x3D"><span class="nav-number">7.0.0.4.</span> <span class="nav-text">operator+&#x3D;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-library"><span class="nav-number">8.</span> <span class="nav-text">Algorithm library</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sorting-Operations"><span class="nav-number">8.0.1.</span> <span class="nav-text">Sorting Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#std-is-sorted"><span class="nav-number">8.0.1.1.</span> <span class="nav-text">std::is_sorted</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#std-sort"><span class="nav-number">8.0.1.2.</span> <span class="nav-text">std::sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#std-partial-sort"><span class="nav-number">8.0.1.3.</span> <span class="nav-text">std::partial_sort</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#std-stable-sort"><span class="nav-number">8.0.1.4.</span> <span class="nav-text">std::stable_sort</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-reverse"><span class="nav-number">8.0.2.</span> <span class="nav-text">std::reverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std%EF%BC%9A%EF%BC%9Aaccumulate"><span class="nav-number">8.0.3.</span> <span class="nav-text">std：：accumulate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-search-operations"><span class="nav-number">8.0.4.</span> <span class="nav-text">Binary search operations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-next-permutation"><span class="nav-number">8.0.5.</span> <span class="nav-text">std::next_permutation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#std-max"><span class="nav-number">8.0.6.</span> <span class="nav-text">std::max</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%A4%84%E7%90%86%E5%BA%93"><span class="nav-number">9.</span> <span class="nav-text">字符处理库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Notepad-%E6%BA%90%E7%A0%81"><span class="nav-number"></span> <span class="nav-text">Notepad++ 源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="nav-number">0.0.1.</span> <span class="nav-text">单例模式</span></a></li></ol></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="We_"
-      src="/images/me.jpg">
-  <p class="site-author-name" itemprop="name">We_</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">8</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/LaSrD" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LaSrD" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://1822595722395@163.com/" title="E-Mail → https:&#x2F;&#x2F;1822595722395@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">We_</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
 </body>
+
+
+
+ 	
 </html>
