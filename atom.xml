@@ -125,7 +125,7 @@
     <published>2022-06-20T15:10:37.000Z</published>
     <updated>2022-06-20T15:41:59.307Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>主从同构式数字孪生<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"http://picgo.wangeyi.ink/iRobot_ar%20-%20SampleScene%20-%20PC%2C%20Mac%20%26%20Linux%20Standalone%20-%20Unity%202020.3.14f1c1%20Personal_%20_DX11_%202022-05-25%2020-28-39.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>主从同构式数字孪生<div id="dplayer0" class="dplayer" style="margin-bottom: 20px;"></div><script>var dplayer0 = new DPlayer({"element":document.getElementById("dplayer0"),"autoplay":0,"theme":"#FADFA3","loop":1,"video":{"url":"http://picgo.wangeyi.ink/iRobot_ar%20-%20SampleScene%20-%20PC%2C%20Mac%20%26%20Linux%20Standalone%20-%20Unity%202020.3.14f1c1%20Personal_%20_DX11_%202022-05-25%2020-28-39.mp4"}});</script><!-- dplayer used1 --></li></ul>]]></content>
     
     
     <summary type="html">演示视频</summary>
