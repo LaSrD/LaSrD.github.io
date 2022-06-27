@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.wangeyi,ink/run/index.html</loc>
+    
+    <lastmod>2022-06-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.wangeyi,ink/2022/06/25/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
     
     <lastmod>2022-06-25</lastmod>
@@ -121,7 +130,7 @@
 
   <url>
     <loc>http://blog.wangeyi,ink/</loc>
-    <lastmod>2022-06-25</lastmod>
+    <lastmod>2022-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -129,21 +138,21 @@
   
   <url>
     <loc>http://blog.wangeyi,ink/tags/c/</loc>
-    <lastmod>2022-06-25</lastmod>
+    <lastmod>2022-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.wangeyi,ink/tags/os/</loc>
-    <lastmod>2022-06-25</lastmod>
+    <lastmod>2022-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.wangeyi,ink/tags/%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2022-06-25</lastmod>
+    <lastmod>2022-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -152,21 +161,21 @@
   
   <url>
     <loc>http://blog.wangeyi,ink/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-06-25</lastmod>
+    <lastmod>2022-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.wangeyi,ink/categories/%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2022-06-25</lastmod>
+    <lastmod>2022-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://blog.wangeyi,ink/categories/%E9%A1%B9%E7%9B%AE%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2022-06-25</lastmod>
+    <lastmod>2022-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
