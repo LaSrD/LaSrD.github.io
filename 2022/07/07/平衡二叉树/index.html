@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>平衡二叉树 | We</title><meta name="keywords" content="Binary Tree"><meta name="author" content="We_"><meta name="copyright" content="We_"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="平衡二叉树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="平衡二叉树">
+<meta property="og:url" content="http://blog.wangeyi.ink/2022/07/07/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+<meta property="og:site_name" content="We">
+<meta property="og:description" content="平衡二叉树">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.wangeyi.ink/img/1.jpg">
+<meta property="article:published_time" content="2022-07-07T06:48:16.000Z">
+<meta property="article:modified_time" content="2022-07-14T13:30:51.577Z">
+<meta property="article:author" content="We_">
+<meta property="article:tag" content="Binary Tree">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.wangeyi.ink/img/1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.wangeyi.ink/2022/07/07/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '平衡二叉树',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-07-14 21:30:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="We" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/me.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 记录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/run/"><i class="fa-fw fas fa-heart"></i><span> Run</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">We</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 记录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/run/"><i class="fa-fw fas fa-heart"></i><span> Run</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">平衡二叉树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-07T06:48:16.000Z" title="发表于 2022-07-07 14:48:16">2022-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-14T13:30:51.577Z" title="更新于 2022-07-14 21:30:51">2022-07-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="平衡二叉树"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>平衡二叉树（AVL树），满足以下性质的二叉搜索树：</p>
+<ol>
+<li>可以是空树</li>
+<li>若不是空树，则其左右两个子树的高度差的<strong>绝对值不超过1</strong>， 且左右两个子树都是平衡二叉树</li>
+</ol>
+<blockquote>
+<p>解决二叉搜索树退化成链表的问题，插入、查找、删除的时间复杂度好情况和最坏情况都维持在O(logN)。</p>
+</blockquote>
+<h4 id="平衡二叉树的-“旋转-”"><a href="#平衡二叉树的-“旋转-”" class="headerlink" title="平衡二叉树的 “旋转 ”"></a>平衡二叉树的 “旋转 ”</h4><ul>
+<li>在下图平衡二叉树插入新结点 <code>99</code> ：</li>
+</ul>
+<p><img src="http://picgo.wangeyi.ink/v2-2ddb0f9b832fff594e294dffc299b373_b.webp" alt="动图"></p>
+<p>结点66 的左子树高度为1，右子树高度为3，<strong>平衡因子</strong>为 2，树失衡。结点66称为最小失衡树。</p>
+<blockquote>
+<p>最小失衡树： 在新插入的结点向上查找，以第一个平衡因子的绝对值大于1的结点为根的子树。</p>
+</blockquote>
+<p>平衡二叉树的失衡调整就是通过<strong>旋转</strong>最小失衡树实现的 ，有左旋、右旋两种处理方式。</p>
+<h5 id="左旋"><a href="#左旋" class="headerlink" title="左旋"></a>左旋</h5><p>旋转的目的是降低树的高度，上图右子树的高度大于左子树，因此往左旋转以降低右子树的高度。</p>
+<ul>
+<li><p>左旋的流程为：	</p>
+<ul>
+<li><p>找到最小失衡树</p>
+</li>
+<li><p>用该结点的右孩子代替该结点</p>
+</li>
+<li><p>右孩子的左子树作为该结点的右子树</p>
+</li>
+<li><p>节点本身成为右孩子的左子树</p>
+<img src="http://picgo.wangeyi.ink/v2-db1cdb0da952a71f9b6d64b2608467eb_b.jpg" alt="动图封面" style="zoom: 50%;" /></li>
+</ul>
+</li>
+</ul>
+<h5 id="右旋"><a href="#右旋" class="headerlink" title="右旋"></a>右旋</h5><p>与左旋类似</p>
+<ul>
+<li>找到最小失衡树</li>
+<li>用该结点的左孩子代替该结点</li>
+<li>左孩子的右子树作为该结点的左子树</li>
+<li>节点本身成为左孩子的右子树</li>
+</ul>
+<h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><p>假设一颗 AVL 树的某个节点为 A，四种不同的插入操作会导致节点A失衡，有以下四种情况：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>描述</th>
+<th>旋转方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://picgo.wangeyi.ink/20191229165610778.png" alt="img" style="zoom: 50%;" /></td>
+<td>LL : 在A左孩子的左子树插入新节点</td>
+<td>右旋</td>
+</tr>
+<tr>
+<td><img src="http://picgo.wangeyi.ink/20191229173015599.png" alt="img" style="zoom:50%;" /></td>
+<td>RR : 在A右孩子的右子树插入节点</td>
+<td>左旋</td>
+</tr>
+<tr>
+<td><img src="http://picgo.wangeyi.ink/20191229174410251.png" alt="img" style="zoom: 50%;" /></td>
+<td>LR:  在A左孩子的右子树插入节点</td>
+<td>先左旋后右旋</td>
+</tr>
+<tr>
+<td><img src="http://picgo.wangeyi.ink/20191229175624726.png" alt="img" style="zoom:50%;" /></td>
+<td>RL : 在A右孩子的左子树插入节点</td>
+<td>先右旋后左旋</td>
+</tr>
+</tbody></table>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 结点结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">AVLNode</span> *Tree;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> ElementType;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AVLNode</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> depth; <span class="comment">//深度，这里计算每个结点的深度，通过深度的比较可得出是否平衡</span></span><br><span class="line"></span><br><span class="line">    Tree parent; <span class="comment">//该结点的父节点</span></span><br><span class="line"></span><br><span class="line">    ElementType val; <span class="comment">//结点值</span></span><br><span class="line"></span><br><span class="line">    Tree lchild;</span><br><span class="line"></span><br><span class="line">    Tree rchild;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">AVLNode</span>(<span class="type">int</span> val=<span class="number">0</span>) &#123;</span><br><span class="line">        parent = <span class="literal">NULL</span>;</span><br><span class="line">        depth = <span class="number">0</span>;</span><br><span class="line">        lchild = rchild = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;val=val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//LL型调整函数</span></span><br><span class="line"><span class="comment">//返回:新父节点</span></span><br><span class="line"><span class="function">Tree <span class="title">LL_rotate</span><span class="params">(Tree node)</span></span>&#123;</span><br><span class="line">    <span class="comment">//node为离操作结点最近的失衡的结点</span></span><br><span class="line">    Tree parent=<span class="literal">NULL</span>,son;</span><br><span class="line">    <span class="comment">//获取失衡结点的父节点</span></span><br><span class="line">    parent=node-&gt;parent;</span><br><span class="line">    <span class="comment">//获取失衡结点的左孩子</span></span><br><span class="line">    son=node-&gt;lchild;</span><br><span class="line">    <span class="comment">//设置son结点右孩子的父指针</span></span><br><span class="line">    <span class="keyword">if</span> (son-&gt;rchild!=<span class="literal">NULL</span>)  son-&gt;rchild-&gt;parent=node;</span><br><span class="line">    <span class="comment">//失衡结点的左孩子变更为son的右孩子</span></span><br><span class="line">    node-&gt;lchild=son-&gt;rchild;</span><br><span class="line">    <span class="comment">//更新失衡结点的高度信息</span></span><br><span class="line">    <span class="built_in">update_depth</span>(node);</span><br><span class="line">    <span class="comment">//失衡结点变成son的右孩子</span></span><br><span class="line">    son-&gt;rchild=node;</span><br><span class="line">    <span class="comment">//设置son的父结点为原失衡结点的父结点</span></span><br><span class="line">    son-&gt;parent=parent;</span><br><span class="line">    <span class="comment">//如果失衡结点不是根结点，则开始更新父节点</span></span><br><span class="line">    <span class="keyword">if</span> (parent!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="comment">//如果父节点的左孩子是失衡结点，指向现在更新后的新孩子son</span></span><br><span class="line">        <span class="keyword">if</span> (parent-&gt;lchild==node)&#123;</span><br><span class="line">            parent-&gt;lchild=son;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">             <span class="comment">//父节点的右孩子是失衡结点</span></span><br><span class="line">              parent-&gt;rchild=son;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="comment">//设置失衡结点的父亲</span></span><br><span class="line">    node-&gt;parent=son;</span><br><span class="line">    <span class="comment">//更新son结点的高度信息</span></span><br><span class="line">    <span class="built_in">update_depth</span>(son);</span><br><span class="line">    <span class="keyword">return</span> son;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//RR型调整函数</span></span><br><span class="line"><span class="comment">//返回新父节点</span></span><br><span class="line"><span class="comment">// 右旋</span></span><br><span class="line"><span class="function">Tree <span class="title">RR_rotate</span><span class="params">(Tree node)</span></span>&#123;</span><br><span class="line">    <span class="comment">//node为离操作结点最近的失衡的结点</span></span><br><span class="line">    Tree parent=<span class="literal">NULL</span>,son;</span><br><span class="line">    <span class="comment">//获取失衡结点的父节点</span></span><br><span class="line">    parent=node-&gt;parent;</span><br><span class="line">    <span class="comment">//获取失衡结点的右孩子</span></span><br><span class="line">    son=node-&gt;rchild;</span><br><span class="line">    <span class="comment">//设置son结点左孩子的父指针</span></span><br><span class="line">    <span class="keyword">if</span> (son-&gt;lchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">          son-&gt;lchild-&gt;parent=node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//失衡结点的右孩子变更为son的左孩子</span></span><br><span class="line">    node-&gt;rchild=son-&gt;lchild;</span><br><span class="line">    <span class="comment">//更新失衡结点的高度信息</span></span><br><span class="line">    <span class="built_in">update_depth</span>(node);</span><br><span class="line">    <span class="comment">//失衡结点变成son的左孩子</span></span><br><span class="line">    son-&gt;lchild=node;</span><br><span class="line">    <span class="comment">//设置son的父结点为原失衡结点的父结点</span></span><br><span class="line">    son-&gt;parent=parent;</span><br><span class="line">    <span class="comment">//如果失衡结点不是根结点，则开始更新父节点</span></span><br><span class="line">    <span class="keyword">if</span> (parent!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="comment">//如果父节点的左孩子是失衡结点，指向现在更新后的新孩子son</span></span><br><span class="line">        <span class="keyword">if</span> (parent-&gt;lchild==node)&#123;</span><br><span class="line">            parent-&gt;lchild=son;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//父节点的右孩子是失衡结点</span></span><br><span class="line">            parent-&gt;rchild=son;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//设置失衡结点的父亲</span></span><br><span class="line">    node-&gt;parent=son;</span><br><span class="line">    <span class="comment">//更新son结点的高度信息</span></span><br><span class="line">    <span class="built_in">update_depth</span>(son);</span><br><span class="line">    <span class="keyword">return</span> son;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h5><p>处理方式分类两大类：</p>
+<blockquote>
+<ol>
+<li><p>RR型和LL型，以被破坏节点为基础进行其反向的旋转即可，即RR型进行左旋，LL型进行右旋。</p>
+</li>
+<li><p>RL型和LR型，先以被破坏节点的LR或RL首字母的节点进行LR或RL首字母旋转，再以被破坏节点为基础进行LR或RL尾字母旋转，</p>
+<ol>
+<li>即RL型先以被破坏节点的R（右）节点为基础进行一次R（右）选，再以被破坏节点为基础进行一次L（左）旋；</li>
+<li>LR旋先以被破坏节点的L（左）节点为基础进行一次L（左）选，再以被破坏节点为基础进行一次R（右）旋</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37914588/article/details/103754959"> 数据结构之——平衡二叉树（内容详解）_许夜3的博客-CSDN博客_二叉平衡树</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangbaochong/p/5164994.html">平衡二叉树详解 - zhangbaochong - 博客园 (cnblogs.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56066942">什么是平衡二叉树（AVL） - 知乎 (zhihu.com)</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://blog.wangeyi.ink">We_</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.wangeyi.ink/2022/07/07/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">http://blog.wangeyi.ink/2022/07/07/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.wangeyi.ink" target="_blank">We</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Binary-Tree/">Binary Tree</a></div><div class="post_share"><div class="social-share" data-image="/img/1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/13/%E8%BF%9B%E7%A8%8B%EF%BC%9F/"><img class="prev-cover" src="/img/3.jpg" onerror="onerror=null;src='/img/pexels-wolfram-k-804166.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">进程？</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/29/TCP%E8%BF%9E%E6%8E%A5%E7%8A%B6%E6%80%81/"><img class="next-cover" src="/img/%E5%B9%BF%E9%98%94%E5%A4%A9%E5%9C%B0.jpg" onerror="onerror=null;src='/img/pexels-wolfram-k-804166.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">TCP连接状态</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/me.jpg'" alt="avatar"/></div><div class="author-info__name">We_</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lasrd"><i class="fab fa-github"></i><span>——</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/larsd" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/18259572395@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">哈哈哈</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84-%E2%80%9C%E6%97%8B%E8%BD%AC-%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">平衡二叉树的 “旋转 ”</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%A6%E6%97%8B"><span class="toc-number">2.1.</span> <span class="toc-text">左旋</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%B3%E6%97%8B"><span class="toc-number">2.2.</span> <span class="toc-text">右旋</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">3.</span> <span class="toc-text">插入</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">3.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">3.2.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">4.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/25/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" title="计网笔记"><img src="http://picgo.wangeyi.ink/pexels-daria-shevtsova-1580625.jpg" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="计网笔记"/></a><div class="content"><a class="title" href="/2022/08/25/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" title="计网笔记">计网笔记</a><time datetime="2022-08-25T12:47:37.000Z" title="发表于 2022-08-25 20:47:37">2022-08-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="计算机网络之性能指标"><img src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="计算机网络之性能指标"/></a><div class="content"><a class="title" href="/2022/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="计算机网络之性能指标">计算机网络之性能指标</a><time datetime="2022-08-25T12:11:03.000Z" title="发表于 2022-08-25 20:11:03">2022-08-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="文件管理"><img src="http://picgo.wangeyi.ink/老人.png" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="文件管理"/></a><div class="content"><a class="title" href="/2022/08/22/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="文件管理">文件管理</a><time datetime="2022-08-22T08:02:10.000Z" title="发表于 2022-08-22 16:02:10">2022-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="智能指针"><img src="http://picgo.wangeyi.ink/老人.png" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="智能指针"/></a><div class="content"><a class="title" href="/2022/08/21/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="智能指针">智能指针</a><time datetime="2022-08-21T12:11:27.000Z" title="发表于 2022-08-21 20:11:27">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/21/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%9F/" title="内存管理？"><img src="/img/8.jpg" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="内存管理？"/></a><div class="content"><a class="title" href="/2022/07/21/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%9F/" title="内存管理？">内存管理？</a><time datetime="2022-07-21T07:55:21.000Z" title="发表于 2022-07-21 15:55:21">2022-07-21</time></div></div></div></div></div></div></main><footer id="footer" style="background: balck"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By We_</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

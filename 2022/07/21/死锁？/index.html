@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>死锁？ | We</title><meta name="keywords" content="os"><meta name="author" content="We_"><meta name="copyright" content="We_"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="进程知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="死锁？">
+<meta property="og:url" content="http://blog.wangeyi.ink/2022/07/21/%E6%AD%BB%E9%94%81%EF%BC%9F/index.html">
+<meta property="og:site_name" content="We">
+<meta property="og:description" content="进程知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.wangeyi.ink/img/7.jpg">
+<meta property="article:published_time" content="2022-07-21T07:52:51.000Z">
+<meta property="article:modified_time" content="2022-07-21T07:57:28.915Z">
+<meta property="article:author" content="We_">
+<meta property="article:tag" content="os">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.wangeyi.ink/img/7.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.wangeyi.ink/2022/07/21/%E6%AD%BB%E9%94%81%EF%BC%9F/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '死锁？',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2022-07-21 15:57:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="We" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/me.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 记录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/run/"><i class="fa-fw fas fa-heart"></i><span> Run</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/7.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">We</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 记录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/run/"><i class="fa-fw fas fa-heart"></i><span> Run</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">死锁？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-21T07:52:51.000Z" title="发表于 2022-07-21 15:52:51">2022-07-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-21T07:57:28.915Z" title="更新于 2022-07-21 15:57:28">2022-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="死锁？"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><blockquote>
+<p>并发环境下，多个进程因竞争资源而造成的一种<code>互相等待对方手里的资源</code>，导致各进程阻塞，都无法向前推进</p>
+</blockquote>
+<h6 id="死锁产生的四个必要条件"><a href="#死锁产生的四个必要条件" class="headerlink" title="死锁产生的四个必要条件"></a>死锁产生的四个必要条件</h6><ul>
+<li>互斥条件：进程对所需求的资源具有排他性，若有其他进程请求该资源，请求进程只能等待</li>
+<li>不可剥夺条件： 进程所获得的资源在未使用完之前，<code>不能由其他进程强行夺走</code>，只能主动释放</li>
+<li>请求和保持条件：进程当前所拥有的资源在进程请求其他新资源时，由该进程继续占有。  （进程已经保持了至少一个资源，但又提出了新的资源请求，对自身持有的资源保持不放）</li>
+<li>循环等待条件： 存在一种进程资源循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。<ul>
+<li><code> 注意！发生死锁时一定有循环等待，但是发生循环等 待时末必死锁 （循环等待是死锁的必要不充分条件）</code></li>
+</ul>
+</li>
+</ul>
+<h6 id="发生死锁"><a href="#发生死锁" class="headerlink" title="发生死锁"></a>发生死锁</h6><ul>
+<li>对系统资源的竞争： 各进程对不可剥夺的资源的竞争可能引起死锁。</li>
+<li>进程推荐的顺序非法， 请求和释放资源的顺序不当。</li>
+<li>信号量的使用不当。</li>
+</ul>
+<p><code>对不可剥夺资源的分配不合理的使用，可能出现死锁</code></p>
+<h6 id="死锁的处理策略"><a href="#死锁的处理策略" class="headerlink" title="死锁的处理策略"></a>死锁的处理策略</h6><ul>
+<li><p>鸵鸟策略 ： 忽略死锁。</p>
+<p><code>在死锁不会对用户操作过大影响，或者发生死锁的概率很低的情况下。</code></p>
+</li>
+<li><p>死锁预防：在<code>程序运行之前</code>预防发生死锁，破环四个必要条件的一个或多个。</p>
+</li>
+<li><p>死锁避免：在程序运行时避免发生死锁。</p>
+</li>
+<li><p>死锁的检测和解除:  检测到死锁发生时，采取措施进行恢复。</p>
+</li>
+</ul>
+<h6 id="死锁预防"><a href="#死锁预防" class="headerlink" title="死锁预防"></a>死锁预防</h6><blockquote>
+<p>静态策略</p>
+<p>破环死锁产生的必要条件： 互斥条件、不可剥夺条件、请求和保持条件、循环等待条件。</p>
+</blockquote>
+<ul>
+<li><p>破坏互斥条件：</p>
+<p>例如假脱机打印机技术允许若干个进程同时输出，唯一真正请求物理打印机的进程是打印机守护进程 <strong>SPOOLing 技术</strong></p>
+</li>
+<li><p>破环不可剥夺条件：</p>
+<p>1。 某个进程请求新资源时得不到满足，必须释放保持的所有资源。  ———  主动释放，自己体面</p>
+<p>2。 操作系统协助抢占资源，（进程优先级）。 ——— 帮它体面</p>
+<p><code>缺点</code>  ：实现复杂，释放资源可能导致前一阶段的工作失效，</p>
+<p>反复的申请、释放资源会增加系统开销，降低系统吞吐量。</p>
+</li>
+<li><p>破环请求和保持条件：</p>
+<p><code>静态分配法</code> ：进程在运行之前一次性申请完它所需要的全部资源。</p>
+<p><code>缺点：</code> 资源利用率极低，可能导致某种进程饥饿</p>
+</li>
+<li><p>破坏循环等待条件：</p>
+<p><code>顺序资源分配法：</code>  给资源统一编号，进程只能按编号顺序来请求资源。</p>
+<p><code>缺点</code> 不方便增加新设备，可能需要重新分配所有编号，导致资源浪费、用户编程麻烦。</p>
+</li>
+</ul>
+<h6 id="死锁避免"><a href="#死锁避免" class="headerlink" title="死锁避免"></a>死锁避免</h6><blockquote>
+<p>动态策略</p>
+<p>银行家算法</p>
+</blockquote>
+<ul>
+<li><p>安全状态（安全序列）：系统按照这种序列分配资源，则每个进程 都能顺利完成。安全序列可能有多个</p>
+<p>安全状态： 一定不会发生死锁</p>
+<p>不安全状态： 有可能发生死锁</p>
+</li>
+</ul>
+<p><code>银行家算法：</code>在资源分配之前预先判断这次分配是否会导致系统进入不安全状态。</p>
+<p><img src="http://picgo.wangeyi.ink/image-20220717205455844.png" alt="image-20220717205455844"></p>
+<h6 id="死锁的检测和解除"><a href="#死锁的检测和解除" class="headerlink" title="死锁的检测和解除"></a>死锁的检测和解除</h6><blockquote>
+<p>死锁检测算法</p>
+<p>死锁解除算法</p>
+</blockquote>
+<ul>
+<li><p>死锁检测算法</p>
+<p><code>数据结构</code> 资源分配图</p>
+</li>
+</ul>
+<p><img src="http://picgo.wangeyi.ink/image-20220717210029820.png" alt="image-20220717210029820"></p>
+<p><img src="http://picgo.wangeyi.ink/image-20220717210228789.png" alt="image-20220717210228789"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://blog.wangeyi.ink">We_</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.wangeyi.ink/2022/07/21/%E6%AD%BB%E9%94%81%EF%BC%9F/">http://blog.wangeyi.ink/2022/07/21/%E6%AD%BB%E9%94%81%EF%BC%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.wangeyi.ink" target="_blank">We</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/os/">os</a></div><div class="post_share"><div class="social-share" data-image="/img/7.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/21/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%9F/"><img class="prev-cover" src="/img/8.jpg" onerror="onerror=null;src='/img/pexels-wolfram-k-804166.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">内存管理？</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/19/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%9F/"><img class="next-cover" src="/img/6.jpg" onerror="onerror=null;src='/img/pexels-wolfram-k-804166.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">面向对象？</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/06/21/os/" title="os"><img class="cover" src="http://picgo.wangeyi.ink/pexels-daria-shevtsova-1580625.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-21</div><div class="title">os</div></div></a></div><div><a href="/2022/07/21/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%9F/" title="内存管理？"><img class="cover" src="/img/8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-21</div><div class="title">内存管理？</div></div></a></div><div><a href="/2022/06/25/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="并发编程"><img class="cover" src="/img/2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-25</div><div class="title">并发编程</div></div></a></div><div><a href="/2022/08/22/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="文件管理"><img class="cover" src="http://picgo.wangeyi.ink/老人.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-22</div><div class="title">文件管理</div></div></a></div><div><a href="/2022/07/18/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B/" title="生产者消费者模型"><img class="cover" src="/img/5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-18</div><div class="title">生产者消费者模型</div></div></a></div><div><a href="/2022/07/14/%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6/" title="进程调度"><img class="cover" src="/img/4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-14</div><div class="title">进程调度</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/me.jpg'" alt="avatar"/></div><div class="author-info__name">We_</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lasrd"><i class="fab fa-github"></i><span>——</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/larsd" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/18259572395@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">哈哈哈</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81"><span class="toc-number">1.</span> <span class="toc-text">死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">死锁产生的四个必要条件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%91%E7%94%9F%E6%AD%BB%E9%94%81"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">发生死锁</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">死锁的处理策略</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">死锁预防</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8D"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">死锁避免</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%A3%80%E6%B5%8B%E5%92%8C%E8%A7%A3%E9%99%A4"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">死锁的检测和解除</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/25/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" title="计网笔记"><img src="http://picgo.wangeyi.ink/pexels-daria-shevtsova-1580625.jpg" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="计网笔记"/></a><div class="content"><a class="title" href="/2022/08/25/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" title="计网笔记">计网笔记</a><time datetime="2022-08-25T12:47:37.000Z" title="发表于 2022-08-25 20:47:37">2022-08-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="计算机网络之性能指标"><img src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="计算机网络之性能指标"/></a><div class="content"><a class="title" href="/2022/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B9%8B%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" title="计算机网络之性能指标">计算机网络之性能指标</a><time datetime="2022-08-25T12:11:03.000Z" title="发表于 2022-08-25 20:11:03">2022-08-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/22/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="文件管理"><img src="http://picgo.wangeyi.ink/老人.png" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="文件管理"/></a><div class="content"><a class="title" href="/2022/08/22/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" title="文件管理">文件管理</a><time datetime="2022-08-22T08:02:10.000Z" title="发表于 2022-08-22 16:02:10">2022-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="智能指针"><img src="http://picgo.wangeyi.ink/老人.png" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="智能指针"/></a><div class="content"><a class="title" href="/2022/08/21/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="智能指针">智能指针</a><time datetime="2022-08-21T12:11:27.000Z" title="发表于 2022-08-21 20:11:27">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/21/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%9F/" title="内存管理？"><img src="/img/8.jpg" onerror="this.onerror=null;this.src='/img/pexels-wolfram-k-804166.jpg'" alt="内存管理？"/></a><div class="content"><a class="title" href="/2022/07/21/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%9F/" title="内存管理？">内存管理？</a><time datetime="2022-07-21T07:55:21.000Z" title="发表于 2022-07-21 15:55:21">2022-07-21</time></div></div></div></div></div></div></main><footer id="footer" style="background: balck"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By We_</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
